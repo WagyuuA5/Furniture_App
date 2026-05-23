@@ -175,46 +175,91 @@ lib/
 ## 👤 Autentikasi & Profil
 
 | Fitur | Status |
-|---|---|
-| Login / Register pengguna | ✅ |
-| Edit profil dan alamat | ✅ |
-| Privacy policy & settings | ✅ |
+|-------|--------|
+| Splash screen modern | ✅ |
+| Onboarding screen interaktif | ✅ |
+| Login pengguna | ✅ |
+| Register pengguna | ✅ |
+| Validasi form autentikasi | ✅ |
+| Logout akun | ✅ |
+| Edit profil pengguna | ✅ |
+| Upload foto profil | ✅ |
+| Manajemen alamat pengguna | ✅ |
+| Privacy policy | ✅ |
+| Settings aplikasi | ✅ |
+| Dark mode support | ✅ |
 
 ---
 
-## 🛍️ Belanja
+## 🛍️ Belanja & Produk
 
 | Fitur | Status |
-|---|---|
-| Katalog produk dengan kategori (Sofa, Chair, Lamp, Cupboard) | ✅ |
+|-------|--------|
+| Katalog produk | ✅ |
+| Kategori produk (Sofa, Chair, Lamp, Cupboard) | ✅ |
+| Pencarian produk | ✅ |
 | Detail produk lengkap | ✅ |
-| Flash sale & diskon | ✅ |
+| Deskripsi produk | ✅ |
+| Harga & diskon produk | ✅ |
+| Rating & review produk | ✅ |
+| Flash sale produk | ✅ |
+| Produk populer | ✅ |
+| Produk terbaru | ✅ |
+| Favorite / wishlist produk | ✅ |
+| Filter produk | ✅ |
+| Responsive grid product | ✅ |
 
 ---
 
 ## 🛒 Keranjang & Checkout
 
 | Fitur | Status |
-|---|---|
+|-------|--------|
+| Tambah produk ke keranjang | ✅ |
+| Hapus produk dari keranjang | ✅ |
+| Update quantity produk | ✅ |
 | Manajemen keranjang belanja | ✅ |
+| Ringkasan subtotal | ✅ |
+| Perhitungan delivery fee | ✅ |
+| Sistem kupon diskon | ✅ |
+| Perhitungan total otomatis | ✅ |
 | Pilih metode pengiriman | ✅ |
 | Pilih metode pembayaran | ✅ |
-| Kupon diskon (tersedia/terkunci) | ✅ |
-| Ringkasan pesanan (Sub-total + Delivery fee - Discount = Total) | ✅ |
+| Checkout produk | ✅ |
+| Validasi checkout | ✅ |
+
+---
+
+## 💳 Pembayaran
+
+| Fitur | Status |
+|-------|--------|
+| Pembayaran COD | ✅ |
+| Pembayaran transfer bank | ✅ |
+| Pembayaran e-wallet | ✅ |
+| Ringkasan pembayaran | ✅ |
+| Status pembayaran | ✅ |
+| Invoice transaksi | ✅ |
+| Konfirmasi pembayaran | ✅ |
 
 ---
 
 ## 📦 Tracking Order
 
 | Fitur | Status |
-|---|---|
-| Lacak status pesanan real-time | ✅ |
-| Tracking ID dan estimasi pengiriman | ✅ |
+|-------|--------|
+| Tracking status pesanan | ✅ |
+| Tracking ID otomatis | ✅ |
+| Estimasi pengiriman | ✅ |
+| Timeline pesanan | ✅ |
+| Status real-time | ✅ |
+| Detail alamat pengiriman | ✅ |
+| Riwayat pesanan | ✅ |
 
-### Timeline Pesanan
+### 📌 Timeline Pesanan
 
 | Tahap | Waktu | Status |
-|---|---|---|
+|-------|----------------------|--------|
 | Online Place | 23 Sep 2023, 04:15 PM | ✅ |
 | In Progress | 23 Sep 2023, 05:14 PM | ✅ |
 | Shipped | 23 Sep 2023, 06:15 PM | ✅ |
@@ -222,25 +267,44 @@ lib/
 
 ---
 
-## 💬 Komunikasi
+## 💬 Komunikasi & Support
 
 | Fitur | Status |
-|---|---|
-| Chat dengan pemilik toko (direct conversation) | ✅ |
-| Help center & support | ✅ |
+|-------|--------|
+| Chat dengan seller | ✅ |
+| Direct conversation | ✅ |
+| Help center | ✅ |
+| Customer support | ✅ |
+| FAQ section | ✅ |
+| Notifikasi pesan | ✅ |
+
+---
+
+## 🔔 Notifikasi
+
+| Fitur | Status |
+|-------|--------|
+| Notifikasi pesanan | ✅ |
+| Notifikasi pembayaran | ✅ |
+| Notifikasi promo | ✅ |
+| Notifikasi flash sale | ✅ |
+| Push notification UI | ✅ |
 
 ---
 
 ## 🎨 UI/UX Premium
 
 | Fitur | Status |
-|---|---|
-| Desain modern dengan Material 3 | ✅ |
-| Animasi halus | ✅ |
-| Responsif untuk berbagai ukuran layar | ✅ |
+|-------|--------|
+| Material 3 Design | ✅ |
+| Custom animation | ✅ |
+| Smooth transition | ✅ |
+| Responsive mobile layout | ✅ |
+| Modern UI design | ✅ |
+| Consistent color system | ✅ |
+| Reusable widgets | ✅ |
+| Clean architecture UI | ✅ |
 | Dark mode support | ✅ |
-
----
 
 💻 Cara Menjalankan Proyek
 Prasyarat
