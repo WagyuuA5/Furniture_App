@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'cart_screen.dart';
 import 'home_screen.dart';
 import '../models/order.dart';
+import '../providers/checkout_provider.dart';
 import 'struk_pembayaran_screen.dart';
 
 class SuccessScreen extends StatefulWidget {
@@ -53,7 +54,10 @@ class _SuccessScreenState extends State<SuccessScreen>
 
     // Kosongkan cart setelah bayar
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<CartProvider>().clear();
+      if (mounted) {
+        context.read<CartProvider>().clear();
+        context.read<CheckoutProvider>().clearItems();
+      }
     });
   }
 

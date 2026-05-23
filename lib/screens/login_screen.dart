@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../utils/app_theme.dart';
 import '../screens/home_screen.dart';
+import 'package:provider/provider.dart';
+import '../../providers/auth_provider.dart';
 
 // ============================================================
 // Login / Register Screen — clean minimal
@@ -63,22 +65,35 @@ class _LoginScreenState extends State<LoginScreen>
 
     setState(() => _isLoading = true);
 
-    // Simulasi proses login (ganti dengan API call Anda)
-    await Future.delayed(const Duration(seconds: 1));
-
-    setState(() => _isLoading = false);
-
-    // ✅ Setelah login sukses, pindah ke HomeScreen
-    if (mounted) {
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (_, anim, __) => const HomeScreen(),
-          transitionsBuilder: (_, anim, __, child) =>
-              FadeTransition(opacity: anim, child: child),
-          transitionDuration: const Duration(milliseconds: 450),
-        ),
+    try {
+      // ✅ Call Login through Provider
+      final success = await context.read<AuthProvider>().login(
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
       );
+
+      // ✅ Setelah login sukses, pindah ke HomeScreen
+      if (success && mounted) {
+        Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (_, anim, __) => const HomeScreen(),
+            transitionsBuilder: (_, anim, __, child) =>
+                FadeTransition(opacity: anim, child: child),
+            transitionDuration: const Duration(milliseconds: 450),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString().replaceAll('Exception: ', ''))),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -95,30 +110,44 @@ class _LoginScreenState extends State<LoginScreen>
 
     setState(() => _isLoading = true);
 
-    // Simulasi proses register (ganti dengan API call Anda)
-    await Future.delayed(const Duration(seconds: 1));
-
-    setState(() => _isLoading = false);
-
-    if (mounted) {
-      // ✅ Tampilkan pesan sukses
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registrasi berhasil! Silakan login.')),
+    try {
+      // ✅ Call Register through Provider
+      final success = await context.read<AuthProvider>().register(
+        _nameController.text.trim(),
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
+        '', // phone
       );
-      
-      // ✅ Kembali ke mode LOGIN (bukan ke HomeScreen)
-      setState(() {
-        _isLogin = true;
-        _isLoading = false;
-        // Kosongkan form
-        _emailController.clear();
-        _passwordController.clear();
-        _nameController.clear();
-      });
-      
-      // Animasi ulang
-      _ctrl.reset();
-      _ctrl.forward();
+
+      if (success && mounted) {
+        // ✅ Tampilkan pesan sukses
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Registrasi berhasil! Silakan login.')),
+        );
+        
+        // ✅ Kembali ke mode LOGIN (bukan ke HomeScreen)
+        setState(() {
+          _isLogin = true;
+          // Kosongkan form
+          _emailController.clear();
+          _passwordController.clear();
+          _nameController.clear();
+        });
+        
+        // Animasi ulang
+        _ctrl.reset();
+        _ctrl.forward();
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString().replaceAll('Exception: ', ''))),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 

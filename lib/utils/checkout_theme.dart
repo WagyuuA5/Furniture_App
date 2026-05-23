@@ -20,7 +20,7 @@ class ChangeButton extends StatelessWidget {
   final VoidCallback onTap;
   final String label;
 
-  const ChangeButton({super.key, required this.onTap, this.label = 'CHANGE'});
+  const ChangeButton({super.key, required this.onTap, this.label = 'UBAH'});
 
   @override
   Widget build(BuildContext context) {

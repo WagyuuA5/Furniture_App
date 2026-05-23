@@ -16,9 +16,9 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
   // UPDATE AREA: Ganti konten kebijakan privasi sesuai kebutuhan bisnis Anda
   static const String _lastUpdated = '1 Juni 2025';
-  static const String _appName = 'Aplikasi Kami';
-  static const String _companyName = 'PT Nama Perusahaan Anda';
-  static const String _contactEmail = 'privacy@perusahaan.com';
+  static const String _appName = 'Luxe Furnish';
+  static const String _companyName = 'Luxe Furnish';
+  static const String _contactEmail = 'luxefurnish@gmail.com';
 
   final List<_PolicySection> _sections = const [
     _PolicySection(
@@ -118,7 +118,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       content:
           'Jika Anda memiliki pertanyaan, kekhawatiran, atau permintaan terkait kebijakan privasi ini, '
           'silakan hubungi kami:\n\n'
-          '📧 Email: privacy@perusahaan.com\n\n'
+          '📧 Email: luxefurnish@gmail.com\n\n'
           '🏢 Alamat: Jl. Contoh No. 123, Jakarta Selatan 12345\n\n'
           '📞 Telepon: +62 21-1234-5678\n\n'
           'Tim kami akan merespons dalam waktu maksimal 5 hari kerja.',

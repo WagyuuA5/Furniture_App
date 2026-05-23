@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -308,6 +310,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   bool _showCurrent = false;
   bool _showNew = false;
   bool _showConfirm = false;
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -317,7 +320,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     super.dispose();
   }
 
-  void _ubahSandi() {
+  void _ubahSandi() async {
     if (_newPassCtrl.text != _confirmPassCtrl.text) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -342,16 +345,42 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       );
       return;
     }
-    // UPDATE AREA: Kirim ke API/backend di sini
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Kata sandi berhasil diubah', style: GoogleFonts.poppins()),
-        backgroundColor: _primary,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-    );
-    Navigator.pop(context);
+    
+    setState(() => _isLoading = true);
+    
+    try {
+      final success = await context.read<AuthProvider>().changePassword(
+        _currentPassCtrl.text, 
+        _newPassCtrl.text
+      );
+      
+      if (success && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Kata sandi berhasil diubah', style: GoogleFonts.poppins()),
+            backgroundColor: _primary,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        );
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString().replaceAll('Exception: ', ''), style: GoogleFonts.poppins()),
+            backgroundColor: Colors.red,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
   }
 
   Widget _passField({
@@ -501,14 +530,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _ubahSandi,
+                  onPressed: _isLoading ? null : _ubahSandi,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _primary,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14)),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: Text('Ubah Sandi',
+                  child: _isLoading 
+                    ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                    : Text('Ubah Sandi',
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,

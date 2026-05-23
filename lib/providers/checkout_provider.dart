@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import '../models/checkout_models.dart';
+import '../services/order_service.dart';
 
 class CheckoutProvider extends ChangeNotifier {
   // ── Address state ──────────────────────────────────────────────
@@ -18,9 +19,26 @@ class CheckoutProvider extends ChangeNotifier {
   ShippingMethod get selectedShipping => _selectedShipping;
 
   // ── Order items state ──────────────────────────────────────────
-  List<CheckoutItem> _items = List.from(dummyOrderItems);
+  List<CheckoutItem> _items = [];
 
   List<CheckoutItem> get items => List.unmodifiable(_items);
+
+  void loadFromCart(List<dynamic> cartItems) {
+    _items = cartItems.map((c) => CheckoutItem(
+      id: c.id,
+      name: c.name,
+      category: c.category,
+      price: c.pricePerUnit,
+      imageUrl: c.imageUrl,
+      quantity: c.quantity,
+    )).toList();
+    notifyListeners();
+  }
+
+  void clearItems() {
+    _items.clear();
+    notifyListeners();
+  }
 
   // ── Totals ─────────────────────────────────────────────────────
   double get subtotal => _items.fold(0, (sum, i) => sum + i.total);
@@ -66,4 +84,24 @@ class CheckoutProvider extends ChangeNotifier {
   }
 
   bool get isEmpty => _items.isEmpty;
+
+  // ── Submit Order to API ─────────────────────────────────────────
+  Future<bool> submitOrder() async {
+    try {
+      final response = await OrderService.checkout(
+        address: _selectedAddress.city, // Menggunakan kota alamat sebagai contoh
+        paymentMethod: 'transfer', // Sementara hardcode atau bisa ditambahkan state payment
+      );
+      
+      if (response['message'] == 'checkout berhasil' || response['order_id'] != null) {
+        _items.clear();
+        notifyListeners();
+        return true;
+      }
+      return false;
+    } catch (e) {
+      debugPrint('Checkout error: $e');
+      return false;
+    }
+  }
 }

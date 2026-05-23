@@ -6,6 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 // ✅ Import dari order_model.dart — bukan dari diri sendiri
 import '../models/order.dart';
 import 'struk_pembayaran_screen.dart';
+import 'package:provider/provider.dart';
+import 'cart_screen.dart';
+import '../providers/checkout_provider.dart';
 
 // ─────────────────────────────────────────────
 // THEME
@@ -56,6 +59,12 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen>
         _checkCtrl.forward().then((_) {
           if (mounted) _fadeCtrl.forward();
         });
+      }
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        context.read<CartProvider>().clear();
+        context.read<CheckoutProvider>().clearItems();
       }
     });
   }

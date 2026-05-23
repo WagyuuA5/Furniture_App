@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 import '../models/category.dart';
-import '../services/api_service.dart';
+import '../services/product_service.dart';
 
 class ProductProvider with ChangeNotifier {
   List<Product> _products = [];
@@ -34,7 +34,8 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final data = await ApiService.getProducts();
+      final response = await ProductService.getAll();
+      final data = response['data'] as List<dynamic>;
       _products = data.map((json) => Product.fromJson(json)).toList();
     } catch (e) {
       print('Error loading products: $e');
@@ -46,7 +47,8 @@ class ProductProvider with ChangeNotifier {
 
   Future<void> loadCategories() async {
     try {
-      final data = await ApiService.getCategories();
+      final response = await ProductService.getCategories();
+      final data = response['data'] as List<dynamic>;
       _categories = data.map((json) => Category.fromJson(json)).toList();
       notifyListeners();
     } catch (e) {

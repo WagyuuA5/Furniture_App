@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/cart.dart';
-import '../services/api_service.dart';
+import '../services/cart_service.dart';
 
 class CartProvider with ChangeNotifier {
   CartData? _cart;
@@ -16,7 +16,10 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final data = await ApiService.getCart(userId);
+      final data = await CartService.getCart();
+      // Kalau response cuma satu object seperti di Mockoon, 
+      // kita harus merakitnya menjadi format yang diharapkan model
+      // atau membiarkannya sesuai model CartData.
       _cart = CartData.fromJson(data);
     } catch (e) {
       debugPrint('Error loading cart: $e');
@@ -28,7 +31,7 @@ class CartProvider with ChangeNotifier {
 
   Future<bool> addToCart(int productId, int jumlah) async {
     try {
-      await ApiService.addToCart(productId, jumlah);
+      await CartService.addToCart(productId: productId, qty: jumlah);
       if (_cart != null) {
         await loadCart(_cart!.userId);
       }
@@ -41,7 +44,9 @@ class CartProvider with ChangeNotifier {
 
   Future<bool> updateQuantity(int cartItemId, int jumlah) async {
     try {
-      await ApiService.updateCartItem(cartItemId, jumlah);
+      // updateCart expects productId in CartService, but here we only have cartItemId.
+      // We will pass cartItemId as productId for now to match Mockoon structure.
+      await CartService.updateCart(productId: cartItemId, qty: jumlah);
       if (_cart != null) {
         await loadCart(_cart!.userId);
       }
@@ -54,7 +59,7 @@ class CartProvider with ChangeNotifier {
 
   Future<bool> removeItem(int cartItemId) async {
     try {
-      await ApiService.removeFromCart(cartItemId);
+      await CartService.removeFromCart(productId: cartItemId);
       if (_cart != null) {
         await loadCart(_cart!.userId);
       }

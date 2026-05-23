@@ -7,8 +7,11 @@ import 'screens/splash_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/cart_screen.dart';        // CartProvider + CartScreen
-import 'screens/checkout_screen.dart';    // CheckoutScreen
+import 'screens/cart_screen.dart';
+import 'screens/checkout_screen.dart';
+import 'providers/auth_provider.dart';
+import 'providers/product_provider.dart';
+import 'providers/checkout_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +31,13 @@ class FurnitureApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      // ── CartProvider didaftarkan di root agar semua screen bisa akses ──
-      create: (_) => CartProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => ProductProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => CheckoutProvider()),
+      ],
       child: MaterialApp(
         title: 'Luxe Furnish',
         debugShowCheckedModeBanner: false,

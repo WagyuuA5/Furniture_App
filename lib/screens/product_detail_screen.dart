@@ -12,13 +12,15 @@ import '../models/product.dart';
 import '../widgets/rating_widget.dart';
 import '../widgets/product_thumbnail.dart';
 import 'cart_screen.dart';          // CartProvider + CartItem
+import '../providers/checkout_provider.dart'; // CheckoutProvider
 import 'rating_screen.dart';        // halaman daftar review
 import 'leave_review_screen.dart';  // halaman tulis review
 
 // ============================================================
 class ProductDetailScreen extends StatefulWidget {
   final ProductModel product;
-  const ProductDetailScreen({super.key, required this.product});
+  final String heroTagPrefix;
+  const ProductDetailScreen({super.key, required this.product, this.heroTagPrefix = ''});
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -150,7 +152,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
 
                   // ── Hero image ──────────────────────────────
                   Hero(
-                    tag: 'product_${widget.product.id}',
+                    tag: '${widget.heroTagPrefix}product_${widget.product.id}',
                     child: Container(
                       height: 280,
                       width: double.infinity,
@@ -661,6 +663,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
             child: GestureDetector(
               onTap: () {
                 _addToCart(context);
+                final cartItems = context.read<CartProvider>().items;
+                context.read<CheckoutProvider>().loadFromCart(cartItems);
                 Navigator.of(context).pushNamed('/checkout');
               },
               child: Container(

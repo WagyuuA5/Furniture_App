@@ -7,6 +7,8 @@ import 'success_screen.dart';
 import '../models/order.dart';
 import 'coupon_screen.dart';
 import 'add_card_screen.dart';
+import '../providers/checkout_provider.dart';
+import '../models/checkout_models.dart';
 
 // ── Warna ─────────────────────────────────────────────────────────────────────
 class _C {
@@ -99,9 +101,11 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final cart    = context.watch<CartProvider>();
+    final cart     = context.watch<CartProvider>();
+    final checkout = context.watch<CheckoutProvider>();
+    final address  = checkout.selectedAddress;
     final subTotal = cart.getTotalPrice();
-    final total   = subTotal + _ongkir - _diskonOngkir + _biayaLayanan - _discount;
+    final total    = subTotal + _ongkir - _diskonOngkir + _biayaLayanan - _discount;
 
     return Scaffold(
       backgroundColor: _C.bg,
@@ -110,7 +114,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         children: [
           // ── Info User & Alamat ───────────────────────────────────────────
-          _buildUserInfo(),
+          _buildUserInfo(address),
           const Divider(color: _C.divider, height: 24),
 
           // ── Item Pesanan ─────────────────────────────────────────────────
@@ -198,25 +202,25 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       );
 
   // ── Info user ──────────────────────────────────────────────────────────────
-  Widget _buildUserInfo() {
+  Widget _buildUserInfo(ShippingAddress address) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Row(
+        Row(
           children: [
-            Icon(Icons.location_on_rounded, size: 16, color: _C.textPri),
-            SizedBox(width: 6),
-            Text('mamad(08******97)',
-                style: TextStyle(
+            const Icon(Icons.location_on_rounded, size: 16, color: _C.textPri),
+            const SizedBox(width: 6),
+            Text(address.label,
+                style: const TextStyle(
                     fontSize: 14, fontWeight: FontWeight.w700, color: _C.textPri)),
           ],
         ),
         const SizedBox(height: 6),
-        const Padding(
-          padding: EdgeInsets.only(left: 22),
+        Padding(
+          padding: const EdgeInsets.only(left: 22),
           child: Text(
-            'Jalan Danau Tambingan G6D-19, Kelurahan Sawojajar,\nkedungkandang, Kota Malang, Jawa Timur',
-            style: TextStyle(fontSize: 12, color: _C.textSec, height: 1.6),
+            address.fullAddress,
+            style: const TextStyle(fontSize: 12, color: _C.textSec, height: 1.6),
           ),
         ),
         const SizedBox(height: 8),

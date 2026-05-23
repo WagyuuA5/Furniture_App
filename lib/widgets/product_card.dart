@@ -11,11 +11,14 @@ class ProductCard extends StatefulWidget {
   final VoidCallback onTap;
   final int animationIndex;
 
+  final String heroTagPrefix;
+
   const ProductCard({
     super.key,
     required this.product,
     required this.onTap,
     this.animationIndex = 0,
+    this.heroTagPrefix = '',
   });
 
   @override
@@ -103,7 +106,7 @@ class _ProductCardState extends State<ProductCard>
                   Stack(
                     children: [
                       Hero(
-                        tag: 'product_${widget.product.id}',
+                        tag: '${widget.heroTagPrefix}product_${widget.product.id}',
                         child: ClipRRect(
                           borderRadius: const BorderRadius.only(
                             topLeft:  Radius.circular(AppRadius.productCard),

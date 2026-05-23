@@ -65,15 +65,15 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'],
-      name: json['name'],
-      category: json['category'],
-      price: json['price'],
-      stock: json['stock'],
-      description: json['description'],
-      image: json['image'],
-      rating: (json['rating'] as num).toDouble(),
-      sold: json['sold'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      category: json['category'] ?? '',
+      price: json['price'] ?? 0,
+      stock: json['stock'] ?? 0,
+      description: json['description'] ?? 'Tidak ada deskripsi',
+      image: json['image'] ?? 'https://via.placeholder.com/600',
+      rating: json['rating'] != null ? (json['rating'] as num).toDouble() : 0.0,
+      sold: json['sold'] ?? 0,
       originalPrice: json['originalPrice'],
       images: json['images'] != null
           ? List<String>.from(json['images'])
@@ -245,15 +245,15 @@ class AppData {
     ),
     Product(
       id: 3,
-      name: 'Sofa Minimalis 2 Seater',
+      name: 'Tempat Tidur Minimalis',
       category: 'Sofa',
       price: 1800000,
       stock: 12,
-      description: 'Sofa minimalis 2 seater cocok untuk apartemen atau ruangan kecil. Kaki terbuat dari kayu jati belanda yang kokoh.',
-      image: 'https://images.unsplash.com/photo-1540574163026-643ea20d25b5?w=600&auto=format&fit=crop',
+      description: 'Tempat tidur minimalis yang nyaman dengan sandaran kepala beraksen tufted. Menambah kesan mewah untuk ruang tidur Anda.',
+      image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop',
       rating: 4.5,
       sold: 110,
-      images: ['https://images.unsplash.com/photo-1540574163026-643ea20d25b5?w=600&auto=format&fit=crop'],
+      images: ['https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop'],
     ),
     // ── KURSI ──
     Product(
@@ -342,10 +342,10 @@ class AppData {
       price: 850000,
       stock: 15,
       description: 'Lampu berdiri sudut ruangan dengan kap lampu berbahan kain linen. Menciptakan suasana ruangan yang hangat dan aesthetic di malam hari.',
-      image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600&auto=format&fit=crop',
       rating: 4.8,
       sold: 76,
-      images: ['https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?w=600&auto=format&fit=crop'],
+      images: ['https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600&auto=format&fit=crop'],
     ),
     // ── LEMARI ──
     Product(

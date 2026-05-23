@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'profile_screen.dart'; // untuk ProfileData
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -21,8 +23,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _nameCtrl = TextEditingController(text: ProfileData.name);
-    _emailCtrl = TextEditingController(text: ProfileData.email);
+    final user = context.read<AuthProvider>().user;
+    _nameCtrl = TextEditingController(text: user?['nama'] ?? '');
+    _emailCtrl = TextEditingController(text: user?['email'] ?? '');
     _phoneCtrl = TextEditingController(text: ProfileData.phone);
   }
 
@@ -47,9 +50,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       return;
     }
     // UPDATE AREA: simpan ke backend/state management di sini
-    ProfileData.name = _nameCtrl.text.trim();
-    ProfileData.email = _emailCtrl.text.trim();
+    // Sementara kita hanya update ProfileData.phone
     ProfileData.phone = _phoneCtrl.text.trim();
+    // TODO: Update AuthProvider/Backend jika diperlukan
+
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

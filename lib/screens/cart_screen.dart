@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/product.dart';
+import '../providers/checkout_provider.dart';
 
 // ─────────────────────────────────────────────
 // MODEL
@@ -467,12 +468,16 @@ class _CartViewState extends State<_CartView> {
 
           // ── Tombol Proses Pembayaran ─────────
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
             child: SizedBox(
               width: double.infinity,
               height: 54,
               child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pushNamed('/checkout'),
+                onPressed: () {
+                  final cartItems = context.read<CartProvider>().items;
+                  context.read<CheckoutProvider>().loadFromCart(cartItems);
+                  Navigator.of(context).pushNamed('/checkout');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _LT.accent,
                   foregroundColor: Colors.white,

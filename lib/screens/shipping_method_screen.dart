@@ -32,7 +32,7 @@ class _ShippingMethodScreenState extends State<ShippingMethodScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CC.surface,
-      appBar: checkoutAppBar(context, 'Choose Shipping'),
+      appBar: checkoutAppBar(context, 'Pilih Pengiriman'),
       body: ListView(
         padding: const EdgeInsets.only(top: 8, bottom: 100),
         children: shippingMethods
@@ -44,7 +44,7 @@ class _ShippingMethodScreenState extends State<ShippingMethodScreen> {
             .toList(),
       ),
       bottomNavigationBar: CheckoutBigButton(
-        label: 'Apply',
+        label: 'Terapkan',
         onTap: _apply,
         color: CC.textPri, // tombol hitam sesuai Gambar 3
       ),
@@ -104,7 +104,7 @@ class _ShippingRow extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    'Estimated Arrival  ${method.estimatedArrival}',
+                    'Estimasi Tiba  ${method.estimatedArrival}',
                     style: const TextStyle(
                       fontSize: 12,
                       color: CC.textSec,

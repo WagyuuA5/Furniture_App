@@ -45,7 +45,7 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
     );
 
     context.read<CheckoutProvider>().addAddress(newAddress);
-    Navigator.pop(context);
+    Navigator.pop(context, newAddress);
   }
 
   @override

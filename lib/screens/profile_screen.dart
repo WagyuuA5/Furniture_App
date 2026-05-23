@@ -11,12 +11,11 @@ import 'my_coupons_screen.dart';
 import 'settings_screen.dart';
 import 'help_center_screen.dart';
 import 'privacy_policy_screen.dart'; // ← TAMBAHKAN BARIS INI
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 import 'login_screen.dart';
 
-// UPDATE AREA: Ganti model data ini dengan state management (GetX/Provider) jika perlu
 class ProfileData {
-  static String name = 'Esther Howard';
-  static String email = 'esther.howard@email.com';
   static String phone = '+62 812-3456-7890';
   static String? photoPath; // null = gunakan placeholder
 }
@@ -166,6 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     onPressed: () {
                       Navigator.pop(ctx);
                       // UPDATE AREA: Tambahkan logika logout di sini
+                      context.read<AuthProvider>().logout();
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (_) => const LoginScreen()),
@@ -198,6 +198,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = context.watch<AuthProvider>().user;
+    final userName = user?['nama'] ?? 'Guest User';
+    
     return Scaffold(
       backgroundColor: _bg,
       body: SafeArea(
@@ -312,7 +315,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   // ── Nama ──
                   Center(
                     child: Text(
-                      ProfileData.name,
+                      userName,
                       style: GoogleFonts.poppins(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,

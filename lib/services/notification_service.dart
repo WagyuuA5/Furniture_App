@@ -259,7 +259,9 @@ class NotificationService {
   }
 
   void markAllRead() {
-    for (final n in _notifications) n.isRead = true;
+    for (final n in _notifications) {
+      n.isRead = true;
+    }
     _ctrl.add(List.from(_notifications));
   }
 

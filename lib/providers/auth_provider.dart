@@ -15,7 +15,7 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final result = await AuthService.login(email, password);
+      final result = await AuthService.login(email: email, password: password);
       _user = result['data'];
       _role = result['role'];
       _isLoading = false;
@@ -24,7 +24,7 @@ class AuthProvider with ChangeNotifier {
     } catch (e) {
       _isLoading = false;
       notifyListeners();
-      return false;
+      rethrow;
     }
   }
 
@@ -33,30 +33,58 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      await AuthService.register(name, email, password, phone);
+      await AuthService.register(
+        nama: name,
+        email: email,
+        password: password,
+      );
       _isLoading = false;
       notifyListeners();
       return true;
     } catch (e) {
       _isLoading = false;
       notifyListeners();
-      return false;
+      rethrow;
     }
   }
 
   Future<void> logout() async {
-    await AuthService.logout();
+    AuthService.logout();
     _user = null;
     _role = null;
     notifyListeners();
   }
 
   Future<void> checkAuthStatus() async {
-    final isLoggedIn = await AuthService.isLoggedIn();
-    if (isLoggedIn) {
-      _user = await AuthService.getUser();
-      _role = await AuthService.getUserRole();
+    final token = await AuthService.getToken();
+    if (token != null && token.isNotEmpty) {
+      // Decode user from token or API if needed, for now just flag as true
+      _user = {'token': token};
     }
     notifyListeners();
+  }
+
+  Future<bool> changePassword(String currentPassword, String newPassword) async {
+    if (_user == null || _user!['email'] == null) {
+      throw Exception('Sesi tidak valid, silakan login kembali');
+    }
+    
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      await AuthService.changePassword(
+        email: _user!['email'],
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+      _isLoading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _isLoading = false;
+      notifyListeners();
+      rethrow;
+    }
   }
 }

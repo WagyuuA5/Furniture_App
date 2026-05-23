@@ -18,12 +18,7 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Bungkus dengan ChangeNotifierProvider agar bisa dipakai
-    // di seluruh sub-widget checkout flow
-    return ChangeNotifierProvider(
-      create: (_) => CheckoutProvider(),
-      child: const _CheckoutBody(),
-    );
+    return const _CheckoutBody();
   }
 }
 
@@ -67,7 +62,7 @@ class _CheckoutBody extends StatelessWidget {
       bottomNavigationBar: prov.isEmpty
           ? null
           : CheckoutBigButton(
-              label: 'Continue to Payment',
+              label: 'Lanjutkan ke Pembayaran',
               onTap: () => _onContinue(context, prov),
             ),
     );
@@ -96,10 +91,7 @@ class _ShippingAddressSection extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => ChangeNotifierProvider.value(
-          value: prov,
-          child: const ShippingAddressScreen(),
-        ),
+        builder: (_) => const ShippingAddressScreen(),
       ),
     );
   }
@@ -113,7 +105,7 @@ class _ShippingAddressSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionTitle('Shipping Address'),
+          const SectionTitle('Alamat Pengiriman'),
           const SizedBox(height: 14),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,10 +163,7 @@ class _ShippingTypeSection extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => ChangeNotifierProvider.value(
-          value: prov,
-          child: const ShippingMethodScreen(),
-        ),
+        builder: (_) => const ShippingMethodScreen(),
       ),
     );
   }
@@ -188,7 +177,7 @@ class _ShippingTypeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionTitle('Choose Shipping Type'),
+          const SectionTitle('Pilih Jenis Pengiriman'),
           const SizedBox(height: 14),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,7 +204,7 @@ class _ShippingTypeSection extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      'Estimated Arrival  ${method.estimatedArrival}',
+                      'Estimasi Tiba  ${method.estimatedArrival}',
                       style: const TextStyle(
                         fontSize: 12,
                         color: CC.textSec,
@@ -247,7 +236,7 @@ class _OrderListSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionTitle('Order List'),
+          const SectionTitle('Daftar Pesanan'),
           const SizedBox(height: 14),
           ...prov.items.map(
             (item) => _OrderItemCard(item: item, prov: prov),
@@ -348,7 +337,7 @@ class _OrderItemCard extends StatelessWidget {
 
           // CHANGE button
           ChangeButton(
-            label: 'CHANGE',
+            label: 'UBAH',
             onTap: () => _openItemDialog(context),
           ),
         ],

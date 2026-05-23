@@ -48,7 +48,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
     _FaqItem(
       pertanyaan: 'Bagaimana cara menghubungi layanan pelanggan?',
       jawaban:
-          'Anda dapat menghubungi layanan pelanggan kami melalui beberapa cara:\n• WhatsApp: (480) 555-0103\n• Email: support@aplikasi.com\n• Live Chat di aplikasi (jam operasional 08.00–21.00 WIB)\n• Media sosial resmi kami di Instagram, Facebook, atau Twitter.',
+          'Anda dapat menghubungi layanan pelanggan kami melalui beberapa cara:\n• WhatsApp: +62 856-2440-3664\n• Email: luxefurnish@gmail.com\n• Live Chat di aplikasi (jam operasional 08.00–21.00 WIB)\n• Media sosial resmi kami di Instagram, Facebook, atau Twitter.',
       kategori: 'Layanan',
     ),
     _FaqItem(
@@ -111,15 +111,15 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                 style: GoogleFonts.poppins(
                     fontSize: 18, fontWeight: FontWeight.w700)),
             const SizedBox(height: 20),
-            _kontakItem(Icons.chat, 'WhatsApp', '(480) 555-0103',
+            _kontakItem(Icons.chat, 'WhatsApp', '+62 856-2440-3664',
                 color: const Color(0xFF25D366)),
-            _kontakItem(Icons.language, 'Website', 'www.aplikasi.com',
+            _kontakItem(Icons.language, 'Website', 'www.luxefurnish.com',
                 color: _primary),
-            _kontakItem(Icons.facebook, 'Facebook', '@aplikasiresmi',
+            _kontakItem(Icons.facebook, 'Facebook', '@luxefurnish',
                 color: const Color(0xFF1877F2)),
-            _kontakItem(Icons.alternate_email, 'Twitter / X', '@aplikasiresmi',
+            _kontakItem(Icons.alternate_email, 'Twitter / X', '@luxefurnish',
                 color: Colors.black),
-            _kontakItem(Icons.camera_alt_outlined, 'Instagram', '@aplikasiresmi',
+            _kontakItem(Icons.camera_alt_outlined, 'Instagram', '@luxe_furnish',
                 color: const Color(0xFFE1306C)),
             const SizedBox(height: 8),
           ],

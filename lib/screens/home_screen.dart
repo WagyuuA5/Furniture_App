@@ -89,12 +89,12 @@ class _HomeScreenState extends State<HomeScreen>
   String _twoDigits(int n) => n.toString().padLeft(2, '0');
 
   // ── Navigasi ke detail produk (tetap push biasa) ──────────────
-  void _goToDetail(ProductModel product) {
+  void _goToDetail(ProductModel product, String prefix) {
     Navigator.push(
       context,
       PageRouteBuilder(
         pageBuilder: (_, anim, __) =>
-            ProductDetailScreen(product: product),
+            ProductDetailScreen(product: product, heroTagPrefix: prefix),
         transitionsBuilder: (_, anim, __, child) =>
             FadeTransition(opacity: anim, child: child),
         transitionDuration: const Duration(milliseconds: 350),
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen>
                   onCatSelect: (i) => setState(() => _selectedCat = i),
                   onFilterSelect: (f) =>
                       setState(() => _selectedFilter = f),
-                  onProductTap: _goToDetail,
+                  onProductTap: (p, prefix) => _goToDetail(p, prefix),
                   onAllCategories: _goToAllCategories,
                   onNotifTap: () => Navigator.push(
                     context,
@@ -203,7 +203,7 @@ class _HomeTab extends StatelessWidget {
   final String Function(int) twoDigits;
   final ValueChanged<int> onCatSelect;
   final ValueChanged<String> onFilterSelect;
-  final ValueChanged<ProductModel> onProductTap;
+  final void Function(ProductModel, String) onProductTap;
   final VoidCallback onAllCategories;
   final VoidCallback onNotifTap;
 
@@ -299,9 +299,44 @@ class _HomeTab extends StatelessWidget {
                 return ProductCard(
                   product: p,
                   animationIndex: i,
-                  onTap: () => onProductTap(p),
+                  heroTagPrefix: 'flash_',
+                  onTap: () => onProductTap(p, 'flash_'),
                 );
               },
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 32, 20, 16),
+            child: Text('Rekomendasi Untukmu',
+                style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textPrimary)),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          sliver: SliverGrid(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.68,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 16,
+            ),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                // Gunakan seluruh produk untuk grid ini
+                final p = AppData.flashSaleProducts[index];
+                return ProductCard(
+                  product: p,
+                  animationIndex: index,
+                  heroTagPrefix: 'rekomendasi_',
+                  onTap: () => onProductTap(p, 'rekomendasi_'),
+                );
+              },
+              childCount: AppData.flashSaleProducts.length,
             ),
           ),
         ),

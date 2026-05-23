@@ -26,12 +26,17 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
   }
 
   void _openAddAddress() async {
-    await showDialog(
+    final result = await showDialog(
       context: context,
       builder: (_) => const AddAddressDialog(),
     );
-    // Setelah dialog tutup, refresh list
-    setState(() {});
+    if (result is ShippingAddress) {
+      setState(() {
+        _tempSelected = result;
+      });
+    } else {
+      setState(() {});
+    }
   }
 
   void _apply() {
@@ -46,7 +51,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
 
     return Scaffold(
       backgroundColor: CC.surface,
-      appBar: checkoutAppBar(context, 'Shipping Address'),
+      appBar: checkoutAppBar(context, 'Alamat Pengiriman'),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
@@ -81,7 +86,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                     Icon(Icons.add, size: 18, color: CC.textPri),
                     SizedBox(width: 8),
                     Text(
-                      'Add New Shipping Address',
+                      'Tambah Alamat Baru',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -98,7 +103,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
         ],
       ),
       bottomNavigationBar: CheckoutBigButton(
-        label: 'Apply',
+        label: 'Terapkan',
         onTap: _apply,
       ),
     );
