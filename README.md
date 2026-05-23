@@ -170,61 +170,58 @@ lib/
 ├── widgets/              # Reusable Components
 └── utils/                # Helper Functions
 
-🚀 Fitur Lengkap Aplikasi
-👤 Autentikasi & Profil
-✅ Login / Register pengguna
+## 🚀 **Fitur Lengkap Aplikasi**
 
-✅ Edit profil dan alamat
+### **👤 Autentikasi & Profil**
+| Fitur | Status |
+|-------|--------|
+| Login / Register pengguna | ✅ |
+| Edit profil dan alamat | ✅ |
+| Privacy policy & settings | ✅ |
 
-✅ Privacy policy & settings
+### **🛍️ Belanja**
+| Fitur | Status |
+|-------|--------|
+| Katalog produk dengan kategori (Sofa, Chair, Lamp, Cupboard) | ✅ |
+| Detail produk lengkap | ✅ |
+| Flash sale & diskon | ✅ |
 
-🛍️ Belanja
-✅ Katalog produk dengan kategori (Sofa, Chair, Lamp, Cupboard)
+### **🛒 Keranjang & Checkout**
+| Fitur | Status |
+|-------|--------|
+| Manajemen keranjang belanja | ✅ |
+| Pilih metode pengiriman | ✅ |
+| Pilih metode pembayaran | ✅ |
+| Kupon diskon (tersedia/terkunci) | ✅ |
+| Ringkasan pesanan (Sub-total + Delivery fee - Discount = Total) | ✅ |
 
-✅ Detail produk lengkap
+### **📦 Tracking Order**
+| Fitur | Status |
+|-------|--------|
+| Lacak status pesanan real-time | ✅ |
+| Tracking ID dan estimasi pengiriman | ✅ |
 
-✅ Flash sale & diskon
+**Timeline Pesanan:**
+| Tahap | Waktu | Status |
+|-------|-------|--------|
+| Online Place | 23 Sep 2023, 04:15 PM | ✅ |
+| In Progress | 23 Sep 2023, 05:14 PM | ✅ |
+| Shipped | 23 Sep 2023, 06:15 PM | ✅ |
+| Delivered | 23 Sep 2023, 07:15 PM | ✅ |
 
-🛒 Keranjang & Checkout
-✅ Manajemen keranjang belanja
+### **💬 Komunikasi**
+| Fitur | Status |
+|-------|--------|
+| Chat dengan pemilik toko (direct conversation) | ✅ |
+| Help center & support | ✅ |
 
-✅ Pilih metode pengiriman
-
-✅ Pilih metode pembayaran
-
-✅ Kupon diskon (tersedia/terkunci)
-
-✅ Ringkasan pesanan (Sub-total + Delivery fee - Discount = Total)
-
-📦 Tracking Order
-✅ Lacak status pesanan real-time
-
-✅ Timeline pesanan:
-
-Online Place (23 Sep 2023, 04:15 PM)
-
-In Progress (23 Sep 2023, 05:14 PM)
-
-Shipped (23 Sep 2023, 06:15 PM)
-
-Delivered (23 Sep 2023, 07:15 PM)
-
-✅ Tracking ID dan estimasi pengiriman
-
-💬 Komunikasi
-✅ Chat dengan pemilik toko (direct conversation)
-
-✅ Help center & support
-
-🎨 UI/UX Premium
-✅ Desain modern dengan Material 3
-
-✅ Animasi halus
-
-✅ Responsif untuk berbagai ukuran layar
-
-✅ Dark mode support
-
+### **🎨 UI/UX Premium**
+| Fitur | Status |
+|-------|--------|
+| Desain modern dengan Material 3 | ✅ |
+| Animasi halus | ✅ |
+| Responsif untuk berbagai ukuran layar | ✅ |
+| Dark mode support | ✅ |
 💻 Cara Menjalankan Proyek
 Prasyarat
 # 1. Flutter SDK (≥3.16)
@@ -266,55 +263,56 @@ Delivery Fee	$10.00
 Discount (Kupon)	-$20.00
 Total Cost	$150.00
 
-🔄 Status Perkembangan
-Modul	Progress	Status
-Onboarding	100%	✅ Selesai
-Autentikasi	100%	✅ Selesai
-Katalog Produk	100%	✅ Selesai
-Keranjang	100%	✅ Selesai
-Checkout	100%	✅ Selesai
-Pembayaran	100%	✅ Selesai
-Tracking Order	100%	✅ Selesai
-Chat	100%	✅ Selesai
-Profil & Settings	100%	✅ Selesai
-Dokumentasi	100%	✅ Selesai
-Keseluruhan Proyek: 100% Complete! 🎉
+## 📊 **Status Perkembangan**
+
+| Modul | Progress | Status |
+|-------|----------|--------|
+| Onboarding | 100% | ✅ Selesai |
+| Autentikasi | 100% | ✅ Selesai |
+| Katalog Produk | 100% | ✅ Selesai |
+| Keranjang | 100% | ✅ Selesai |
+| Checkout | 100% | ✅ Selesai |
+| Pembayaran | 100% | ✅ Selesai |
+| Tracking Order | 100% | ✅ Selesai |
+| Chat | 100% | ✅ Selesai |
+| Profil & Settings | 100% | ✅ Selesai |
+| Dokumentasi | 100% | ✅ Selesai |
+
+| **Keseluruhan Proyek** | **100%** | **✅ Complete!** |
 
 📸 Screenshots Aplikasi
 <img width="1500" height="585" alt="image" src="https://github.com/user-attachments/assets/fa5ebd7d-8450-44b1-b13a-acb8a9293f36" />
 
-🏆 Pencapaian Proyek
-✅ Aplikasi Flutter pertama yang selesai dengan fitur lengkap
+## 🏆 **Pencapaian Proyek**
 
-✅ Kolaborasi tim 3 orang (programmer + desainer + backend)
-
-✅ Desain Figma profesional oleh Burhan
-
-✅ API Mockoon terintegrasi oleh Bintang
-
-✅ Codebase modular dengan service layer terpisah
-
-✅ State management dengan Provider
-
-✅ 20+ screen dengan navigasi lengkap
-
-✅ Siap rilis ke Google Play Store
+| No | Pencapaian | Status |
+|----|------------|--------|
+| 1 | Aplikasi Flutter pertama yang selesai dengan fitur lengkap | ✅ |
+| 2 | Kolaborasi tim 3 orang (programmer + desainer + backend) | ✅ |
+| 3 | Desain Figma profesional oleh Burhan | ✅ |
+| 4 | API Mockoon terintegrasi oleh Bintang | ✅ |
+| 5 | Codebase modular dengan service layer terpisah | ✅ |
+| 6 | State management dengan Provider | ✅ |
+| 7 | 20+ screen dengan navigasi lengkap | ✅ |
+| 8 | Siap rilis ke Google Play Store | ✅ |
 
 📝 Kesimpulan
 Furniture App adalah bukti nyata kolaborasi sukses antara programmer, desainer, dan backend developer. Aplikasi ini tidak hanya memenuhi kebutuhan fungsional e-commerce furniture tetapi juga memberikan pengalaman pengguna yang premium melalui desain yang indah (Burhan), performa yang optimal (Wahyu), dan backend yang reliable (Bintang).
 
 Proyek ini menjadi portfolio berharga bagi ketiga anggota tim dalam mengembangkan aplikasi berbasis Flutter siap produksi.
 
-📞 Kontak Tim
-Anggota	Peran	GitHub	Email
-Wahyu Ravi Anggoro	Programmer	@WagyuuA5	[whyuravi.2008@gmail.com]
-Burhan	UI/UX Designer	[username GitHub]	[isi email]
-Bintang	Backend Developer	[username GitHub]	[isi email]
+## 📞 **Kontak Tim**
+
+| Anggota | Peran | GitHub | Email |
+|---------|-------|--------|-------|
+| **Wahyu Ravi Anggoro** | Programmer | [@WagyuuA5](https://github.com/WagyuuA5) | whyuravi.2008@gmail.com |
+| **Burhan** | UI/UX Designer | [@Burhan](https://github.com/) | [isi email] |
+| **Bintang** | Backend Developer | [@Bintang](https://github.com/) | [isi email] |
 
 📄 Lisensi
 Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
 
-<div align="center"> <br/> <sub>Built with ❤️ using Flutter by Tim Furniture App</sub> <br/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/> <br/> <b>Furniture App - Proyek Akhir</b><br/> <i>Discover the perfect balance between savings and style!</i> </div> ```
+<div align="center"> <br/> <sub>Built with ❤️ using Flutter by Tim Furniture App</sub> <br/><br/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/> <br/> <b>Furniture App - Proyek Akhir</b><br/> <i>Discover the perfect balance between savings and style!</i> </div>
 
 📤 Cara Upload README ke GitHub
 # 1. Simpan kode di atas ke file README.md (di root project)
