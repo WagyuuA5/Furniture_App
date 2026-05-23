@@ -35,19 +35,43 @@ Aplikasi ini dikembangkan sebagai **Proyek Akhir** dalam pengembangan aplikasi b
 | 🎨 **UI/UX Designer** | **Burhan** | Desain antarmuka pengguna di Figma, wireframing, prototyping, user flow, dan design system |
 | 🔧 **Backend Developer** | **Bintang** | Pengembangan dan manajemen API menggunakan Mockoon, endpoint design, data modeling, dan dokumentasi API |
 
-### **Kolaborasi Tim**
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ 🎨 BURHAN │────▶│ 💻 WAHYU │────▶│ 🔧 BINTANG │
-│ UI/UX Design │ │ Flutter Dev │ │ API Mockoon │
-│ (Figma) │ │ (Frontend) │ │ (Backend) │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-│ │ │
-▼ ▼ ▼
-Desain Mockup Implementasi Kode Endpoint API
-Prototype State Management Data Response
-Asset Export Integrasi API Dokumentasi
+## 👥 **Tim Pengembang**
+
+| Peran | Nama | Tugas & Tanggung Jawab |
+|-------|------|------------------------|
+| 💻 **Programmer** | **WAHYU** | • Pengembangan Full-stack Flutter<br>• Implementasi UI/UX ke kode<br>• State Management (Provider)<br>• Integrasi API ke Frontend<br>• Deployment dan debugging |
+| 🎨 **UI/UX Designer** | **BURHAN** | • Desain antarmuka di Figma<br>• Wireframing & prototyping<br>• User flow & design system<br>• Asset export (gambar, icon)<br>• Dokumentasi desain |
+| 🔧 **Backend Developer** | **BINTANG** | • Pengembangan API dengan Mockoon<br>• Endpoint design & data modeling<br>• Response API documentation<br>• Testing endpoint & validasi data |
 
 ---
+### **📊 Alur Kolaborasi Tim**
+
+### **🔧 Pembagian Tugas Detail**
+
+| Tugas | Wahyu | Burhan | Bintang |
+|-------|:-----:|:------:|:-------:|
+| Desain UI/UX (Figma) | - | ✅ | - |
+| Asset & Gambar | - | ✅ | - |
+| Frontend Flutter | ✅ | - | - |
+| State Management | ✅ | - | - |
+| API Endpoint | - | - | ✅ |
+| Dokumentasi API | - | - | ✅ |
+| Integrasi API ke App | ✅ | - | - |
+| Testing & Debugging | ✅ | - | ✅ |
+| Deployment | ✅ | - | - |
+| Laporan Proyek | ✅ | ✅ | ✅ |
+
+---
+
+### **🎯 Hasil Kolaborasi**
+
+| Tahap | Output | Penanggung Jawab |
+|-------|--------|------------------|
+| 1. Desain | Mockup & Prototype Figma | Burhan |
+| 2. Backend | RESTful API (Mockoon) | Bintang |
+| 3. Frontend | Aplikasi Flutter | Wahyu |
+| 4. Integrasi | App terhubung API | Wahyu + Bintang |
+| 5. Final | APK siap rilis | Tim |
 
 ## 🎨 **Desain Aplikasi (Figma by Burhan)**
 
