@@ -75,6 +75,7 @@ const List<CouponModel> kAllCoupons = [
     code: 'FLASHSALE',
     subtitle: 'Add items worth Rp50.000 more to unlock',
     benefit: 'Flash Sale: Hemat Rp75.000',
+    
     status: CouponStatus.locked,
     icon: Icons.flash_on_rounded,
   ),
