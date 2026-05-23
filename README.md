@@ -170,50 +170,77 @@ lib/
 ├── widgets/              # Reusable Components
 └── utils/                # Helper Functions
 
-📋 Fitur Lengkap Aplikasi
-👤 Autentikasi & Profil
-Fitur	Status
-Login / Register pengguna	✅
-Edit profil dan alamat	✅
-Privacy policy & settings	✅
+# 📋 Fitur Lengkap Aplikasi
 
-🛍️ Belanja
-Fitur	Status
-Katalog produk dengan kategori (Sofa, Chair, Lamp, Cupboard)	✅
-Detail produk lengkap	✅
-Flash sale & diskon	✅
+## 👤 Autentikasi & Profil
 
-🛒 Keranjang & Checkout
-Fitur	Status
-Manajemen keranjang belanja	✅
-Pilih metode pengiriman	✅
-Pilih metode pembayaran	✅
-Kupon diskon (tersedia/terkunci)	✅
-Ringkasan pesanan (Sub-total + Delivery fee - Discount = Total)	✅
+| Fitur | Status |
+|---|---|
+| Login / Register pengguna | ✅ |
+| Edit profil dan alamat | ✅ |
+| Privacy policy & settings | ✅ |
 
-📦 Tracking Order
-Fitur	Status
-Lacak status pesanan real-time	✅
-Tracking ID dan estimasi pengiriman	✅
-Timeline Pesanan:
+---
 
-Tahap	Waktu	Status
-Online Place	23 Sep 2023, 04:15 PM	✅
-In Progress	23 Sep 2023, 05:14 PM	✅
-Shipped	23 Sep 2023, 06:15 PM	✅
-Delivered	23 Sep 2023, 07:15 PM	✅
+## 🛍️ Belanja
 
-💬 Komunikasi
-Fitur	Status
-Chat dengan pemilik toko (direct conversation)	✅
-Help center & support	✅
+| Fitur | Status |
+|---|---|
+| Katalog produk dengan kategori (Sofa, Chair, Lamp, Cupboard) | ✅ |
+| Detail produk lengkap | ✅ |
+| Flash sale & diskon | ✅ |
 
-🎨 UI/UX Premium
-Fitur	Status
-Desain modern dengan Material 3	✅
-Animasi halus	✅
-Responsif untuk berbagai ukuran layar	✅
-Dark mode support	✅
+---
+
+## 🛒 Keranjang & Checkout
+
+| Fitur | Status |
+|---|---|
+| Manajemen keranjang belanja | ✅ |
+| Pilih metode pengiriman | ✅ |
+| Pilih metode pembayaran | ✅ |
+| Kupon diskon (tersedia/terkunci) | ✅ |
+| Ringkasan pesanan (Sub-total + Delivery fee - Discount = Total) | ✅ |
+
+---
+
+## 📦 Tracking Order
+
+| Fitur | Status |
+|---|---|
+| Lacak status pesanan real-time | ✅ |
+| Tracking ID dan estimasi pengiriman | ✅ |
+
+### Timeline Pesanan
+
+| Tahap | Waktu | Status |
+|---|---|---|
+| Online Place | 23 Sep 2023, 04:15 PM | ✅ |
+| In Progress | 23 Sep 2023, 05:14 PM | ✅ |
+| Shipped | 23 Sep 2023, 06:15 PM | ✅ |
+| Delivered | 23 Sep 2023, 07:15 PM | ✅ |
+
+---
+
+## 💬 Komunikasi
+
+| Fitur | Status |
+|---|---|
+| Chat dengan pemilik toko (direct conversation) | ✅ |
+| Help center & support | ✅ |
+
+---
+
+## 🎨 UI/UX Premium
+
+| Fitur | Status |
+|---|---|
+| Desain modern dengan Material 3 | ✅ |
+| Animasi halus | ✅ |
+| Responsif untuk berbagai ukuran layar | ✅ |
+| Dark mode support | ✅ |
+
+---
 
 💻 Cara Menjalankan Proyek
 Prasyarat
@@ -244,56 +271,80 @@ Konfigurasi API (Mockoon)
 # 3. Jalankan Mockoon di port 3000
 # 4. Aplikasi akan terhubung otomatis ke API
 
-📊 Demo Aplikasi
-Splash_Screen → Onboarding → Login/Register → Browse Products → Add to Cart → 
-Checkout → Payment → Track Order → Chat Seller → Receive Product.
+# 📊 Demo Aplikasi
 
-Contoh Transaksi
-Item	Harga
-Amir Chahal - Sofa	$160.00
-Sub-Total	$160.00
-Delivery Fee	$10.00
-Discount (Kupon)	-$20.00
-Total Cost	$150.00
+```txt
+Splash Screen → Onboarding → Login/Register → Browse Products → Add to Cart →
+Checkout → Payment → Track Order → Chat Seller → Receive Product
+```
 
-📊 Status Perkembangan
-Modul	Progress	Status
-Onboarding	100%	✅ Selesai
-Autentikasi	100%	✅ Selesai
-Katalog Produk	100%	✅ Selesai
-Keranjang	100%	✅ Selesai
-Checkout	100%	✅ Selesai
-Pembayaran	100%	✅ Selesai
-Tracking Order	100%	✅ Selesai
-Chat	100%	✅ Selesai
-Profil & Settings	100%	✅ Selesai
-Dokumentasi	100%	✅ Selesai
+---
+
+# 💰 Contoh Transaksi
+
+| Item | Harga |
+|---|---|
+| Amir Chahal - Sofa | $160.00 |
+| Sub-Total | $160.00 |
+| Delivery Fee | $10.00 |
+| Discount (Kupon) | -$20.00 |
+| Total Cost | $150.00 |
+
+---
+
+# 📊 Status Perkembangan
+
+| Modul | Progress | Status |
+|---|---|---|
+| Onboarding | 100% | ✅ Selesai |
+| Autentikasi | 100% | ✅ Selesai |
+| Katalog Produk | 100% | ✅ Selesai |
+| Keranjang | 100% | ✅ Selesai |
+| Checkout | 100% | ✅ Selesai |
+| Pembayaran | 100% | ✅ Selesai |
+| Tracking Order | 100% | ✅ Selesai |
+| Chat | 100% | ✅ Selesai |
+| Profil & Settings | 100% | ✅ Selesai |
+| Dokumentasi | 100% | ✅ Selesai |
 | Keseluruhan Proyek | 100% | ✅ Complete! |
 
-📸 Screenshots Aplikasi
-<img width="1500" height="585" alt="image" src="https://github.com/user-attachments/assets/fa5ebd7d-8450-44b1-b13a-acb8a9293f36" />
+---
 
-🏆 Pencapaian Proyek
-No	Pencapaian	Status
-1	Aplikasi Flutter pertama yang selesai dengan fitur lengkap	✅
-2	Kolaborasi tim 3 orang (programmer + desainer + backend)	✅
-3	Desain Figma profesional oleh Burhan	✅
-4	API Mockoon terintegrasi oleh Bintang	✅
-5	Codebase modular dengan service layer terpisah	✅
-6	State management dengan Provider	✅
-7	20+ screen dengan navigasi lengkap	✅
-8	Siap rilis ke Google Play Store	✅
+# 📸 Screenshots Aplikasi
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fa5ebd7d-8450-44b1-b13a-acb8a9293f36" width="100%">
+</p>
+
+---
+
+# 🏆 Pencapaian Proyek
+
+| No | Pencapaian | Status |
+|---|---|---|
+| 1 | Aplikasi Flutter pertama yang selesai dengan fitur lengkap | ✅ |
+| 2 | Kolaborasi tim 3 orang (programmer + desainer + backend) | ✅ |
+| 3 | Desain Figma profesional oleh Burhan | ✅ |
+| 4 | API Mockoon terintegrasi oleh Bintang | ✅ |
+| 5 | Codebase modular dengan service layer terpisah | ✅ |
+| 6 | State management dengan Provider | ✅ |
+| 7 | 20+ screen dengan navigasi lengkap | ✅ |
+| 8 | Siap rilis ke Google Play Store | ✅ |
+
+---
 
 📝 Kesimpulan
 Furniture App adalah bukti nyata kolaborasi sukses antara programmer, desainer, dan backend developer. Aplikasi ini tidak hanya memenuhi kebutuhan fungsional e-commerce furniture tetapi juga memberikan pengalaman pengguna yang premium melalui desain yang indah (Burhan), performa yang optimal (Wahyu), dan backend yang reliable (Bintang).
 
 Proyek ini menjadi portfolio berharga bagi ketiga anggota tim dalam mengembangkan aplikasi berbasis Flutter siap produksi.
 
-📞 Kontak Tim
-Anggota	Peran	GitHub	Email
-Wahyu Ravi Anggoro	Programmer	@WagyuuA5	whyuravi.2008@gmail.com
-Burhan	UI/UX Designer	[username GitHub]	[isi email]
-Bintang	Backend Developer	[username GitHub]	[isi email]
+# 📞 Kontak Tim
+
+| Anggota | Peran | GitHub | Email |
+|---|---|---|---|
+| Wahyu Ravi Anggoro | Programmer | @WagyuuA5 | whyuravi.2008@gmail.com |
+| Burhan | UI/UX Designer | [username GitHub] | [isi email] |
+| Bintang | Backend Developer | [username GitHub] | [isi email] |
 
 📄 Lisensi
 Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
