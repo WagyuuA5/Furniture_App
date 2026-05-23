@@ -170,6 +170,8 @@ lib/
 ├── widgets/              # Reusable Components
 └── utils/                # Helper Functions
 
+---
+
 # 📋 Fitur Lengkap Aplikasi
 
 ## 👤 Autentikasi & Profil
