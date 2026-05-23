@@ -306,6 +306,8 @@ lib/
 | Clean architecture UI | ✅ |
 | Dark mode support | ✅ |
 
+---
+
 💻 Cara Menjalankan Proyek
 Prasyarat
 # 1. Flutter SDK (≥3.16)
