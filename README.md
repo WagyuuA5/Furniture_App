@@ -80,9 +80,13 @@ Berikut adalah hasil desain UI/UX yang dibuat oleh **Burhan** menggunakan Figma:
 ### **📱 Halaman Utama**
 
 <div align="center">
-  <img src="assets/images/onboarding_1.png" width="200" alt="Onboarding 1"/>
-  <img src="assets/images/onboarding_2.png" width="200" alt="Onboarding 2"/>
-  <img src="assets/images/onboarding_3.png" width="200" alt="Onboarding 3"/>
+  <p align="center">
+  <img src="assets/images/onboarding_1.png" height="420"/>
+  <img src="assets/images/onboarding_2.png" height="420"/>
+  <img src="https://github.com/user-attachments/assets/5f155107-9e7a-4cfd-b612-2910d7553bbe" height="420"/>
+</p>
+
+
 </div>
 
 > *Tampilan onboarding yang menarik dengan visual furniture yang elegan*
@@ -170,150 +174,157 @@ lib/
 ├── widgets/              # Reusable Components
 └── utils/                # Helper Functions
 
-# 📋 Fitur Lengkap Aplikasi
+# 📋 Fitur Lengkap Aplikasi 
 
-## 👤 Autentikasi & Profil
+# 👤 Autentikasi & Profil
 
-| Fitur | Status |
-|-------|--------|
-| Splash screen modern | ✅ |
-| Onboarding screen interaktif | ✅ |
-| Login pengguna | ✅ |
-| Register pengguna | ✅ |
-| Validasi form autentikasi | ✅ |
-| Logout akun | ✅ |
-| Edit profil pengguna | ✅ |
-| Upload foto profil | ✅ |
-| Manajemen alamat pengguna | ✅ |
-| Privacy policy | ✅ |
-| Settings aplikasi | ✅ |
-| Dark mode support | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Splash screen modern | ✅ |
+| 2 | Onboarding screen interaktif | ✅ |
+| 3 | Login pengguna | ✅ |
+| 4 | Register pengguna | ✅ |
+| 5 | Validasi form autentikasi | ✅ |
+| 6 | Logout akun | ✅ |
+| 7 | Edit profil pengguna | ✅ |
+| 8 | Upload foto profil | ✅ |
+| 9 | Manajemen alamat pengguna | ✅ |
+| 10 | Privacy policy | ✅ |
+| 11 | Settings aplikasi | ✅ |
+| 12 | Dark mode support | ✅ |
 
 ---
 
 ## 🛍️ Belanja & Produk
 
-| Fitur | Status |
-|-------|--------|
-| Katalog produk | ✅ |
-| Kategori produk (Sofa, Chair, Lamp, Cupboard) | ✅ |
-| Pencarian produk | ✅ |
-| Detail produk lengkap | ✅ |
-| Deskripsi produk | ✅ |
-| Harga & diskon produk | ✅ |
-| Rating & review produk | ✅ |
-| Flash sale produk | ✅ |
-| Produk populer | ✅ |
-| Produk terbaru | ✅ |
-| Favorite / wishlist produk | ✅ |
-| Filter produk | ✅ |
-| Responsive grid product | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Katalog produk | ✅ |
+| 2 | Kategori produk (Sofa, Chair, Lamp, Cupboard) | ✅ |
+| 3 | Pencarian produk | ✅ |
+| 4 | Detail produk lengkap | ✅ |
+| 5 | Deskripsi produk | ✅ |
+| 6 | Harga & diskon produk | ✅ |
+| 7 | Rating & review produk | ✅ |
+| 8 | Flash sale produk | ✅ |
+| 9 | Produk populer | ✅ |
+| 10 | Produk terbaru | ✅ |
+| 11 | Favorite / wishlist produk | ✅ |
+| 12 | Filter produk | ✅ |
+| 13 | Responsive grid product | ✅ |
 
 ---
 
 ## 🛒 Keranjang & Checkout
 
-| Fitur | Status |
-|-------|--------|
-| Tambah produk ke keranjang | ✅ |
-| Hapus produk dari keranjang | ✅ |
-| Update quantity produk | ✅ |
-| Manajemen keranjang belanja | ✅ |
-| Ringkasan subtotal | ✅ |
-| Perhitungan delivery fee | ✅ |
-| Sistem kupon diskon | ✅ |
-| Perhitungan total otomatis | ✅ |
-| Pilih metode pengiriman | ✅ |
-| Pilih metode pembayaran | ✅ |
-| Checkout produk | ✅ |
-| Validasi checkout | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Tambah produk ke keranjang | ✅ |
+| 2 | Hapus produk dari keranjang | ✅ |
+| 3 | Update quantity produk | ✅ |
+| 4 | Manajemen keranjang belanja | ✅ |
+| 5 | Ringkasan subtotal | ✅ |
+| 6 | Perhitungan delivery fee | ✅ |
+| 7 | Sistem kupon diskon | ✅ |
+| 8 | Perhitungan total otomatis | ✅ |
+| 9 | Pilih metode pengiriman | ✅ |
+| 10 | Pilih metode pembayaran | ✅ |
+| 11 | Checkout produk | ✅ |
+| 12 | Validasi checkout | ✅ |
 
 ---
 
 ## 💳 Pembayaran
 
-| Fitur | Status |
-|-------|--------|
-| Pembayaran COD | ✅ |
-| Pembayaran transfer bank | ✅ |
-| Pembayaran e-wallet | ✅ |
-| Ringkasan pembayaran | ✅ |
-| Status pembayaran | ✅ |
-| Invoice transaksi | ✅ |
-| Konfirmasi pembayaran | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Pembayaran COD | ✅ |
+| 2 | Pembayaran transfer bank | ✅ |
+| 3 | Pembayaran e-wallet | ✅ |
+| 4 | Ringkasan pembayaran | ✅ |
+| 5 | Status pembayaran | ✅ |
+| 6 | Invoice transaksi | ✅ |
+| 7 | Konfirmasi pembayaran | ✅ |
 
 ---
 
 ## 📦 Tracking Order
 
-| Fitur | Status |
-|-------|--------|
-| Tracking status pesanan | ✅ |
-| Tracking ID otomatis | ✅ |
-| Estimasi pengiriman | ✅ |
-| Timeline pesanan | ✅ |
-| Status real-time | ✅ |
-| Detail alamat pengiriman | ✅ |
-| Riwayat pesanan | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Tracking status pesanan | ✅ |
+| 2 | Tracking ID otomatis | ✅ |
+| 3 | Estimasi pengiriman | ✅ |
+| 4 | Timeline pesanan | ✅ |
+| 5 | Status real-time | ✅ |
+| 6 | Detail alamat pengiriman | ✅ |
+| 7 | Riwayat pesanan | ✅ |
 
 ### 📌 Timeline Pesanan
 
-| Tahap | Waktu | Status |
-|-------|----------------------|--------|
-| Online Place | 23 Sep 2023, 04:15 PM | ✅ |
-| In Progress | 23 Sep 2023, 05:14 PM | ✅ |
-| Shipped | 23 Sep 2023, 06:15 PM | ✅ |
-| Delivered | 23 Sep 2023, 07:15 PM | ✅ |
+| No | Tahap | Waktu | Status |
+|----|-------|----------------------|--------|
+| 1 | Online Place | 23 Sep 2023, 04:15 PM | ✅ |
+| 2 | In Progress | 23 Sep 2023, 05:14 PM | ✅ |
+| 3 | Shipped | 23 Sep 2023, 06:15 PM | ✅ |
+| 4 | Delivered | 23 Sep 2023, 07:15 PM | ✅ |
 
 ---
 
 ## 💬 Komunikasi & Support
 
-| Fitur | Status |
-|-------|--------|
-| Chat dengan seller | ✅ |
-| Direct conversation | ✅ |
-| Help center | ✅ |
-| Customer support | ✅ |
-| FAQ section | ✅ |
-| Notifikasi pesan | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Chat dengan seller | ✅ |
+| 2 | Direct conversation | ✅ |
+| 3 | Help center | ✅ |
+| 4 | Customer support | ✅ |
+| 5 | FAQ section | ✅ |
+| 6 | Notifikasi pesan | ✅ |
 
 ---
 
 ## 🔔 Notifikasi
 
-| Fitur | Status |
-|-------|--------|
-| Notifikasi pesanan | ✅ |
-| Notifikasi pembayaran | ✅ |
-| Notifikasi promo | ✅ |
-| Notifikasi flash sale | ✅ |
-| Push notification UI | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Notifikasi pesanan | ✅ |
+| 2 | Notifikasi pembayaran | ✅ |
+| 3 | Notifikasi promo | ✅ |
+| 4 | Notifikasi flash sale | ✅ |
+| 5 | Push notification UI | ✅ |
 
 ---
 
 ## 🎨 UI/UX Premium
 
-| Fitur | Status |
-|-------|--------|
-| Material 3 Design | ✅ |
-| Custom animation | ✅ |
-| Smooth transition | ✅ |
-| Responsive mobile layout | ✅ |
-| Modern UI design | ✅ |
-| Consistent color system | ✅ |
-| Reusable widgets | ✅ |
-| Clean architecture UI | ✅ |
-| Dark mode support | ✅ |
+| No | Fitur | Status |
+|----|-------|--------|
+| 1 | Material 3 Design | ✅ |
+| 2 | Custom animation | ✅ |
+| 3 | Smooth transition | ✅ |
+| 4 | Responsive mobile layout | ✅ |
+| 5 | Modern UI design | ✅ |
+| 6 | Consistent color system | ✅ |
+| 7 | Reusable widgets | ✅ |
+| 8 | Clean architecture UI | ✅ |
+| 9 | Dark mode support | ✅ |
 
-💻 Cara Menjalankan Proyek
-Prasyarat
-# 1. Flutter SDK (≥3.16)
-https://flutter.dev/docs/get-started/install
+---
 
-# 2. Android Studio / VS Code
-# 3. Emulator Android atau device fisik
-Langkah Instalasi
+# 💻 Cara Menjalankan Proyek
+
+## Prasyarat
+
+| No | Persyaratan |
+|----|-------------|
+| 1 | Flutter SDK (≥3.16) - https://flutter.dev/docs/get-started/install |
+| 2 | Android Studio / VS Code |
+| 3 | Emulator Android atau device fisik |
+
+## Langkah Instalasi
+
+```bash
 # 1. Clone repository
 git clone https://github.com/WagyuuA5/Furniture_App.git
 
@@ -330,10 +341,11 @@ flutter run
 flutter build apk --release
 
 Konfigurasi API (Mockoon)
-# 1. Install Mockoon dari https://mockoon.com/
-# 2. Import file JSON environment (dari Bintang)
-# 3. Jalankan Mockoon di port 3000
-# 4. Aplikasi akan terhubung otomatis ke API
+No	Langkah	Keterangan
+1	Install Mockoon	https://mockoon.com/
+2	Import file JSON	environment (dari Bintang)
+3	Jalankan Mockoon	di port 3000
+4	Hubungkan	Aplikasi akan terhubung otomatis ke API
 
 # 📊 Demo Aplikasi
 
@@ -377,7 +389,8 @@ Checkout → Payment → Track Order → Chat Seller → Receive Product
 # 📸 Screenshots Aplikasi
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fa5ebd7d-8450-44b1-b13a-acb8a9293f36" width="100%">
+  <img width="1920" height="1080" alt="furniture_deks" src="https://github.com/user-attachments/assets/dca957fc-ebf9-46e0-a045-716ca4d14ed1" />
+
 </p>
 
 ---
@@ -407,8 +420,8 @@ Proyek ini menjadi portfolio berharga bagi ketiga anggota tim dalam mengembangka
 | Anggota | Peran | GitHub | Email |
 |---|---|---|---|
 | Wahyu Ravi Anggoro | Programmer | @WagyuuA5 | whyuravi.2008@gmail.com |
-| Burhan | UI/UX Designer | [username GitHub] | [isi email] |
-| Bintang | Backend Developer | [username GitHub] | [isi email] |
+| Burhan | UI/UX Designer | @muhammzahh | muhhammzahh@gmail.com |
+| Bintang | Backend Developer | bintangnabil33 | bintangn184@gmail.com |
 
 📄 Lisensi
 Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
@@ -416,14 +429,15 @@ Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
 <div align="center"> <br/> <sub>Built with ❤️ using Flutter by Tim Furniture App</sub> <br/><br/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/> <br/> <b>Furniture App - Proyek Akhir</b><br/> <i>Discover the perfect balance between savings and style!</i> </div>
 
 📤 Cara Upload README ke GitHub
-# 1. Simpan kode di atas ke file README.md (di root project)
+1. Simpan kode di atas ke file `README.md` (di root project)
 
-# 2. Tambahkan ke Git
-git add README.md
+2. Tambahkan ke Git
+   ```bash
+   git add README.md
 
-# 3. Commit
+3. commit
 git commit -m "Add professional README with team documentation"
 
-# 4. Push ke GitHub
+4. Push ke GitHub
 git push origin main
 
