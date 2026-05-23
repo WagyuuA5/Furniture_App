@@ -170,8 +170,6 @@ lib/
 ├── widgets/              # Reusable Components
 └── utils/                # Helper Functions
 
----
-
 # 📋 Fitur Lengkap Aplikasi
 
 ## 👤 Autentikasi & Profil
@@ -307,8 +305,6 @@ lib/
 | Reusable widgets | ✅ |
 | Clean architecture UI | ✅ |
 | Dark mode support | ✅ |
-
----
 
 💻 Cara Menjalankan Proyek
 Prasyarat
