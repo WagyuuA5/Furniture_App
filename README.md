@@ -1,150 +1,296 @@
+# 🛋️ Furniture App — Modern E-Commerce Mobile Application
+
 <div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" width="100" height="100" alt="Flutter Logo"/>
-  <h1 style="color: #0277BD;">🛋️ Furniture App</h1>
-  <p><i>Aplikasi E-commerce Furniture Modern berbasis Flutter</i></p>
-  
-  <!-- Badges -->
+  <br/>
+  <i>A modern Flutter-based furniture e-commerce application</i>
+  <br/><br/>
+
   <img src="https://img.shields.io/badge/Flutter-3.16+-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
   <img src="https://img.shields.io/badge/Dart-3.2+-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart"/>
   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android"/>
-  <img src="https://img.shields.io/badge/FIGMA-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma"/>
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma"/>
   <img src="https://img.shields.io/badge/Mockoon-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Mockoon"/>
   <br/>
-  <img src="https://img.shields.io/badge/Status-Production_Siap_Rilis-brightgreen?style=for-the-badge" alt="Status"/>
+  <img src="https://img.shields.io/badge/Status-Production_Ready-brightgreen?style=for-the-badge" alt="Status"/>
   <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version"/>
-  <img src="https://img.shields.io/github/license/WagyuuA5/Furniture_App?style=for-the-badge" alt="License"/>
+  <img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge" alt="License"/>
 </div>
 
 ---
 
-## 📱 **Tentang Aplikasi**
+## 📖 Table of Contents
 
-**Furniture App** adalah aplikasi e-commerce yang dirancang khusus untuk memenuhi kebutuhan furniture modern. Aplikasi ini memungkinkan pengguna untuk menjelajahi berbagai koleksi furniture, melakukan pembelian, melacak pesanan, dan terhubung langsung dengan penjual.
-
-### 🎯 **Latar Belakang**
-
-Aplikasi ini dikembangkan sebagai **Proyek Akhir** dalam pengembangan aplikasi berbasis Android menggunakan Flutter. Tujuannya adalah menciptakan platform belanja furniture yang seamless, user-friendly, dan terintegrasi dengan baik.
-
----
-
-## 👥 **Tim Pengembang**
-
-| Peran | Nama | Kontribusi |
-|-------|------|-------------|
-| 💻 **Programmer** | **Wahyu Ravi Anggoro** | Pengembangan full-stack Flutter, implementasi UI/UX, logika bisnis, integrasi API, state management, dan deployment |
-| 🎨 **UI/UX Designer** | **Burhan** | Desain antarmuka pengguna di Figma, wireframing, prototyping, user flow, dan design system |
-| 🔧 **Backend Developer** | **Bintang** | Pengembangan dan manajemen API menggunakan Mockoon, endpoint design, data modeling, dan dokumentasi API |
-
-## 👥 **Tim Pengembang**
-
-| Peran | Nama | Tugas & Tanggung Jawab |
-|-------|------|------------------------|
-| 💻 **Programmer** | **WAHYU** | • Pengembangan Full-stack Flutter<br>• Implementasi UI/UX ke kode<br>• State Management (Provider)<br>• Integrasi API ke Frontend<br>• Deployment dan debugging |
-| 🎨 **UI/UX Designer** | **BURHAN** | • Desain antarmuka di Figma<br>• Wireframing & prototyping<br>• User flow & design system<br>• Asset export (gambar, icon)<br>• Dokumentasi desain |
-| 🔧 **Backend Developer** | **BINTANG** | • Pengembangan API dengan Mockoon<br>• Endpoint design & data modeling<br>• Response API documentation<br>• Testing endpoint & validasi data |
-
----
-### **📊 Alur Kolaborasi Tim**
-
-### **🔧 Pembagian Tugas Detail**
-
-| Tugas | Wahyu | Burhan | Bintang |
-|-------|:-----:|:------:|:-------:|
-| Desain UI/UX (Figma) | - | ✅ | - |
-| Asset & Gambar | - | ✅ | - |
-| Frontend Flutter | ✅ | - | - |
-| State Management | ✅ | - | - |
-| API Endpoint | - | - | ✅ |
-| Dokumentasi API | - | - | ✅ |
-| Integrasi API ke App | ✅ | - | - |
-| Testing & Debugging | ✅ | - | ✅ |
-| Deployment | ✅ | - | - |
-| Laporan Proyek | ✅ | ✅ | ✅ |
+- [About the App](#-about-the-app)
+- [Development Team](#-development-team)
+- [Task Distribution](#-task-distribution)
+- [App Design (Figma)](#-app-design-figma-by-burhan)
+- [Key Features](#-key-features)
+- [Full Feature List](#-full-feature-list)
+- [Tech Stack & Architecture](#️-tech-stack--architecture)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [App Demo & Flow](#-app-demo--flow)
+- [Development Progress](#-development-progress)
+- [Project Achievements](#-project-achievements)
+- [Team Contact](#-team-contact)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-### **🎯 Hasil Kolaborasi**
+## 📱 About the App
 
-| Tahap | Output | Penanggung Jawab |
-|-------|--------|------------------|
-| 1. Desain | Mockup & Prototype Figma | Burhan |
+**Furniture App** is a full-featured mobile e-commerce application purpose-built for the modern furniture shopping experience. It enables users to browse curated furniture collections, manage purchases, track orders in real time, and communicate directly with sellers — all within a clean, premium interface.
+
+### 🎯 Background
+
+This application was developed as the **Final Project** for Android-based mobile application development using Flutter. The goal was to create a seamless, user-friendly, and well-integrated furniture shopping platform — from design prototype to production-ready APK.
+
+> *"Discover the perfect balance between savings and style."*
+
+---
+
+## 👥 Development Team
+
+| Role | Name | Responsibilities |
+|------|------|-----------------|
+| 💻 **Programmer** | **Wahyu Ravi Anggoro** | Full-stack Flutter development, UI/UX implementation, business logic, API integration, state management, and deployment |
+| 🎨 **UI/UX Designer** | **Burhan** | Interface design in Figma, wireframing, prototyping, user flow mapping, and design system creation |
+| 🔧 **Backend Developer** | **Bintang** | API development and management via Mockoon, endpoint design, data modeling, and API documentation |
+
+---
+
+## 📊 Task Distribution
+
+### Detailed Responsibilities
+
+| Task | Wahyu | Burhan | Bintang |
+|------|:-----:|:------:|:-------:|
+| UI/UX Design (Figma) | — | ✅ | — |
+| Assets & Imagery | — | ✅ | — |
+| Flutter Frontend | ✅ | — | — |
+| State Management | ✅ | — | — |
+| API Endpoints | — | — | ✅ |
+| API Documentation | — | — | ✅ |
+| API Integration (App) | ✅ | — | — |
+| Testing & Debugging | ✅ | — | ✅ |
+| Deployment | ✅ | — | — |
+| Project Report | ✅ | ✅ | ✅ |
+
+### Collaboration Workflow
+
+| Phase | Output | Owner |
+|-------|--------|-------|
+| 1. Design | Figma Mockups & Prototype | Burhan |
 | 2. Backend | RESTful API (Mockoon) | Bintang |
-| 3. Frontend | Aplikasi Flutter | Wahyu |
-| 4. Integrasi | App terhubung API | Wahyu + Bintang |
-| 5. Final | APK siap rilis | Tim |
+| 3. Frontend | Flutter Application | Wahyu |
+| 4. Integration | App connected to API | Wahyu + Bintang |
+| 5. Final | Production-ready APK | Full Team |
 
-## 🎨 **Desain Aplikasi (Figma by Burhan)**
+---
 
-Berikut adalah hasil desain UI/UX yang dibuat oleh **Burhan** menggunakan Figma:
+## 🎨 App Design (Figma by Burhan)
 
-### **📱 Halaman Utama**
+The following UI/UX screens were designed by **Burhan** using Figma:
+
+### 📱 Onboarding Screens
 
 <div align="center">
-  <p align="center">
   <img src="assets/images/onboarding_1.png" height="420"/>
   <img src="assets/images/onboarding_2.png" height="420"/>
   <img src="https://github.com/user-attachments/assets/5f155107-9e7a-4cfd-b612-2910d7553bbe" height="420"/>
-</p>
-
-
 </div>
 
-> *Tampilan onboarding yang menarik dengan visual furniture yang elegan*
-
-### **✨ Fitur Unggulan**
-
-<div align="center">
-
-| **Get the Best Furniture Deals** | **Furnisher: Details & Stylish Styles** |
-|:-------------------------------:|:----------------------------------------:|
-| Discover the perfect balance between savings and style! | Dive into the finer details of each product |
-
-| **Save Your Favorites** | **Effortless Shopping Experience** |
-|:----------------------:|:----------------------------------:|
-| Curate your very own furniture haven effortlessly | Simplify your shopping journey |
-
-| **Stay Updated on Your Orders** | **Connect with Furniture Experts** |
-|:------------------------------:|:----------------------------------:|
-| Stay connected with order status at every step | Direct chat with shop owner |
-
-</div>
+> *An elegant onboarding experience featuring rich furniture visuals and a clean design language*
 
 ---
 
-## 🛠️ **Teknologi yang Digunakan**
+## ✨ Key Features
 
-### **Frontend (Wahyu)**
+| Feature | Description |
+|---------|-------------|
+| 🏷️ **Best Furniture Deals** | Discover the perfect balance between savings and style |
+| 🪑 **Product Details** | Dive into specifications, styles, and detailed product information |
+| ❤️ **Wishlist / Favorites** | Save and curate your personal furniture collection effortlessly |
+| 🛒 **Effortless Shopping** | A streamlined cart and checkout experience from browse to payment |
+| 📦 **Order Tracking** | Stay updated on order status at every stage of delivery |
+| 💬 **Seller Chat** | Direct in-app communication with furniture shop owners |
+
+---
+
+## 📋 Full Feature List
+
+### 👤 Authentication & Profile
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Modern splash screen | ✅ |
+| 2 | Interactive onboarding screens | ✅ |
+| 3 | User login | ✅ |
+| 4 | User registration | ✅ |
+| 5 | Authentication form validation | ✅ |
+| 6 | Account logout | ✅ |
+| 7 | Edit user profile | ✅ |
+| 8 | Profile photo upload | ✅ |
+| 9 | Address management | ✅ |
+| 10 | Privacy policy page | ✅ |
+| 11 | App settings | ✅ |
+| 12 | Dark mode support | ✅ |
+
+### 🛍️ Shopping & Products
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Product catalog | ✅ |
+| 2 | Category browsing (Sofa, Chair, Lamp, Cupboard) | ✅ |
+| 3 | Product search | ✅ |
+| 4 | Full product detail view | ✅ |
+| 5 | Product descriptions | ✅ |
+| 6 | Pricing & discount display | ✅ |
+| 7 | Product ratings & reviews | ✅ |
+| 8 | Flash sale section | ✅ |
+| 9 | Popular products section | ✅ |
+| 10 | Latest products section | ✅ |
+| 11 | Wishlist / favorites | ✅ |
+| 12 | Product filtering | ✅ |
+| 13 | Responsive product grid | ✅ |
+
+### 🛒 Cart & Checkout
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Add product to cart | ✅ |
+| 2 | Remove product from cart | ✅ |
+| 3 | Update product quantity | ✅ |
+| 4 | Cart management | ✅ |
+| 5 | Subtotal summary | ✅ |
+| 6 | Delivery fee calculation | ✅ |
+| 7 | Discount coupon system | ✅ |
+| 8 | Automatic total calculation | ✅ |
+| 9 | Shipping method selection | ✅ |
+| 10 | Payment method selection | ✅ |
+| 11 | Checkout process | ✅ |
+| 12 | Checkout validation | ✅ |
+
+### 💳 Payment
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Cash on Delivery (COD) | ✅ |
+| 2 | Bank transfer payment | ✅ |
+| 3 | E-wallet payment | ✅ |
+| 4 | Payment summary | ✅ |
+| 5 | Payment status tracking | ✅ |
+| 6 | Transaction invoice | ✅ |
+| 7 | Payment confirmation | ✅ |
+
+### 📦 Order Tracking
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Order status tracking | ✅ |
+| 2 | Automatic tracking ID generation | ✅ |
+| 3 | Estimated delivery time | ✅ |
+| 4 | Order timeline | ✅ |
+| 5 | Real-time status updates | ✅ |
+| 6 | Delivery address details | ✅ |
+| 7 | Order history | ✅ |
+
+#### 📌 Order Timeline Example
+
+| # | Stage | Time | Status |
+|---|-------|------|--------|
+| 1 | Order Placed | 23 Sep 2023, 04:15 PM | ✅ |
+| 2 | In Progress | 23 Sep 2023, 05:14 PM | ✅ |
+| 3 | Shipped | 23 Sep 2023, 06:15 PM | ✅ |
+| 4 | Delivered | 23 Sep 2023, 07:15 PM | ✅ |
+
+### 💬 Communication & Support
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Chat with seller | ✅ |
+| 2 | Direct conversation interface | ✅ |
+| 3 | Help center | ✅ |
+| 4 | Customer support | ✅ |
+| 5 | FAQ section | ✅ |
+| 6 | Message notifications | ✅ |
+
+### 🔔 Notifications
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Order notifications | ✅ |
+| 2 | Payment notifications | ✅ |
+| 3 | Promotional notifications | ✅ |
+| 4 | Flash sale notifications | ✅ |
+| 5 | Push notification UI | ✅ |
+
+### 🎨 UI/UX Premium
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Material 3 Design System | ✅ |
+| 2 | Custom animations | ✅ |
+| 3 | Smooth screen transitions | ✅ |
+| 4 | Responsive mobile layout | ✅ |
+| 5 | Modern UI design | ✅ |
+| 6 | Consistent color system | ✅ |
+| 7 | Reusable widget components | ✅ |
+| 8 | Clean architecture UI | ✅ |
+| 9 | Dark mode support | ✅ |
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+### Frontend — Wahyu Ravi Anggoro
+
 ```yaml
-Framework:  Flutter 3.16+
-Language:   Dart 3.2+
+Framework:        Flutter 3.16+
+Language:         Dart 3.2+
 State Management: Provider
-Navigation: GetX / Navigator 2.0
-HTTP Client: Dio
-Local Storage: Shared Preferences
-UI Components: Material 3 Design
+Navigation:       GetX / Navigator 2.0
+HTTP Client:      Dio
+Local Storage:    Shared Preferences
+UI Components:    Material 3 Design
+```
 
-Design Tool: Figma
+### UI/UX Design — Burhan
+
+```yaml
+Design Tool:   Figma
 Asset Creation: Adobe Illustrator
-Prototyping: Figma Mirror
+Prototyping:   Figma Mirror
 Design System: Custom Components
 Color Palette: Earth Tones + Modern Accent
+```
 
+### Backend / API — Bintang
 
-API Tool: Mockoon
-Endpoints: RESTful API
+```yaml
+API Tool:   Mockoon
+Endpoints:  RESTful API
 Data Format: JSON
-Base URL: http://localhost:3000
-Endpoints Created: 
+Base URL:   http://localhost:3000
+
+Available Endpoints:
   - /api/products
   - /api/categories
   - /api/cart
   - /api/orders
   - /api/user
   - /api/auth
+```
 
-📂 Arsitektur Aplikasi
+---
+
+## 📂 Project Structure
+
+```
 lib/
-├── screens/              # 20+ Halaman UI
+├── screens/               # 20+ UI screens
 │   ├── onboarding_screen.dart
 │   ├── login_screen.dart
 │   ├── home_screen.dart
@@ -153,291 +299,183 @@ lib/
 │   ├── profile_screen.dart
 │   ├── product_detail_screen.dart
 │   └── ...
-├── providers/            # State Management
+├── providers/             # State management
 │   ├── auth_provider.dart
 │   ├── cart_provider.dart
 │   ├── product_provider.dart
 │   └── checkout_provider.dart
-├── services/             # API Services (Modular)
-│   ├── api_client.dart   # HTTP client wrapper
-│   ├── api_config.dart   # Endpoint configuration
+├── services/              # Modular API services
+│   ├── api_client.dart    # HTTP client wrapper
+│   ├── api_config.dart    # Endpoint configuration
 │   ├── auth_service.dart
 │   ├── cart_service.dart
 │   ├── product_service.dart
 │   ├── order_service.dart
 │   └── user_service.dart
-├── models/               # Data Models
+├── models/                # Data models
 │   ├── product.dart
 │   ├── category.dart
 │   ├── cart.dart
 │   └── order.dart
-├── widgets/              # Reusable Components
-└── utils/                # Helper Functions
-
-# 📋 Fitur Lengkap Aplikasi 
-
-# 👤 Autentikasi & Profil
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Splash screen modern | ✅ |
-| 2 | Onboarding screen interaktif | ✅ |
-| 3 | Login pengguna | ✅ |
-| 4 | Register pengguna | ✅ |
-| 5 | Validasi form autentikasi | ✅ |
-| 6 | Logout akun | ✅ |
-| 7 | Edit profil pengguna | ✅ |
-| 8 | Upload foto profil | ✅ |
-| 9 | Manajemen alamat pengguna | ✅ |
-| 10 | Privacy policy | ✅ |
-| 11 | Settings aplikasi | ✅ |
-| 12 | Dark mode support | ✅ |
+├── widgets/               # Reusable UI components
+└── utils/                 # Helper functions
+```
 
 ---
 
-## 🛍️ Belanja & Produk
+## 🚀 Getting Started
 
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Katalog produk | ✅ |
-| 2 | Kategori produk (Sofa, Chair, Lamp, Cupboard) | ✅ |
-| 3 | Pencarian produk | ✅ |
-| 4 | Detail produk lengkap | ✅ |
-| 5 | Deskripsi produk | ✅ |
-| 6 | Harga & diskon produk | ✅ |
-| 7 | Rating & review produk | ✅ |
-| 8 | Flash sale produk | ✅ |
-| 9 | Produk populer | ✅ |
-| 10 | Produk terbaru | ✅ |
-| 11 | Favorite / wishlist produk | ✅ |
-| 12 | Filter produk | ✅ |
-| 13 | Responsive grid product | ✅ |
+### Prerequisites
 
----
+| # | Requirement |
+|---|-------------|
+| 1 | [Flutter SDK ≥ 3.16](https://flutter.dev/docs/get-started/install) |
+| 2 | Android Studio or VS Code |
+| 3 | Android emulator or physical device |
+| 4 | [Mockoon](https://mockoon.com/) for API simulation |
 
-## 🛒 Keranjang & Checkout
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Tambah produk ke keranjang | ✅ |
-| 2 | Hapus produk dari keranjang | ✅ |
-| 3 | Update quantity produk | ✅ |
-| 4 | Manajemen keranjang belanja | ✅ |
-| 5 | Ringkasan subtotal | ✅ |
-| 6 | Perhitungan delivery fee | ✅ |
-| 7 | Sistem kupon diskon | ✅ |
-| 8 | Perhitungan total otomatis | ✅ |
-| 9 | Pilih metode pengiriman | ✅ |
-| 10 | Pilih metode pembayaran | ✅ |
-| 11 | Checkout produk | ✅ |
-| 12 | Validasi checkout | ✅ |
-
----
-
-## 💳 Pembayaran
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Pembayaran COD | ✅ |
-| 2 | Pembayaran transfer bank | ✅ |
-| 3 | Pembayaran e-wallet | ✅ |
-| 4 | Ringkasan pembayaran | ✅ |
-| 5 | Status pembayaran | ✅ |
-| 6 | Invoice transaksi | ✅ |
-| 7 | Konfirmasi pembayaran | ✅ |
-
----
-
-## 📦 Tracking Order
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Tracking status pesanan | ✅ |
-| 2 | Tracking ID otomatis | ✅ |
-| 3 | Estimasi pengiriman | ✅ |
-| 4 | Timeline pesanan | ✅ |
-| 5 | Status real-time | ✅ |
-| 6 | Detail alamat pengiriman | ✅ |
-| 7 | Riwayat pesanan | ✅ |
-
-### 📌 Timeline Pesanan
-
-| No | Tahap | Waktu | Status |
-|----|-------|----------------------|--------|
-| 1 | Online Place | 23 Sep 2023, 04:15 PM | ✅ |
-| 2 | In Progress | 23 Sep 2023, 05:14 PM | ✅ |
-| 3 | Shipped | 23 Sep 2023, 06:15 PM | ✅ |
-| 4 | Delivered | 23 Sep 2023, 07:15 PM | ✅ |
-
----
-
-## 💬 Komunikasi & Support
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Chat dengan seller | ✅ |
-| 2 | Direct conversation | ✅ |
-| 3 | Help center | ✅ |
-| 4 | Customer support | ✅ |
-| 5 | FAQ section | ✅ |
-| 6 | Notifikasi pesan | ✅ |
-
----
-
-## 🔔 Notifikasi
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Notifikasi pesanan | ✅ |
-| 2 | Notifikasi pembayaran | ✅ |
-| 3 | Notifikasi promo | ✅ |
-| 4 | Notifikasi flash sale | ✅ |
-| 5 | Push notification UI | ✅ |
-
----
-
-## 🎨 UI/UX Premium
-
-| No | Fitur | Status |
-|----|-------|--------|
-| 1 | Material 3 Design | ✅ |
-| 2 | Custom animation | ✅ |
-| 3 | Smooth transition | ✅ |
-| 4 | Responsive mobile layout | ✅ |
-| 5 | Modern UI design | ✅ |
-| 6 | Consistent color system | ✅ |
-| 7 | Reusable widgets | ✅ |
-| 8 | Clean architecture UI | ✅ |
-| 9 | Dark mode support | ✅ |
-
----
-
-# 💻 Cara Menjalankan Proyek
-
-## Prasyarat
-
-| No | Persyaratan |
-|----|-------------|
-| 1 | Flutter SDK (≥3.16) - https://flutter.dev/docs/get-started/install |
-| 2 | Android Studio / VS Code |
-| 3 | Emulator Android atau device fisik |
-
-## Langkah Instalasi
+### Installation
 
 ```bash
-# 1. Clone repository
+# 1. Clone the repository
 git clone https://github.com/WagyuuA5/Furniture_App.git
 
-# 2. Masuk ke folder project
+# 2. Navigate to the project directory
 cd Furniture_App
 
 # 3. Install dependencies
 flutter pub get
 
-# 4. Jalankan aplikasi
+# 4. Run the application
 flutter run
 
-# 5. Build APK (untuk produksi)
+# 5. Build release APK
 flutter build apk --release
-
-Konfigurasi API (Mockoon)
-No	Langkah	Keterangan
-1	Install Mockoon	https://mockoon.com/
-2	Import file JSON	environment (dari Bintang)
-3	Jalankan Mockoon	di port 3000
-4	Hubungkan	Aplikasi akan terhubung otomatis ke API
-
-# 📊 Demo Aplikasi
-
-```txt
-Splash Screen → Onboarding → Login/Register → Browse Products → Add to Cart →
-Checkout → Payment → Track Order → Chat Seller → Receive Product
 ```
 
+### API Configuration (Mockoon)
+
+| # | Step | Details |
+|---|------|---------|
+| 1 | Install Mockoon | https://mockoon.com/ |
+| 2 | Import JSON environment | Provided by Bintang |
+| 3 | Start Mockoon server | Run on port 3000 |
+| 4 | Launch the app | App connects to API automatically |
+
 ---
 
-# 💰 Contoh Transaksi
+## 🎬 App Demo & Flow
 
-| Item | Harga |
-|---|---|
-| Amir Chahal - Sofa | $160.00 |
+```
+Splash Screen → Onboarding → Login / Register → Browse Products →
+Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive Product
+```
+
+### 💰 Sample Transaction
+
+| Item | Price |
+|------|-------|
+| Amir Chahal — Sofa | $160.00 |
 | Sub-Total | $160.00 |
 | Delivery Fee | $10.00 |
-| Discount (Kupon) | -$20.00 |
-| Total Cost | $150.00 |
+| Discount (Coupon) | -$20.00 |
+| **Total Cost** | **$150.00** |
 
 ---
 
-# 📊 Status Perkembangan
+## 📊 Development Progress
 
-| Modul | Progress | Status |
-|---|---|---|
-| Onboarding | 100% | ✅ Selesai |
-| Autentikasi | 100% | ✅ Selesai |
-| Katalog Produk | 100% | ✅ Selesai |
-| Keranjang | 100% | ✅ Selesai |
-| Checkout | 100% | ✅ Selesai |
-| Pembayaran | 100% | ✅ Selesai |
-| Tracking Order | 100% | ✅ Selesai |
-| Chat | 100% | ✅ Selesai |
-| Profil & Settings | 100% | ✅ Selesai |
-| Dokumentasi | 100% | ✅ Selesai |
-| Keseluruhan Proyek | 100% | ✅ Complete! |
+| Module | Progress | Status |
+|--------|----------|--------|
+| Onboarding | 100% | ✅ Complete |
+| Authentication | 100% | ✅ Complete |
+| Product Catalog | 100% | ✅ Complete |
+| Shopping Cart | 100% | ✅ Complete |
+| Checkout | 100% | ✅ Complete |
+| Payment | 100% | ✅ Complete |
+| Order Tracking | 100% | ✅ Complete |
+| Chat | 100% | ✅ Complete |
+| Profile & Settings | 100% | ✅ Complete |
+| Documentation | 100% | ✅ Complete |
+| **Overall Project** | **100%** | ✅ **Complete** |
 
 ---
 
-# 📸 Screenshots Aplikasi
+## 📸 App Screenshots
 
 <p align="center">
-  <img width="1920" height="1080" alt="furniture_deks" src="https://github.com/user-attachments/assets/dca957fc-ebf9-46e0-a045-716ca4d14ed1" />
-
+  <img width="1920" height="1080" alt="Furniture App Desktop Preview" src="https://github.com/user-attachments/assets/dca957fc-ebf9-46e0-a045-716ca4d14ed1"/>
 </p>
 
 ---
 
-# 🏆 Pencapaian Proyek
+## 🏆 Project Achievements
 
-| No | Pencapaian | Status |
-|---|---|---|
-| 1 | Aplikasi Flutter pertama yang selesai dengan fitur lengkap | ✅ |
-| 2 | Kolaborasi tim 3 orang (programmer + desainer + backend) | ✅ |
-| 3 | Desain Figma profesional oleh Burhan | ✅ |
-| 4 | API Mockoon terintegrasi oleh Bintang | ✅ |
-| 5 | Codebase modular dengan service layer terpisah | ✅ |
-| 6 | State management dengan Provider | ✅ |
-| 7 | 20+ screen dengan navigasi lengkap | ✅ |
-| 8 | Siap rilis ke Google Play Store | ✅ |
+| # | Achievement | Status |
+|---|-------------|--------|
+| 1 | First complete Flutter app with full feature set | ✅ |
+| 2 | Successful 3-person team collaboration (Programmer + Designer + Backend) | ✅ |
+| 3 | Professional Figma design system delivered by Burhan | ✅ |
+| 4 | Fully integrated Mockoon API delivered by Bintang | ✅ |
+| 5 | Modular codebase with a dedicated service layer | ✅ |
+| 6 | State management implemented with Provider | ✅ |
+| 7 | 20+ screens with complete navigation flow | ✅ |
+| 8 | Production-ready APK for Google Play Store | ✅ |
 
 ---
 
-📝 Kesimpulan
-Furniture App adalah bukti nyata kolaborasi sukses antara programmer, desainer, dan backend developer. Aplikasi ini tidak hanya memenuhi kebutuhan fungsional e-commerce furniture tetapi juga memberikan pengalaman pengguna yang premium melalui desain yang indah (Burhan), performa yang optimal (Wahyu), dan backend yang reliable (Bintang).
+## 📝 Conclusion
 
-Proyek ini menjadi portfolio berharga bagi ketiga anggota tim dalam mengembangkan aplikasi berbasis Flutter siap produksi.
+**Furniture App** is a tangible result of successful three-way collaboration between a programmer, a UI/UX designer, and a backend developer. The application not only fulfills the functional requirements of a furniture e-commerce platform but also delivers a premium user experience through beautiful design (Burhan), optimized performance (Wahyu), and a reliable backend layer (Bintang).
 
-# 📞 Kontak Tim
+This project serves as a meaningful portfolio piece for all three team members — demonstrating the ability to ship a production-ready Flutter application from concept to completion.
 
-| Anggota | Peran | GitHub | Email |
-|---|---|---|---|
-| Wahyu Ravi Anggoro | Programmer | @WagyuuA5 | whyuravi.2008@gmail.com |
-| Burhan | UI/UX Designer | @muhammzahh | muhhammzahh@gmail.com |
-| Bintang | Backend Developer | bintangnabil33 | bintangn184@gmail.com |
+---
 
-📄 Lisensi
-Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
+## 📞 Team Contact
 
-<div align="center"> <br/> <sub>Built with ❤️ using Flutter by Tim Furniture App</sub> <br/><br/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/> <br/> <b>Furniture App - Proyek Akhir</b><br/> <i>Discover the perfect balance between savings and style!</i> </div>
+| Member | Role | GitHub | Email |
+|--------|------|--------|-------|
+| **Wahyu Ravi Anggoro** | Programmer | [@WagyuuA5](https://github.com/WagyuuA5) | whyuravi.2008@gmail.com |
+| **Burhan** | UI/UX Designer | [@muhammzahh](https://github.com/muhammzahh) | muhhammzahh@gmail.com |
+| **Bintang** | Backend Developer | [@bintangnabil33](https://github.com/bintangnabil33) | bintangn184@gmail.com |
 
-📤 Cara Upload README ke GitHub
-1. Simpan kode di atas ke file `README.md` (di root project)
+---
 
-2. Tambahkan ke Git
-   ```bash
-   git add README.md
+## 👤 Author
 
-3. commit
-git commit -m "Add professional README with team documentation"
+**Wahyu Ravi Anggoro** — [@WagyuuA5](https://github.com/WagyuuA5)
+Student at **SMK Telkom Malang** · 2026
 
-4. Push ke GitHub
-git push origin main
+---
 
+## 📄 License
+
+Copyright © 2026 **Wahyu Ravi Anggoro**. All rights reserved.
+
+This project is licensed under the **Apache License, Version 2.0** (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+---
+
+<div align="center">
+  <br/>
+  <sub>Built with ❤️ using Flutter by the Furniture App Team</sub>
+  <br/><br/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/>
+  <br/><br/>
+  <b>Furniture App — Final Project · SMK Telkom Malang · 2026</b>
+  <br/>
+  <i>Wahyu Ravi Anggoro &nbsp;·&nbsp; Burhan &nbsp;·&nbsp; Bintang</i>
+</div>
