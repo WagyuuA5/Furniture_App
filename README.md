@@ -94,7 +94,7 @@ This application was developed as the **Final Project** for Android-based mobile
 
 The following UI/UX screens were designed by **Burhan** using Figma:
 
-### 📱 Onboarding Screens
+### 📱 Screenshoot
 
 <div align="center">
   <img src="assets/images/onboarding_1.png" height="420"/>
@@ -286,40 +286,6 @@ Available Endpoints:
 
 ---
 
-## 📂 Project Structure
-
-```
-lib/
-├── screens/               # 20+ UI screens
-│   ├── onboarding_screen.dart
-│   ├── login_screen.dart
-│   ├── home_screen.dart
-│   ├── cart_screen.dart
-│   ├── checkout_screen.dart
-│   ├── profile_screen.dart
-│   ├── product_detail_screen.dart
-│   └── ...
-├── providers/             # State management
-│   ├── auth_provider.dart
-│   ├── cart_provider.dart
-│   ├── product_provider.dart
-│   └── checkout_provider.dart
-├── services/              # Modular API services
-│   ├── api_client.dart    # HTTP client wrapper
-│   ├── api_config.dart    # Endpoint configuration
-│   ├── auth_service.dart
-│   ├── cart_service.dart
-│   ├── product_service.dart
-│   ├── order_service.dart
-│   └── user_service.dart
-├── models/                # Data models
-│   ├── product.dart
-│   ├── category.dart
-│   ├── cart.dart
-│   └── order.dart
-├── widgets/               # Reusable UI components
-└── utils/                 # Helper functions
-```
 
 ---
 
