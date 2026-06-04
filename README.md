@@ -1,7 +1,7 @@
 # 🛋️ Furniture App — Modern E-Commerce Mobile Application
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" width="100" height="100" alt="Flutter Logo"/>
+ 
   <br/>
   <i>A modern Flutter-based furniture e-commerce application</i>
   <br/><br/>
@@ -28,7 +28,6 @@
 - [Key Features](#-key-features)
 - [Full Feature List](#-full-feature-list)
 - [Tech Stack & Architecture](#️-tech-stack--architecture)
-- [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
 - [App Demo & Flow](#-app-demo--flow)
 - [Development Progress](#-development-progress)
