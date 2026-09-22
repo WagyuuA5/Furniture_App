@@ -43,3 +43,19 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# AI Agents and Tools
+.claude/
+.cursor/
+.aider*
+.cache/
+
+# OS & IDE
+Thumbs.db
+.vscode/
+.idea/
+
+# Flutter generated
+.flutter-plugins*
+build/
+.dart_tool/
