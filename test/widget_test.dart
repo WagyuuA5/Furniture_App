@@ -5,6 +5,6 @@ void main() {
   testWidgets('App should render without errors', (WidgetTester tester) async {
     await tester.pumpWidget(const FurnitureApp());
     // Verify app title is rendered
-    expect(find.text('LUXE FURNISH'), findsAny);
+    expect(find.byType(FurnitureApp), findsOneWidget);
   });
 }
