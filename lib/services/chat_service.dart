@@ -152,6 +152,14 @@ class ChatService {
     _chatListCtrl.add(_chatList);
   }
 
+  void deleteChat(String chatId) {
+    _chatList.removeWhere((c) => c.id == chatId);
+    _chatListCtrl.add(_chatList);
+    _messages.remove(chatId);
+    _controllers[chatId]?.close();
+    _controllers.remove(chatId);
+  }
+
   void dispose() {
     for (final ctrl in _controllers.values) {
       ctrl.close();

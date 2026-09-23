@@ -2,10 +2,22 @@
 // Bubble pesan — teks & gambar, kanan (saya) & kiri (lawan)
 
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../models/message_model.dart';
 import '../utils/constants.dart';
+
+
+Widget _buildSmartImage(String path, {double? width, double? height, BoxFit? fit, Widget Function(BuildContext, Object, StackTrace?)? errorBuilder, Widget Function(BuildContext, Widget, ImageChunkEvent?)? loadingBuilder}) {
+  if (path.startsWith('http')) {
+    return Image.network(path, width: width, height: height, fit: fit, errorBuilder: errorBuilder, loadingBuilder: loadingBuilder);
+  } else if (path.startsWith('assets/')) {
+    return Image.asset(path, width: width, height: height, fit: fit, errorBuilder: errorBuilder);
+  } else {
+    return Image.file(File(path), width: width, height: height, fit: fit, errorBuilder: errorBuilder);
+  }
+}
 
 class ChatBubble extends StatelessWidget {
   final MessageModel message;
@@ -105,7 +117,7 @@ class ChatBubble extends StatelessWidget {
       onTap: () => _openFullscreen(context),
       child: ClipRRect(
         borderRadius: isMe ? ChatRadius.bubbleMe : ChatRadius.bubbleOther,
-        child: Image.network(
+        child: _buildSmartImage(
           message.content,
           width: 200,
           height: 200,
@@ -238,7 +250,7 @@ class _FullscreenImage extends StatelessWidget {
       ),
       body: Center(
         child: InteractiveViewer(
-          child: Image.network(
+          child: _buildSmartImage(
             url,
             fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => const Icon(

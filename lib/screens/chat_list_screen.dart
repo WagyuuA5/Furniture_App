@@ -76,9 +76,22 @@ class _ChatListScreenState extends State<ChatListScreen> {
                       height: 1,
                       indent: 80,
                       color: Color(0xFFF0F0F0)),
-                  itemBuilder: (_, i) => _ChatTile(
-                    chat: list[i],
-                    onTap: () => _openChat(list[i]),
+                  itemBuilder: (_, i) => Dismissible(
+                    key: Key(list[i].id),
+                    direction: DismissDirection.endToStart,
+                    background: Container(
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20),
+                      color: Colors.red,
+                      child: const Icon(Icons.delete, color: Colors.white),
+                    ),
+                    onDismissed: (_) {
+                      _chatSvc.deleteChat(list[i].id);
+                    },
+                    child: _ChatTile(
+                      chat: list[i],
+                      onTap: () => _openChat(list[i]),
+                    ),
                   ),
                 );
               },
