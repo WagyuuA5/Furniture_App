@@ -63,6 +63,14 @@ class CheckoutProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeAddress(String id) {
+    _addresses.removeWhere((a) => a.id == id);
+    if (_selectedAddress.id == id && _addresses.isNotEmpty) {
+      _selectedAddress = _addresses.first;
+    }
+    notifyListeners();
+  }
+
   // ── Shipping actions ───────────────────────────────────────────
   void selectShipping(ShippingMethod method) {
     _selectedShipping = method;
