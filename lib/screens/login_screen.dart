@@ -276,7 +276,7 @@ class _LoginScreenState extends State<LoginScreen>
                           borderRadius: BorderRadius.circular(AppRadius.button),
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.darkTeal.withOpacity(0.35),
+                              color: AppColors.darkTeal.withValues(alpha: 0.35),
                               blurRadius: 18,
                               offset: const Offset(0, 8),
                             ),
@@ -418,7 +418,7 @@ class _InputField extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: Colors.black.withValues(alpha: 0.05),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -482,7 +482,7 @@ class _SocialButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),

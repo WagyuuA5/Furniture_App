@@ -129,7 +129,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                             borderRadius: BorderRadius.circular(14),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
+                                color: Colors.black.withValues(alpha: 0.05),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -143,7 +143,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                 Container(
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
-                                    color: _primary.withOpacity(0.1),
+                                    color: _primary.withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Icon(_getIconForLabel(addr.label),
@@ -185,7 +185,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                       child: Container(
                                         padding: const EdgeInsets.all(6),
                                         decoration: BoxDecoration(
-                                          color: _primary.withOpacity(0.1),
+                                          color: _primary.withValues(alpha: 0.1),
                                           borderRadius:
                                               BorderRadius.circular(6),
                                         ),
@@ -200,7 +200,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                         padding: const EdgeInsets.all(6),
                                         decoration: BoxDecoration(
                                           color:
-                                              Colors.red.withOpacity(0.1),
+                                              Colors.red.withValues(alpha: 0.1),
                                           borderRadius:
                                               BorderRadius.circular(6),
                                         ),

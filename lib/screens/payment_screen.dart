@@ -83,9 +83,12 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         name: ci.name,
         category: ci.category,
         imageUrl: ci.imageUrl,
-        price: ci.price,
-        quantity: ci.quantity,
+        harga: ci.price.toInt(),
+        jumlah: ci.quantity,
       )).toList(),
+      orderDate: DateTime.now(),
+      promoCode: _discCtrl.text,
+      shippingType: 'Reguler',
       subtotal: checkout.subtotal,
       shippingFee: checkout.shippingCost - checkout.shippingDiscount + checkout.serviceFee,
       discount: checkout.discount,
@@ -136,7 +139,56 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           MaterialPageRoute(builder: (_) => SuccessScreen(orderSummary: orderSummary)));
     }
   }
+
+
+  @override
+  Widget build(BuildContext context) {
+    final checkout = context.watch<CheckoutProvider>();
+    return Scaffold(
+      backgroundColor: _C.bg,
+      appBar: _appBar(context),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (checkout.selectedAddress != null) ...[
+              _buildUserInfo(checkout.selectedAddress!),
+              const SizedBox(height: 24),
+            ],
+            _buildDiskonField(checkout.subtotal),
+            const SizedBox(height: 24),
+            _buildRingkasan(checkout.subtotal, checkout.grandTotal),
+            const SizedBox(height: 24),
+            const Text('Pilih Metode Pembayaran',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: _C.textPri)),
+            const SizedBox(height: 12),
+            _buildPaymentMethods(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          color: _C.surface,
+          border: Border(top: BorderSide(color: _C.divider)),
+        ),
+        child: ElevatedButton(
+          onPressed: _isProcessing ? null : () => _onProses(context, checkout),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: _C.teal,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+          child: _isProcessing 
+            ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+            : const Text('Bayar Sekarang', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+        ),
+      ),
+    );
   }
+
 
   // ── AppBar ─────────────────────────────────────────────────────────────────
   PreferredSizeWidget _appBar(BuildContext context) => AppBar(
@@ -208,7 +260,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           color: _C.surface,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: hasDiskon ? _C.teal.withOpacity(0.5) : _C.divider,
+            color: hasDiskon ? _C.teal.withValues(alpha: 0.5) : _C.divider,
           ),
         ),
         child: Row(

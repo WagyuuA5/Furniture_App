@@ -91,7 +91,7 @@ class _BankSelectionScreenState extends State<BankSelectionScreen> {
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 12,
                             offset: const Offset(0, 2),
                           ),
@@ -146,7 +146,7 @@ class _BankSelectionScreenState extends State<BankSelectionScreen> {
                           color: const Color(0xFFE8F4ED),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                              color: _C.accent.withOpacity(0.3)),
+                              color: _C.accent.withValues(alpha: 0.3)),
                         ),
                         child: Row(
                           children: [
@@ -211,7 +211,7 @@ class _BankSelectionScreenState extends State<BankSelectionScreen> {
         color: _C.surface,
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 16,
               offset: const Offset(0, -4))
         ],

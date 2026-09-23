@@ -242,7 +242,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         color: ChatColors.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -337,7 +337,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         children: [
           Icon(Icons.chat_bubble_outline_rounded,
               size: 56,
-              color: ChatColors.textSec.withOpacity(0.3)),
+              color: ChatColors.textSec.withValues(alpha: 0.3)),
           const SizedBox(height: 12),
           Text(
             'Mulai percakapan dengan\n${widget.chat.userName}',

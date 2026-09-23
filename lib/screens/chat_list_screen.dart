@@ -14,7 +14,7 @@ import 'package:intl/intl.dart';
 import '../models/chat_model.dart';
 import '../services/chat_service.dart';
 import '../services/notification_service.dart';
-import '../utils/constants.dart';
+import '../utils/constants.dart' hide AppColors;
 import 'chat_detail_screen.dart';
 import 'notifications_screen.dart';
 
@@ -239,7 +239,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
         children: [
           Icon(Icons.chat_bubble_outline_rounded,
               size: 56,
-              color: AppColors.textSecondary.withOpacity(0.3)),
+              color: AppColors.textSecondary.withValues(alpha: 0.3)),
           const SizedBox(height: 12),
           Text(
             _query.isEmpty ? 'Belum ada percakapan' : 'Tidak ditemukan',

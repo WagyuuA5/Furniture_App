@@ -255,7 +255,7 @@ class _SearchScreenState extends State<SearchScreen>
           children: [
             Icon(Icons.search_off_rounded,
                 size: 56,
-                color: AppColors.textSecondary.withOpacity(0.4)),
+                color: AppColors.textSecondary.withValues(alpha: 0.4)),
             const SizedBox(height: 16),
             Text('Tidak ditemukan',
                 style: GoogleFonts.poppins(
@@ -474,7 +474,7 @@ class _DistributorRow extends StatelessWidget {
         border: Border.all(color: AppColors.divider),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 2))
         ],

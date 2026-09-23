@@ -20,12 +20,12 @@ class OnboardingData {
 // ══════════════════════════════════════════════
 //  2. COLOR PALETTE & TYPOGRAPHY
 // ══════════════════════════════════════════════
-class AppColors {
+class OnboardingColors {
   static const teal = Color(0xFF3E5F5A);
   static const tealLight = Color(0xFF547A74);
   static const tealSurface = Color(0xFFEAF2F1);
   static const white = Color(0xFFF8F8F8);
-  static const cardWhite = AppColors.white;
+  static const cardWhite = OnboardingColors.white;
   static const lightGray = Color(0xFFEDEDED);
   static const mediumGray = Color(0xFFB8B8B8);
   static const textDark = Color(0xFF2D2D2D);
@@ -38,7 +38,7 @@ TextStyle _h1() => const TextStyle(
   fontFamily: 'Poppins',
   fontSize: 26,
   fontWeight: FontWeight.w700,
-  color: AppColors.textDark,
+  color: OnboardingColors.textDark,
   height: 1.3,
 );
 
@@ -46,11 +46,11 @@ TextStyle _body() => const TextStyle(
   fontFamily: 'Poppins',
   fontSize: 14,
   fontWeight: FontWeight.w400,
-  color: AppColors.textMuted,
+  color: OnboardingColors.textMuted,
   height: 1.6,
 );
 
-TextStyle _label({Color color = AppColors.textDark, double size = 12}) =>
+TextStyle _label({Color color = OnboardingColors.textDark, double size = 12}) =>
     TextStyle(
       fontFamily: 'Poppins',
       fontSize: size,
@@ -174,7 +174,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     final page = _pages[_currentPage];
 
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: OnboardingColors.white,
       body: Stack(
         children: [
           // Background circles
@@ -186,7 +186,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               height: 220,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.teal.withOpacity(0.05),
+                color: OnboardingColors.teal.withValues(alpha: 0.05),
               ),
             ),
           ),
@@ -198,7 +198,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               height: 140,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.teal.withOpacity(0.04),
+                color: OnboardingColors.teal.withValues(alpha: 0.04),
               ),
             ),
           ),
@@ -224,7 +224,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                       ),
                       child: Text(
                         'Skip',
-                        style: _label(color: AppColors.textMuted, size: 14),
+                        style: _label(color: OnboardingColors.textMuted, size: 14),
                       ),
                     ),
                   ),
@@ -293,7 +293,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                           filled: false,
                           child: const Icon(
                             Icons.arrow_back_rounded,
-                            color: AppColors.teal,
+                            color: OnboardingColors.teal,
                             size: 20,
                           ),
                         ),
@@ -332,12 +332,12 @@ class _OnboardingImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(32),
         boxShadow: [
           BoxShadow(
-            color: AppColors.teal.withOpacity(0.18),
+            color: OnboardingColors.teal.withValues(alpha: 0.18),
             blurRadius: 40,
             offset: const Offset(0, 20),
           ),
           BoxShadow(
-            color: Colors.black.withOpacity(0.07),
+            color: Colors.black.withValues(alpha: 0.07),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -355,7 +355,7 @@ class _OnboardingImage extends StatelessWidget {
               width: 300,
               height: 300,
               decoration: BoxDecoration(
-                color: AppColors.tealSurface,
+                color: OnboardingColors.tealSurface,
                 borderRadius: BorderRadius.circular(32),
               ),
               child: Column(
@@ -363,14 +363,14 @@ class _OnboardingImage extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.image_search_rounded,
-                    color: AppColors.teal,
+                    color: OnboardingColors.teal,
                     size: 56,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     'Gambar tidak ditemukan\n$imagePath',
                     textAlign: TextAlign.center,
-                    style: _label(color: AppColors.textMuted, size: 11),
+                    style: _label(color: OnboardingColors.textMuted, size: 11),
                   ),
                 ],
               ),
@@ -403,7 +403,7 @@ class _CustomIndicator extends StatelessWidget {
           width: isActive ? 24 : 7,
           height: 7,
           decoration: BoxDecoration(
-            color: isActive ? AppColors.teal : AppColors.mediumGray,
+            color: isActive ? OnboardingColors.teal : OnboardingColors.mediumGray,
             borderRadius: BorderRadius.circular(4),
           ),
         );
@@ -466,11 +466,11 @@ class _AnimatedNextButtonState extends State<_AnimatedNextButton>
           width: 52,
           height: 52,
           decoration: BoxDecoration(
-            color: AppColors.teal,
+            color: OnboardingColors.teal,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: AppColors.teal.withOpacity(0.35),
+                color: OnboardingColors.teal.withValues(alpha: 0.35),
                 blurRadius: 16,
                 offset: const Offset(0, 6),
               ),
@@ -508,13 +508,13 @@ class _CircleButton extends StatelessWidget {
         width: 52,
         height: 52,
         decoration: BoxDecoration(
-          color: filled ? AppColors.teal : AppColors.cardWhite,
+          color: filled ? OnboardingColors.teal : OnboardingColors.cardWhite,
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
               color: filled
-                  ? AppColors.teal.withOpacity(0.3)
-                  : Colors.black.withOpacity(0.08),
+                  ? OnboardingColors.teal.withValues(alpha: 0.3)
+                  : Colors.black.withValues(alpha: 0.08),
               blurRadius: 14,
               offset: const Offset(0, 4),
             ),

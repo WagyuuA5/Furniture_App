@@ -102,7 +102,7 @@ class _MyCouponsScreenState extends State<MyCouponsScreen> {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: _primary.withOpacity(0.3),
+                    color: _primary.withValues(alpha: 0.3),
                     blurRadius: 16,
                     offset: const Offset(0, 6),
                   ),
@@ -113,7 +113,7 @@ class _MyCouponsScreenState extends State<MyCouponsScreen> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.15),
+                      color: Colors.white.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.discount_outlined,
@@ -201,7 +201,7 @@ class _CouponCard extends StatelessWidget {
               ? []
               : [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -213,7 +213,7 @@ class _CouponCard extends StatelessWidget {
             Container(
               width: 80,
               decoration: BoxDecoration(
-                color: expired ? Colors.grey[200] : _primary.withOpacity(0.1),
+                color: expired ? Colors.grey[200] : _primary.withValues(alpha: 0.1),
                 borderRadius: const BorderRadius.horizontal(
                     left: Radius.circular(14)),
               ),
@@ -270,8 +270,8 @@ class _CouponCard extends StatelessWidget {
                               horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
                             color: expired
-                                ? Colors.grey.withOpacity(0.15)
-                                : Colors.green.withOpacity(0.12),
+                                ? Colors.grey.withValues(alpha: 0.15)
+                                : Colors.green.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(50),
                           ),
                           child: Text(

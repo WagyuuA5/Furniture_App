@@ -103,7 +103,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen>
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.primary.withOpacity(0.35),
+                              color: AppColors.primary.withValues(alpha: 0.35),
                               blurRadius: 28,
                               offset: const Offset(0, 10),
                             ),
@@ -457,7 +457,7 @@ class _BottomButtons extends StatelessWidget {
         color: _C.surface,
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 16,
               offset: const Offset(0, -4))
         ],

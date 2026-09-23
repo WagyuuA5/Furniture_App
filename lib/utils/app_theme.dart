@@ -24,8 +24,8 @@ class AppColors {
 
   static const Color navbarActiveIcon = ds.AppColors.surfaceLight;
 
-  static Color get navbarBgLight => navbarBg.withOpacity(0.95);
-  static Color get darkTealFaded => primary.withOpacity(0.12);
+  static Color get navbarBgLight => navbarBg.withValues(alpha: 0.95);
+  static Color get darkTealFaded => primary.withValues(alpha: 0.12);
 }
 
 class AppRadius {
@@ -42,7 +42,7 @@ class AppShadows {
 
   static List<BoxShadow> get card => [
     BoxShadow(
-      color: const Color(0xFF000000).withOpacity(0.08),
+      color: const Color(0xFF000000).withValues(alpha: 0.08),
       blurRadius: 16,
       offset: const Offset(0, 4),
     ),
@@ -50,7 +50,7 @@ class AppShadows {
 
   static List<BoxShadow> get navbar => [
     BoxShadow(
-      color: const Color(0xFF000000).withOpacity(0.18),
+      color: const Color(0xFF000000).withValues(alpha: 0.18),
       blurRadius: 24,
       offset: const Offset(0, -4),
     ),
@@ -58,7 +58,7 @@ class AppShadows {
 
   static List<BoxShadow> get promo => [
     BoxShadow(
-      color: ds.AppColors.primary.withOpacity(0.30),
+      color: ds.AppColors.primary.withValues(alpha: 0.30),
       blurRadius: 20,
       offset: const Offset(0, 8),
     ),

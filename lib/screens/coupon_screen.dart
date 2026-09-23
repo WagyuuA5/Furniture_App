@@ -268,7 +268,7 @@ class _CouponScreenState extends State<CouponScreen>
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
               decoration: BoxDecoration(
-                color: _C.accent.withOpacity(0.12),
+                color: _C.accent.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -395,7 +395,7 @@ class _CouponCard extends StatelessWidget {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: _accentColor.withOpacity(0.12),
+                      color: _accentColor.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child:
@@ -427,7 +427,7 @@ class _CouponCard extends StatelessWidget {
                                     horizontal: 8, vertical: 3),
                                 decoration: BoxDecoration(
                                   color: const Color(0xFFCCCCCC)
-                                      .withOpacity(0.15),
+                                      .withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(
                                       color: const Color(0xFFCCCCCC),
@@ -444,7 +444,7 @@ class _CouponCard extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 3),
                                 decoration: BoxDecoration(
-                                  color: Colors.orange.withOpacity(0.12),
+                                  color: Colors.orange.withValues(alpha: 0.12),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Text('Terkunci',
@@ -498,7 +498,7 @@ class _CouponCard extends StatelessWidget {
             ),
 
             // ── Garis dashed separator ──
-            _DashedSeparator(color: _accentColor.withOpacity(0.25)),
+            _DashedSeparator(color: _accentColor.withValues(alpha: 0.25)),
 
             // ── Tombol COPY CODE ──
             _CopyButton(
@@ -552,7 +552,7 @@ class _CopyButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 13),
         decoration: BoxDecoration(
           color: isCopied
-              ? _C.accent.withOpacity(0.08)
+              ? _C.accent.withValues(alpha: 0.08)
               : const Color(0xFFF5F4F2),
           borderRadius: const BorderRadius.vertical(
               bottom: Radius.circular(16)),
@@ -593,7 +593,7 @@ class _TicketShape extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

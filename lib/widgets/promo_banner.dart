@@ -116,7 +116,7 @@ class _PromoBannerState extends State<PromoBanner> {
                 borderRadius: BorderRadius.circular(3),
                 color: _currentIndex == index
                     ? AppColors.primary
-                    : AppColors.primary.withOpacity(0.3),
+                    : AppColors.primary.withValues(alpha: 0.3),
               ),
             );
           }),
@@ -177,7 +177,7 @@ class _PromoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primary.withOpacity(0.3),
+              color: AppColors.primary.withValues(alpha: 0.3),
               blurRadius: 15,
               offset: const Offset(0, 6),
             ),
@@ -203,7 +203,7 @@ class _PromoCard extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
@@ -237,7 +237,7 @@ class _PromoCard extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 9.5,
                         fontWeight: FontWeight.w400,
-                        color: Colors.white.withOpacity(0.85),
+                        color: Colors.white.withValues(alpha: 0.85),
                         height: 1.4,
                       ),
                       maxLines: 2,
@@ -295,13 +295,13 @@ class _PromoCard extends StatelessWidget {
                         return Container(
                           height: 90,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.1),
+                            color: Colors.white.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Icon(
                             Icons.weekend_rounded,
                             size: 50,
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: 0.5),
                           ),
                         );
                       },

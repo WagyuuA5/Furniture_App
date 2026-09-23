@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../utils/app_theme.dart';
 
@@ -32,10 +33,10 @@ class ProductThumbnail extends StatelessWidget {
           boxShadow: isSelected ? AppShadows.card : null,
         ),
         clipBehavior: Clip.hardEdge,
-        child: Image.network(
+        child: CachedNetworkImage(imageUrl: 
           imageUrl,
           fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) =>
+          errorWidget: (_, __, ___) =>
               const Icon(Icons.chair, color: AppColors.textSecondary),
         ),
       ),
