@@ -5,83 +5,13 @@
 //  - Desain 1:1 dengan Figma (gambar kanan)
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
+ import '../providers/cart_provider.dart';
 import '../features/catalog/domain/entities/product.dart';
 import '../providers/checkout_provider.dart';
 
 // ─────────────────────────────────────────────
 // MODEL
-// ─────────────────────────────────────────────
-class CartItem {
-  final String id;
-  final String name;
-  final String category;
-  final String imageUrl;
-  final double pricePerUnit;
-  int quantity;
-
-  CartItem({
-    required this.id,
-    required this.name,
-    required this.category,
-    required this.imageUrl,
-    required this.pricePerUnit,
-    this.quantity = 1,
-  });
-
-  double get totalPrice => pricePerUnit * quantity;
-
-  factory CartItem.fromProduct(Product product) => CartItem(
-        id: product.id.toString(),
-        name: product.name,
-        category: product.category,
-        imageUrl: product.imageUrl,
-        pricePerUnit: product.price,
-      );
-}
-
-// ─────────────────────────────────────────────
-// PROVIDER
-// ─────────────────────────────────────────────
-class CartProvider extends ChangeNotifier {
-  final List<CartItem> _items = [];
-
-  List<CartItem> get items => List.unmodifiable(_items);
-  int get totalCount => _items.fold(0, (s, i) => s + i.quantity);
-  bool get isEmpty => _items.isEmpty;
-
-  double getTotalPrice() => _items.fold(0, (sum, i) => sum + i.totalPrice);
-
-  void addItem(CartItem item) {
-    final idx = _items.indexWhere((e) => e.id == item.id);
-    if (idx >= 0) {
-      _items[idx].quantity++;
-    } else {
-      _items.add(item);
-    }
-    notifyListeners();
-  }
-
-  void removeItem(String id) {
-    _items.removeWhere((e) => e.id == id);
-    notifyListeners();
-  }
-
-  void updateQuantity(String id, int delta) {
-    final idx = _items.indexWhere((e) => e.id == id);
-    if (idx < 0) return;
-    final newQty = _items[idx].quantity + delta;
-    if (newQty < 1) return;
-    _items[idx].quantity = newQty;
-    notifyListeners();
-  }
-
-  void clear() {
-    _items.clear();
-    notifyListeners();
-  }
-}
-
 // ─────────────────────────────────────────────
 // HELPERS
 // ─────────────────────────────────────────────
@@ -558,7 +488,7 @@ class DashedDivider extends StatelessWidget {
 // CART ITEM CARD
 // ─────────────────────────────────────────────
 class _CartItemCard extends StatelessWidget {
-  final CartItem item;
+  final CartItemEntity item;
   const _CartItemCard({required this.item});
 
   void _confirmRemove(BuildContext context) {
@@ -573,7 +503,7 @@ class _CartItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = context.read<CartProvider>();
     return Dismissible(
-      key: ValueKey(item.id),
+      key: ValueKey(item.cartItemId),
       direction: DismissDirection.endToStart,
       confirmDismiss: (_) async {
         _confirmRemove(context);
@@ -631,8 +561,8 @@ class _CartItemCard extends StatelessWidget {
             // Qty
             _QtySelector(
               quantity: item.quantity,
-              onDec: () => cart.updateQuantity(item.id, -1),
-              onInc: () => cart.updateQuantity(item.id, 1),
+              onDec: () => cart.updateQuantity(item.cartItemId, -1),
+              onInc: () => cart.updateQuantity(item.cartItemId, 1),
             ),
           ],
         ),
@@ -697,7 +627,7 @@ class _QtyBtn extends StatelessWidget {
 // REMOVE CONFIRM SHEET
 // ─────────────────────────────────────────────
 class _RemoveSheet extends StatelessWidget {
-  final CartItem item;
+  final CartItemEntity item;
   const _RemoveSheet({required this.item});
 
   @override
@@ -787,7 +717,7 @@ class _RemoveSheet extends StatelessWidget {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.read<CartProvider>().removeItem(item.id);
+                      context.read<CartProvider>().removeItem(item.cartItemId);
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(

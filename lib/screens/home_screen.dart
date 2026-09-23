@@ -7,7 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
+ import '../providers/cart_provider.dart';
 
 import '../utils/app_theme.dart';
 import '../features/catalog/domain/entities/product.dart';
@@ -19,7 +20,8 @@ import '../widgets/category_circle.dart';
 import '../widgets/product_card.dart';
 import 'product_detail_screen.dart';
 import 'category_screen.dart';
-import 'cart_screen.dart';          // CartProvider + CartScreen
+import '../providers/cart_provider.dart'; 
+ import 'cart_screen.dart';
 import 'chat_list_screen.dart';
 import 'notifications_screen.dart';
 import 'profile_screen.dart';       // buat file ini jika belum ada (lihat bawah)

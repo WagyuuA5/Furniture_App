@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
+ import '../providers/cart_provider.dart';
 import 'cart_screen.dart';
 import 'qris_screen.dart';
 import 'success_screen.dart';

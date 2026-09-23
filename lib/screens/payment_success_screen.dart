@@ -6,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 // ✅ Import dari order_model.dart — bukan dari diri sendiri
 import '../models/order.dart';
 import 'struk_pembayaran_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
+ import '../providers/cart_provider.dart';
 import 'cart_screen.dart';
 import '../providers/checkout_provider.dart';
 
