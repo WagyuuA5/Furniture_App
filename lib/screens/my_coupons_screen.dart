@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/my_coupons_screen.dart
 
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class MyCouponsScreen extends StatefulWidget {
 }
 
 class _MyCouponsScreenState extends State<MyCouponsScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   // UPDATE AREA: Ganti dengan data dari API/backend
   final List<_CouponItem> _coupons = [
@@ -54,7 +55,7 @@ class _MyCouponsScreenState extends State<MyCouponsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -74,7 +75,7 @@ class _MyCouponsScreenState extends State<MyCouponsScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -94,7 +95,7 @@ class _MyCouponsScreenState extends State<MyCouponsScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF2D6A6A), Color(0xFF1A4040)],
+                  colors: [AppColors.primary, Color(0xFF1A4040)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -182,7 +183,7 @@ class _CouponCard extends StatelessWidget {
   final _CouponItem coupon;
   final VoidCallback? onGunakanSekarang;
 
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   const _CouponCard({required this.coupon, this.onGunakanSekarang});
 

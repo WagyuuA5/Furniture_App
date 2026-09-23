@@ -23,10 +23,10 @@ class OrderService {
     required String address,
     required String paymentMethod,
   }) async {
-    return await ApiClient.post(ApiConfig.checkout, body: {
-      'address': address,
-      'payment_method': paymentMethod,
-    });
+    return await ApiClient.post(
+      ApiConfig.checkout,
+      body: {'address': address, 'payment_method': paymentMethod},
+    );
   }
 
   /// GET /orders — riwayat semua pesanan
@@ -61,8 +61,9 @@ class OrderService {
   static Future<Map<String, dynamic>> cancelOrder({
     required int orderId,
   }) async {
-    return await ApiClient.put(ApiConfig.ordersCancel, body: {
-      'order_id': orderId,
-    });
+    return await ApiClient.put(
+      ApiConfig.ordersCancel,
+      body: {'order_id': orderId},
+    );
   }
 }

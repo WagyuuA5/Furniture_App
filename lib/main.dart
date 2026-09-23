@@ -1,19 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -34,17 +18,19 @@ import 'core/di/injection.dart'; // Tambahkan ini
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await configureDependencies(); // Inisialisasi DI Container
-  
+
   await LocalStorage.saveOwnerToken('6c09eae77eaef74539acb3f2b3490ca29878cbe6');
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-    systemNavigationBarColor: Colors.white,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.white,
+    ),
+  );
 
   runApp(const FurnitureApp());
 }
@@ -57,7 +43,9 @@ class FurnitureApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => locator<ProductProvider>()..loadProducts()),
+        ChangeNotifierProvider(
+          create: (_) => locator<ProductProvider>()..loadProducts(),
+        ),
         ChangeNotifierProvider(create: (_) => locator<CartProvider>()),
         ChangeNotifierProvider(create: (_) => CheckoutProvider()),
       ],
@@ -71,7 +59,7 @@ class FurnitureApp extends StatelessWidget {
           '/onboarding': (context) => const OnboardingScreen(),
           '/login': (context) => const LoginScreen(),
           '/home': (context) => const HomeScreen(),
-          '/cart': (context) => const CartScreen(),         // ← tambah
+          '/cart': (context) => const CartScreen(), // ← tambah
           '/checkout': (context) => const CheckoutScreen(), // ← tambah
         },
       ),

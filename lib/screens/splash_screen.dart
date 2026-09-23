@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'onboarding_screen.dart';
 
@@ -108,7 +109,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  static const Color _primary = Color(0xFF2E6B6B);
+  static const Color _primary = AppColors.primary;
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +190,7 @@ class _SplashScreenState extends State<SplashScreen>
               style: TextStyle(
                 fontSize: 42,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF1A1A1A),
+                color: AppColors.textPrimary,
                 height: 1.15,
                 letterSpacing: -0.5,
               ),
@@ -233,7 +234,7 @@ class _SplashScreenState extends State<SplashScreen>
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF1A1A1A),
+                        color: AppColors.textPrimary,
                         height: 1.0,
                         letterSpacing: -0.3,
                       ),
@@ -243,7 +244,7 @@ class _SplashScreenState extends State<SplashScreen>
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF2E6B6B),
+                        color: AppColors.primary,
                         height: 1.0,
                         letterSpacing: -0.3,
                       ),

@@ -18,18 +18,18 @@ class CategoryData {
 
 // ─── Data 12 kategori ────────────────────────────────────────────────────────
 const List<CategoryData> allCategories = [
-  CategoryData(name: 'Sofa',         icon: Icons.weekend_rounded),
-  CategoryData(name: 'Kursi',        icon: Icons.chair_rounded),
-  CategoryData(name: 'Lampu',        icon: Icons.light_rounded),
-  CategoryData(name: 'Lemari',       icon: Icons.door_sliding_rounded),
-  CategoryData(name: 'Kasur',        icon: Icons.bed_rounded),
-  CategoryData(name: 'Meja',         icon: Icons.table_restaurant_rounded),
-  CategoryData(name: 'Dapur',        icon: Icons.kitchen_rounded),
-  CategoryData(name: 'Kaca',         icon: Icons.crop_portrait_rounded),
-  CategoryData(name: 'Stool',        icon: Icons.chair_alt_rounded),
-  CategoryData(name: 'Vas',          icon: Icons.local_florist_rounded),
+  CategoryData(name: 'Sofa', icon: Icons.weekend_rounded),
+  CategoryData(name: 'Kursi', icon: Icons.chair_rounded),
+  CategoryData(name: 'Lampu', icon: Icons.light_rounded),
+  CategoryData(name: 'Lemari', icon: Icons.door_sliding_rounded),
+  CategoryData(name: 'Kasur', icon: Icons.bed_rounded),
+  CategoryData(name: 'Meja', icon: Icons.table_restaurant_rounded),
+  CategoryData(name: 'Dapur', icon: Icons.kitchen_rounded),
+  CategoryData(name: 'Kaca', icon: Icons.crop_portrait_rounded),
+  CategoryData(name: 'Stool', icon: Icons.chair_alt_rounded),
+  CategoryData(name: 'Vas', icon: Icons.local_florist_rounded),
   CategoryData(name: 'Office Chair', icon: Icons.desk_rounded),
-  CategoryData(name: 'Other',        icon: Icons.more_horiz_rounded),
+  CategoryData(name: 'Other', icon: Icons.more_horiz_rounded),
 ];
 
 // ─── Screen ──────────────────────────────────────────────────────────────────
@@ -117,10 +117,10 @@ class _CategoryCardState extends State<_CategoryCard>
     vsync: this,
     duration: const Duration(milliseconds: 150),
   );
-  late final Animation<double> _scale =
-      Tween<double>(begin: 1.0, end: 0.88).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
-  );
+  late final Animation<double> _scale = Tween<double>(
+    begin: 1.0,
+    end: 0.88,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
 
   @override
   void dispose() {

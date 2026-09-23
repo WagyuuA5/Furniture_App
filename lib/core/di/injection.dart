@@ -5,8 +5,8 @@ import 'injection.config.dart';
 final GetIt locator = GetIt.instance;
 
 @InjectableInit(
-  initializerName: 'init', 
-  preferRelativeImports: true, 
-  asExtension: true, 
+  initializerName: 'init',
+  preferRelativeImports: true,
+  asExtension: true,
 )
 Future<void> configureDependencies() async => locator.init();

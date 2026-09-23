@@ -10,7 +10,7 @@ import '../utils/constants.dart';
 class ChatBubble extends StatelessWidget {
   final MessageModel message;
   final bool isMe;
-  final bool showTime;   // tampilkan timestamp di bawah bubble
+  final bool showTime; // tampilkan timestamp di bawah bubble
 
   const ChatBubble({
     super.key,
@@ -23,20 +23,21 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left:  isMe ? 60 : 12,
+        left: isMe ? 60 : 12,
         right: isMe ? 12 : 60,
-        top: 2, bottom: showTime ? 4 : 2,
+        top: 2,
+        bottom: showTime ? 4 : 2,
       ),
       child: Column(
-        crossAxisAlignment:
-            isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment: isMe
+            ? CrossAxisAlignment.end
+            : CrossAxisAlignment.start,
         children: [
           // ── Bubble ────────────────────────────────────────────────────────
           Container(
             decoration: BoxDecoration(
               color: isMe ? ChatColors.bubbleMe : ChatColors.bubbleOther,
-              borderRadius:
-                  isMe ? ChatRadius.bubbleMe : ChatRadius.bubbleOther,
+              borderRadius: isMe ? ChatRadius.bubbleMe : ChatRadius.bubbleOther,
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.06),
@@ -103,23 +104,27 @@ class ChatBubble extends StatelessWidget {
     return GestureDetector(
       onTap: () => _openFullscreen(context),
       child: ClipRRect(
-        borderRadius:
-            isMe ? ChatRadius.bubbleMe : ChatRadius.bubbleOther,
+        borderRadius: isMe ? ChatRadius.bubbleMe : ChatRadius.bubbleOther,
         child: Image.network(
           message.content,
           width: 200,
           height: 200,
           fit: BoxFit.cover,
           errorBuilder: (_, __, ___) => Container(
-            width: 200, height: 200,
+            width: 200,
+            height: 200,
             color: ChatColors.inputBg,
-            child: const Icon(Icons.broken_image_rounded,
-                size: 48, color: ChatColors.textSec),
+            child: const Icon(
+              Icons.broken_image_rounded,
+              size: 48,
+              color: ChatColors.textSec,
+            ),
           ),
           loadingBuilder: (_, child, progress) {
             if (progress == null) return child;
             return Container(
-              width: 200, height: 200,
+              width: 200,
+              height: 200,
               color: ChatColors.inputBg,
               child: const Center(
                 child: CircularProgressIndicator(
@@ -138,9 +143,7 @@ class ChatBubble extends StatelessWidget {
   void _openFullscreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => _FullscreenImage(url: message.content),
-      ),
+      MaterialPageRoute(builder: (_) => _FullscreenImage(url: message.content)),
     );
   }
 }
@@ -194,13 +197,17 @@ class _TypingIndicatorState extends State<TypingIndicator>
                   opacity: Tween<double>(begin: 0.3, end: 1.0).animate(
                     CurvedAnimation(
                       parent: _ctrl,
-                      curve: Interval(i * 0.2, 0.6 + i * 0.2,
-                          curve: Curves.easeInOut),
+                      curve: Interval(
+                        i * 0.2,
+                        0.6 + i * 0.2,
+                        curve: Curves.easeInOut,
+                      ),
                     ),
                   ),
                   child: Container(
                     margin: EdgeInsets.only(right: i < 2 ? 4 : 0),
-                    width: 7, height: 7,
+                    width: 7,
+                    height: 7,
                     decoration: const BoxDecoration(
                       color: ChatColors.textSec,
                       shape: BoxShape.circle,
@@ -231,11 +238,15 @@ class _FullscreenImage extends StatelessWidget {
       ),
       body: Center(
         child: InteractiveViewer(
-          child: Image.network(url,
-              fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) =>
-                  const Icon(Icons.broken_image_rounded,
-                      color: Colors.white, size: 60)),
+          child: Image.network(
+            url,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => const Icon(
+              Icons.broken_image_rounded,
+              color: Colors.white,
+              size: 60,
+            ),
+          ),
         ),
       ),
     );

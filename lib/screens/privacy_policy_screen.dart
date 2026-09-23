@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/privacy_policy_screen.dart
 
 import 'package:flutter/material.dart';
@@ -11,8 +12,8 @@ class PrivacyPolicyScreen extends StatefulWidget {
 }
 
 class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
-  static const Color _bg = Color(0xFFFAFAF8);
+  static const Color _primary = AppColors.primary;
+  static const Color _bg = AppColors.background;
 
   // UPDATE AREA: Ganti konten kebijakan privasi sesuai kebutuhan bisnis Anda
   static const String _lastUpdated = '1 Juni 2025';
@@ -149,7 +150,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -159,7 +160,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                       style: GoogleFonts.poppins(
                         fontSize: 17,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF1A1A1A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ),
@@ -252,7 +253,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                     child: Row(
                       children: [
                         const Icon(Icons.mail_outline_rounded,
-                            color: Color(0xFF2D6A6A), size: 20),
+                            color: AppColors.primary, size: 20),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(
@@ -263,7 +264,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
-                                  color: const Color(0xFF1A1A1A),
+                                  color: AppColors.textPrimary,
                                 ),
                               ),
                               Text(
@@ -321,7 +322,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
             style: GoogleFonts.poppins(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF1A1A1A),
+              color: AppColors.textPrimary,
             ),
           ),
           children: [

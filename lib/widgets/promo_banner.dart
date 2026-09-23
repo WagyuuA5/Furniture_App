@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -114,8 +115,8 @@ class _PromoBannerState extends State<PromoBanner> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3),
                 color: _currentIndex == index
-                    ? const Color(0xFF2E6B6B)
-                    : const Color(0xFF2E6B6B).withOpacity(0.3),
+                    ? AppColors.primary
+                    : AppColors.primary.withOpacity(0.3),
               ),
             );
           }),
@@ -166,7 +167,7 @@ class _PromoCard extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
-              Color(0xFF2E6B6B),
+              AppColors.primary,
               Color(0xFF1A4A4A),
               Color(0xFF3E5F5A),
             ],
@@ -176,7 +177,7 @@ class _PromoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF2E6B6B).withOpacity(0.3),
+              color: AppColors.primary.withOpacity(0.3),
               blurRadius: 15,
               offset: const Offset(0, 6),
             ),
@@ -262,14 +263,14 @@ class _PromoCard extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0xFF2E6B6B),
+                              color: AppColors.primary,
                             ),
                           ),
                           const SizedBox(width: 4),
                           Icon(
                             Icons.arrow_forward_rounded,
                             size: 11,
-                            color: const Color(0xFF2E6B6B),
+                            color: AppColors.primary,
                           ),
                         ],
                       ),

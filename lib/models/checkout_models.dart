@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // ─── Shipping Address ──────────────────────────────────────────────────────────
 class ShippingAddress {
   final String id;
-  String label;   // e.g. "Home", "Office"
+  String label; // e.g. "Home", "Office"
   String street;
   String city;
   String state;
@@ -135,7 +135,8 @@ List<CheckoutItem> dummyOrderItems = [
     name: 'Arm Chair',
     category: 'Chair',
     price: 180,
-    imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300',
+    imageUrl:
+        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300',
     quantity: 1,
   ),
   CheckoutItem(

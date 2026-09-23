@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/profile_screen.dart
 // PERUBAHAN: Import PrivacyPolicyScreen + ganti onTap 'Kebijakan Privasi' dari SnackBar ke navigasi halaman
 
@@ -29,8 +30,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
-  static const Color _bg = Color(0xFFFAFAF8);
+  static const Color _primary = AppColors.primary;
+  static const Color _bg = AppColors.background;
 
   // UPDATE AREA: Daftar menu profil
   late final List<_MenuItem> _menuItems;
@@ -127,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: GoogleFonts.poppins(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF1A1A1A),
+                color: AppColors.textPrimary,
               ),
             ),
             const SizedBox(height: 10),
@@ -145,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: OutlinedButton(
                     onPressed: () => Navigator.pop(ctx),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Color(0xFF2D6A6A)),
+                      side: const BorderSide(color: AppColors.primary),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)),
                       padding: const EdgeInsets.symmetric(vertical: 14),
@@ -225,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -235,7 +236,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: GoogleFonts.poppins(
                         fontSize: 17,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF1A1A1A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ),
@@ -319,7 +320,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: GoogleFonts.poppins(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF1A1A1A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ),
@@ -370,7 +371,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         style: GoogleFonts.poppins(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500,
-                                          color: const Color(0xFF1A1A1A),
+                                          color: AppColors.textPrimary,
                                         ),
                                       ),
                                     ),

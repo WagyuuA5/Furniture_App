@@ -45,12 +45,12 @@ class ChatService {
       _messages[chatId] = MessageModel.dummyFor(chatId);
     }
     if (!_controllers.containsKey(chatId)) {
-      _controllers[chatId] =
-          StreamController<List<MessageModel>>.broadcast();
+      _controllers[chatId] = StreamController<List<MessageModel>>.broadcast();
     }
     // Emit data awal
-    Future.microtask(() =>
-        _controllers[chatId]!.add(List.from(_messages[chatId]!)));
+    Future.microtask(
+      () => _controllers[chatId]!.add(List.from(_messages[chatId]!)),
+    );
     return _controllers[chatId]!.stream;
   }
 
@@ -98,8 +98,10 @@ class ChatService {
       'Harga sudah termasuk ongkir?',
     ];
     replies.shuffle();
-    final chat = _chatList.firstWhere((c) => c.id == chatId,
-        orElse: () => _chatList.first);
+    final chat = _chatList.firstWhere(
+      (c) => c.id == chatId,
+      orElse: () => _chatList.first,
+    );
     final reply = MessageModel(
       id: 'reply_${DateTime.now().millisecondsSinceEpoch}',
       senderId: chat.userId,

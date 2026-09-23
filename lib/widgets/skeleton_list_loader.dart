@@ -21,7 +21,9 @@ class SkeletonListLoader extends StatelessWidget {
           return ListTile(
             leading: const CircleAvatar(radius: 25),
             title: const Text("Nama User yang Panjang"),
-            subtitle: const Text("Ini adalah deskripsi konten yang akan muncul nanti"),
+            subtitle: const Text(
+              "Ini adalah deskripsi konten yang akan muncul nanti",
+            ),
           );
         },
       ),

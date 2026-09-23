@@ -56,11 +56,13 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
           // ── Address list ───────────────────────────────────────
-          ...addresses.map((addr) => _AddressRow(
-                address: addr,
-                isSelected: _tempSelected.id == addr.id,
-                onTap: () => setState(() => _tempSelected = addr),
-              )),
+          ...addresses.map(
+            (addr) => _AddressRow(
+              address: addr,
+              isSelected: _tempSelected.id == addr.id,
+              onTap: () => setState(() => _tempSelected = addr),
+            ),
+          ),
 
           const SizedBox(height: 12),
 
@@ -102,10 +104,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
           const SizedBox(height: 80), // ruang untuk tombol apply
         ],
       ),
-      bottomNavigationBar: CheckoutBigButton(
-        label: 'Terapkan',
-        onTap: _apply,
-      ),
+      bottomNavigationBar: CheckoutBigButton(label: 'Terapkan', onTap: _apply),
     );
   }
 }
@@ -130,9 +129,7 @@ class _AddressRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: CC.divider),
-          ),
+          border: Border(bottom: BorderSide(color: CC.divider)),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,8 +137,11 @@ class _AddressRow extends StatelessWidget {
             // Location icon
             const Padding(
               padding: EdgeInsets.only(top: 2),
-              child: Icon(Icons.location_on_outlined,
-                  size: 20, color: CC.textPri),
+              child: Icon(
+                Icons.location_on_outlined,
+                size: 20,
+                color: CC.textPri,
+              ),
             ),
             const SizedBox(width: 12),
 

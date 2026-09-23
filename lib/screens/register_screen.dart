@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
@@ -75,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1A1A1A),
+                  color: AppColors.textPrimary,
                 ),
               ),
               const SizedBox(height: 6),
@@ -137,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : _handleRegister,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2E6B6B),
+                    backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -181,7 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: const Text(
                       'Click Untuk Login',
                       style: TextStyle(
-                        color: Color(0xFF2E6B6B),
+                        color: AppColors.primary,
                         fontWeight: FontWeight.w600,
                         fontSize: 13,
                       ),
@@ -232,7 +233,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   _buildSocialIcon(
                     onTap: () {},
                     child: const Icon(Icons.apple,
-                        size: 30, color: Color(0xFF1A1A1A)),
+                        size: 30, color: AppColors.textPrimary),
                   ),
                   const SizedBox(width: 20),
                   _buildSocialIcon(
@@ -280,7 +281,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         controller: controller,
         keyboardType: keyboardType,
         obscureText: obscureText,
-        style: const TextStyle(fontSize: 14, color: Color(0xFF1A1A1A)),
+        style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle:

@@ -24,16 +24,21 @@ class ProductProvider with ChangeNotifier {
 
   List<Product> get _filteredProducts {
     var filtered = _products;
-    
+
     if (_searchQuery.isNotEmpty) {
-      filtered = filtered.where((p) =>
-          p.name.toLowerCase().contains(_searchQuery.toLowerCase())).toList();
+      filtered = filtered
+          .where(
+            (p) => p.name.toLowerCase().contains(_searchQuery.toLowerCase()),
+          )
+          .toList();
     }
-    
+
     if (_selectedCategory != null) {
-      filtered = filtered.where((p) => p.category == _selectedCategory).toList();
+      filtered = filtered
+          .where((p) => p.category == _selectedCategory)
+          .toList();
     }
-    
+
     return filtered;
   }
 

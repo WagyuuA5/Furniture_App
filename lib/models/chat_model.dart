@@ -3,9 +3,9 @@
 
 class ChatModel {
   final String id;
-  final String userId;       // ID lawan bicara
-  final String userName;     // Nama lawan bicara
-  final String userAvatar;   // URL foto atau kosong → pakai inisial
+  final String userId; // ID lawan bicara
+  final String userName; // Nama lawan bicara
+  final String userAvatar; // URL foto atau kosong → pakai inisial
   final String lastMessage;
   final DateTime lastTime;
   final int unreadCount;

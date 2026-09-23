@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/manage_address_screen.dart
 
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class ManageAddressScreen extends StatefulWidget {
 }
 
 class _ManageAddressScreenState extends State<ManageAddressScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
   List<AddressModel> _addresses = List.from(dummyAddresses);
 
   void _hapusAlamat(String id) {
@@ -95,7 +96,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -115,7 +116,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(

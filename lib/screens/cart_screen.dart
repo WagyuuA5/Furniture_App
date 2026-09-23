@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/cart_screen.dart
 //
 // UPDATE:
@@ -5,8 +6,8 @@
 //  - Desain 1:1 dengan Figma (gambar kanan)
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; 
- import '../providers/cart_provider.dart';
+import 'package:provider/provider.dart';
+import '../providers/cart_provider.dart';
 import '../features/catalog/domain/entities/product.dart';
 import '../providers/checkout_provider.dart';
 
@@ -29,17 +30,17 @@ String formatRupiah(double amount) {
 // THEME CONSTANTS
 // ─────────────────────────────────────────────
 class _LT {
-  static const Color bg          = Color(0xFFFAF9F7);
-  static const Color surface     = Color(0xFFFFFFFF);
-  static const Color accent      = Color(0xFF2C6E49);
+  static const Color bg = Color(0xFFFAF9F7);
+  static const Color surface = AppColors.white;
+  static const Color accent = AppColors.accent;
   static const Color accentLight = Color(0xFFE8F4ED);
-  static const Color danger      = Color(0xFFD62839);
+  static const Color danger = Color(0xFFD62839);
   static const Color dangerLight = Color(0xFFFFF0F1);
-  static const Color textPrimary = Color(0xFF1A1A1A);
-  static const Color textSecondary = Color(0xFF8A8A8A);
-  static const Color divider     = Color(0xFFEEECE8);
-  static const Color qtyBg       = Color(0xFF1A1A1A);
-  static const Color inputBg     = Color(0xFFF0EFED);
+  static const Color textPrimary = AppColors.textPrimary;
+  static const Color textSecondary = AppColors.textSecondary;
+  static const Color divider = AppColors.divider;
+  static const Color qtyBg = AppColors.textPrimary;
+  static const Color inputBg = Color(0xFFF0EFED);
 }
 
 // ─────────────────────────────────────────────
@@ -67,10 +68,10 @@ class _CartView extends StatefulWidget {
 
 class _CartViewState extends State<_CartView> {
   final TextEditingController _promoCtrl = TextEditingController();
-  double _discount      = 0;
-  double _deliveryFee   = 50000; // dummy
-  bool   _promoApplied  = false;
-  bool   _summaryExpanded = true;
+  double _discount = 0;
+  double _deliveryFee = 50000; // dummy
+  bool _promoApplied = false;
+  bool _summaryExpanded = true;
 
   @override
   void dispose() {
@@ -82,17 +83,19 @@ class _CartViewState extends State<_CartView> {
     final code = _promoCtrl.text.trim().toUpperCase();
     setState(() {
       if (code == 'DISKON10') {
-        _discount     = context.read<CartProvider>().getTotalPrice() * 0.10;
+        _discount = context.read<CartProvider>().getTotalPrice() * 0.10;
         _promoApplied = true;
       } else {
-        _discount     = 0;
+        _discount = 0;
         _promoApplied = false;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: const Text('Kode promo tidak valid'),
             behavior: SnackBarBehavior.floating,
             backgroundColor: _LT.danger,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         );
       }
@@ -140,8 +143,10 @@ class _CartViewState extends State<_CartView> {
           _CircleBtn(
             icon: Icons.arrow_back_ios_new_rounded,
             onTap: () {
-              if (widget.onBack != null) widget.onBack!();
-              else Navigator.of(context).pop();
+              if (widget.onBack != null)
+                widget.onBack!();
+              else
+                Navigator.of(context).pop();
             },
           ),
           const Expanded(
@@ -159,7 +164,8 @@ class _CartViewState extends State<_CartView> {
           ),
           Consumer<CartProvider>(
             builder: (_, cart, __) => Container(
-              width: 40, height: 40,
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
                 color: _LT.accentLight,
                 borderRadius: BorderRadius.circular(12),
@@ -168,7 +174,9 @@ class _CartViewState extends State<_CartView> {
                 child: Text(
                   '${cart.totalCount}',
                   style: const TextStyle(
-                    fontSize: 13, fontWeight: FontWeight.w700, color: _LT.accent,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: _LT.accent,
                   ),
                 ),
               ),
@@ -196,20 +204,33 @@ class _CartViewState extends State<_CartView> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 100, height: 100,
+            width: 100,
+            height: 100,
             decoration: BoxDecoration(
               color: _LT.accentLight,
               borderRadius: BorderRadius.circular(50),
             ),
-            child: const Icon(Icons.shopping_cart_outlined, size: 48, color: _LT.accent),
+            child: const Icon(
+              Icons.shopping_cart_outlined,
+              size: 48,
+              color: _LT.accent,
+            ),
           ),
           const SizedBox(height: 24),
-          const Text('Keranjang kosong',
-              style: TextStyle(fontFamily: 'Georgia', fontSize: 20,
-                  fontWeight: FontWeight.w600, color: _LT.textPrimary)),
+          const Text(
+            'Keranjang kosong',
+            style: TextStyle(
+              fontFamily: 'Georgia',
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: _LT.textPrimary,
+            ),
+          ),
           const SizedBox(height: 8),
-          const Text('Belum ada produk yang ditambahkan',
-              style: TextStyle(fontSize: 14, color: _LT.textSecondary)),
+          const Text(
+            'Belum ada produk yang ditambahkan',
+            style: TextStyle(fontSize: 14, color: _LT.textSecondary),
+          ),
         ],
       ),
     );
@@ -217,7 +238,7 @@ class _CartViewState extends State<_CartView> {
 
   // ── Bottom Panel (UPDATED) ───────────────────
   Widget _buildBottomPanel(BuildContext context, CartProvider cart) {
-    final subTotal   = cart.getTotalPrice();
+    final subTotal = cart.getTotalPrice();
     final totalBayar = subTotal + _deliveryFee - _discount;
 
     return Container(
@@ -244,7 +265,8 @@ class _CartViewState extends State<_CartView> {
               child: Column(
                 children: [
                   Container(
-                    width: 36, height: 4,
+                    width: 36,
+                    height: 4,
                     decoration: BoxDecoration(
                       color: _LT.divider,
                       borderRadius: BorderRadius.circular(2),
@@ -297,7 +319,8 @@ class _CartViewState extends State<_CartView> {
                               ),
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 14,
+                                horizontal: 16,
+                                vertical: 14,
                               ),
                             ),
                           ),
@@ -333,8 +356,11 @@ class _CartViewState extends State<_CartView> {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        const Icon(Icons.check_circle_rounded,
-                            size: 14, color: _LT.accent),
+                        const Icon(
+                          Icons.check_circle_rounded,
+                          size: 14,
+                          color: _LT.accent,
+                        ),
                         const SizedBox(width: 6),
                         Text(
                           'Kode promo berhasil diterapkan!',
@@ -351,9 +377,12 @@ class _CartViewState extends State<_CartView> {
                   const SizedBox(height: 16),
 
                   // ── Breakdown harga ──────────
-                  _PriceRow(label: 'Sub Total',    value: formatRupiah(subTotal)),
+                  _PriceRow(label: 'Sub Total', value: formatRupiah(subTotal)),
                   const SizedBox(height: 8),
-                  _PriceRow(label: 'Delivery Fee', value: formatRupiah(_deliveryFee)),
+                  _PriceRow(
+                    label: 'Delivery Fee',
+                    value: formatRupiah(_deliveryFee),
+                  ),
                   const SizedBox(height: 8),
                   _PriceRow(
                     label: 'Discount',
@@ -447,14 +476,18 @@ class _PriceRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label,
-            style: const TextStyle(fontSize: 13, color: _LT.textSecondary)),
-        Text(value,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: valueColor ?? _LT.textPrimary,
-            )),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 13, color: _LT.textSecondary),
+        ),
+        Text(
+          value,
+          style: TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+            color: valueColor ?? _LT.textPrimary,
+          ),
+        ),
       ],
     );
   }
@@ -471,13 +504,18 @@ class DashedDivider extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) {
         const dashW = 6.0;
-        const gapW  = 4.0;
+        const gapW = 4.0;
         final count = (constraints.maxWidth / (dashW + gapW)).floor();
         return Row(
-          children: List.generate(count, (_) => Row(children: [
-            Container(width: dashW, height: 1, color: _LT.divider),
-            const SizedBox(width: gapW),
-          ])),
+          children: List.generate(
+            count,
+            (_) => Row(
+              children: [
+                Container(width: dashW, height: 1, color: _LT.divider),
+                const SizedBox(width: gapW),
+              ],
+            ),
+          ),
         );
       },
     );
@@ -517,7 +555,11 @@ class _CartItemCard extends StatelessWidget {
         ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
-        child: const Icon(Icons.delete_outline_rounded, color: _LT.danger, size: 24),
+        child: const Icon(
+          Icons.delete_outline_rounded,
+          color: _LT.danger,
+          size: 24,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 14),
@@ -527,13 +569,24 @@ class _CartItemCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                width: 80, height: 80,
+                width: 80,
+                height: 80,
                 color: _LT.bg,
                 child: item.imageUrl.isNotEmpty
-                    ? Image.network(item.imageUrl, fit: BoxFit.cover,
+                    ? Image.network(
+                        item.imageUrl,
+                        fit: BoxFit.cover,
                         errorBuilder: (_, __, ___) => const Icon(
-                            Icons.chair_outlined, size: 36, color: _LT.textSecondary))
-                    : const Icon(Icons.chair_outlined, size: 36, color: _LT.textSecondary),
+                          Icons.chair_outlined,
+                          size: 36,
+                          color: _LT.textSecondary,
+                        ),
+                      )
+                    : const Icon(
+                        Icons.chair_outlined,
+                        size: 36,
+                        color: _LT.textSecondary,
+                      ),
               ),
             ),
             const SizedBox(width: 14),
@@ -542,19 +595,32 @@ class _CartItemCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(item.name,
-                      style: const TextStyle(
-                        fontFamily: 'Georgia', fontSize: 15,
-                        fontWeight: FontWeight.w700, color: _LT.textPrimary,
-                      )),
+                  Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontFamily: 'Georgia',
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: _LT.textPrimary,
+                    ),
+                  ),
                   const SizedBox(height: 2),
-                  Text(item.category,
-                      style: const TextStyle(fontSize: 12, color: _LT.textSecondary)),
+                  Text(
+                    item.category,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: _LT.textSecondary,
+                    ),
+                  ),
                   const SizedBox(height: 4),
-                  Text(formatRupiah(item.pricePerUnit),
-                      style: const TextStyle(
-                        fontSize: 13, fontWeight: FontWeight.w600, color: _LT.textSecondary,
-                      )),
+                  Text(
+                    formatRupiah(item.pricePerUnit),
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: _LT.textSecondary,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -578,7 +644,11 @@ class _QtySelector extends StatelessWidget {
   final int quantity;
   final VoidCallback onDec;
   final VoidCallback onInc;
-  const _QtySelector({required this.quantity, required this.onDec, required this.onInc});
+  const _QtySelector({
+    required this.quantity,
+    required this.onDec,
+    required this.onInc,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -588,11 +658,15 @@ class _QtySelector extends StatelessWidget {
         _QtyBtn(icon: Icons.remove, onTap: onDec, filled: false),
         SizedBox(
           width: 30,
-          child: Text('$quantity',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14, fontWeight: FontWeight.w700, color: _LT.textPrimary,
-              )),
+          child: Text(
+            '$quantity',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: _LT.textPrimary,
+            ),
+          ),
         ),
         _QtyBtn(icon: Icons.add, onTap: onInc, filled: true),
       ],
@@ -604,20 +678,29 @@ class _QtyBtn extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   final bool filled;
-  const _QtyBtn({required this.icon, required this.onTap, required this.filled});
+  const _QtyBtn({
+    required this.icon,
+    required this.onTap,
+    required this.filled,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 28, height: 28,
+        width: 28,
+        height: 28,
         decoration: BoxDecoration(
           color: filled ? _LT.qtyBg : _LT.bg,
           borderRadius: BorderRadius.circular(8),
           border: filled ? null : Border.all(color: _LT.divider),
         ),
-        child: Icon(icon, size: 14, color: filled ? Colors.white : _LT.textPrimary),
+        child: Icon(
+          icon,
+          size: 14,
+          color: filled ? Colors.white : _LT.textPrimary,
+        ),
       ),
     );
   }
@@ -643,15 +726,23 @@ class _RemoveSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 36, height: 4,
+            width: 36,
+            height: 4,
             margin: const EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              color: _LT.divider, borderRadius: BorderRadius.circular(2),
+              color: _LT.divider,
+              borderRadius: BorderRadius.circular(2),
             ),
           ),
-          const Text('Remove from Cart?',
-              style: TextStyle(fontFamily: 'Georgia', fontSize: 20,
-                  fontWeight: FontWeight.w700, color: _LT.textPrimary)),
+          const Text(
+            'Remove from Cart?',
+            style: TextStyle(
+              fontFamily: 'Georgia',
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: _LT.textPrimary,
+            ),
+          ),
           const SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.all(12),
@@ -665,12 +756,24 @@ class _RemoveSheet extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Container(
-                    width: 56, height: 56, color: _LT.surface,
+                    width: 56,
+                    height: 56,
+                    color: _LT.surface,
                     child: item.imageUrl.isNotEmpty
-                        ? Image.network(item.imageUrl, fit: BoxFit.cover,
+                        ? Image.network(
+                            item.imageUrl,
+                            fit: BoxFit.cover,
                             errorBuilder: (_, __, ___) => const Icon(
-                                Icons.chair_outlined, size: 28, color: _LT.textSecondary))
-                        : const Icon(Icons.chair_outlined, size: 28, color: _LT.textSecondary),
+                              Icons.chair_outlined,
+                              size: 28,
+                              color: _LT.textSecondary,
+                            ),
+                          )
+                        : const Icon(
+                            Icons.chair_outlined,
+                            size: 28,
+                            color: _LT.textSecondary,
+                          ),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -678,14 +781,30 @@ class _RemoveSheet extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(item.name,
-                          style: const TextStyle(fontFamily: 'Georgia', fontSize: 15,
-                              fontWeight: FontWeight.w700, color: _LT.textPrimary)),
-                      Text(item.category,
-                          style: const TextStyle(fontSize: 12, color: _LT.textSecondary)),
-                      Text(formatRupiah(item.pricePerUnit),
-                          style: const TextStyle(fontSize: 13,
-                              fontWeight: FontWeight.w700, color: _LT.accent)),
+                      Text(
+                        item.name,
+                        style: const TextStyle(
+                          fontFamily: 'Georgia',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: _LT.textPrimary,
+                        ),
+                      ),
+                      Text(
+                        item.category,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: _LT.textSecondary,
+                        ),
+                      ),
+                      Text(
+                        formatRupiah(item.pricePerUnit),
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: _LT.accent,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -704,10 +823,13 @@ class _RemoveSheet extends StatelessWidget {
                       foregroundColor: _LT.textPrimary,
                       side: const BorderSide(color: _LT.divider, width: 1.5),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
                     ),
-                    child: const Text('Cancel',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),
@@ -725,10 +847,13 @@ class _RemoveSheet extends StatelessWidget {
                       foregroundColor: Colors.white,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
                     ),
-                    child: const Text('Yes, Remove',
-                        style: TextStyle(fontWeight: FontWeight.w700)),
+                    child: const Text(
+                      'Yes, Remove',
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ),
@@ -753,7 +878,8 @@ class _CircleBtn extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 40, height: 40,
+        width: 40,
+        height: 40,
         decoration: BoxDecoration(
           color: _LT.bg,
           borderRadius: BorderRadius.circular(12),

@@ -28,9 +28,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
     // Filter by search query
     if (_searchQuery.isNotEmpty) {
       list = list
-          .where((p) =>
-              p.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-              p.category.toLowerCase().contains(_searchQuery.toLowerCase()))
+          .where(
+            (p) =>
+                p.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+                p.category.toLowerCase().contains(_searchQuery.toLowerCase()),
+          )
           .toList();
     }
 
@@ -42,9 +44,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
     // Filter by review range
     if (_activeFilter.reviewRange.isNotEmpty) {
       list = list
-          .where((p) =>
-              p.rating >= _activeFilter.minRating &&
-              p.rating <= _activeFilter.maxRating)
+          .where(
+            (p) =>
+                p.rating >= _activeFilter.minRating &&
+                p.rating <= _activeFilter.maxRating,
+          )
           .toList();
     }
 
@@ -103,11 +107,17 @@ class _ProductListScreenState extends State<ProductListScreen> {
         title: const Text(
           '🛋  FurniShop',
           style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.textDark),
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: AppColors.textDark,
+          ),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.shopping_cart_outlined, color: AppColors.textDark),
+            icon: const Icon(
+              Icons.shopping_cart_outlined,
+              color: AppColors.textDark,
+            ),
             onPressed: () {
               Navigator.of(context).pushNamed('/cart');
             },
@@ -133,10 +143,15 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       onChanged: (v) => setState(() => _searchQuery = v),
                       decoration: const InputDecoration(
                         hintText: 'Cari produk...',
-                        hintStyle:
-                            TextStyle(fontSize: 13, color: AppColors.textGrey),
-                        prefixIcon: Icon(Icons.search,
-                            size: 18, color: AppColors.textGrey),
+                        hintStyle: TextStyle(
+                          fontSize: 13,
+                          color: AppColors.textGrey,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          size: 18,
+                          color: AppColors.textGrey,
+                        ),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(vertical: 12),
                       ),
@@ -152,13 +167,17 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     width: 44,
                     height: 44,
                     decoration: BoxDecoration(
-                      color: _isFilterActive ? AppColors.primary : AppColors.chipUnselected,
+                      color: _isFilterActive
+                          ? AppColors.primary
+                          : AppColors.chipUnselected,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
                       Icons.tune,
                       size: 20,
-                      color: _isFilterActive ? Colors.white : AppColors.textDark,
+                      color: _isFilterActive
+                          ? Colors.white
+                          : AppColors.textDark,
                     ),
                   ),
                 ),
@@ -180,23 +199,35 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   children: [
                     if (_activeFilter.category != 'All')
                       _activeChip(_activeFilter.category, () {
-                        setState(() => _activeFilter =
-                            _activeFilter.copyWith(category: 'All'));
+                        setState(
+                          () => _activeFilter = _activeFilter.copyWith(
+                            category: 'All',
+                          ),
+                        );
                       }),
                     if (_activeFilter.room != 'All')
                       _activeChip(_activeFilter.room, () {
-                        setState(() =>
-                            _activeFilter = _activeFilter.copyWith(room: 'All'));
+                        setState(
+                          () => _activeFilter = _activeFilter.copyWith(
+                            room: 'All',
+                          ),
+                        );
                       }),
                     if (_activeFilter.reviewRange.isNotEmpty)
                       _activeChip(_activeFilter.reviewRange, () {
-                        setState(() => _activeFilter =
-                            _activeFilter.copyWith(reviewRange: ''));
+                        setState(
+                          () => _activeFilter = _activeFilter.copyWith(
+                            reviewRange: '',
+                          ),
+                        );
                       }),
                     if (_activeFilter.sortBy != 'All')
                       _activeChip('Sort: ${_activeFilter.sortBy}', () {
-                        setState(() =>
-                            _activeFilter = _activeFilter.copyWith(sortBy: 'All'));
+                        setState(
+                          () => _activeFilter = _activeFilter.copyWith(
+                            sortBy: 'All',
+                          ),
+                        );
                       }),
                   ],
                 ),
@@ -211,9 +242,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Text(
                   '${products.length} Produk',
                   style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textGrey),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textGrey,
+                  ),
                 ),
               ],
             ),
@@ -226,8 +258,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.search_off,
-                            size: 60, color: AppColors.textGrey),
+                        Icon(
+                          Icons.search_off,
+                          size: 60,
+                          color: AppColors.textGrey,
+                        ),
                         SizedBox(height: 12),
                         Text(
                           'Tidak ada produk yang cocok\ndengan filter ini.',
@@ -273,9 +308,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(label,
-              style: const TextStyle(
-                  color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
+          Text(
+            label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           const SizedBox(width: 4),
           GestureDetector(
             onTap: onRemove,

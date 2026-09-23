@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart'; 
- import '../providers/cart_provider.dart';
+import 'package:provider/provider.dart';
+import '../providers/cart_provider.dart';
 
 import '../utils/app_theme.dart';
 import '../features/catalog/domain/entities/product.dart';
@@ -20,11 +20,11 @@ import '../widgets/category_circle.dart';
 import '../widgets/product_card.dart';
 import 'product_detail_screen.dart';
 import 'category_screen.dart';
-import '../providers/cart_provider.dart'; 
- import 'cart_screen.dart';
+import '../providers/cart_provider.dart';
+import 'cart_screen.dart';
 import 'chat_list_screen.dart';
 import 'notifications_screen.dart';
-import 'profile_screen.dart';       // buat file ini jika belum ada (lihat bawah)
+import 'profile_screen.dart'; // buat file ini jika belum ada (lihat bawah)
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen>
   int _navIndex = 0;
 
   // ── State halaman home ────────────────────────────────────────
-  int    _selectedCat    = 0;
+  int _selectedCat = 0;
   String _selectedFilter = 'Semua';
   int _hours = 0, _minutes = 12, _seconds = 59;
 
@@ -47,12 +47,14 @@ class _HomeScreenState extends State<HomeScreen>
     vsync: this,
     duration: const Duration(milliseconds: 600),
   );
-  late final Animation<double> _headerFade =
-      Tween<double>(begin: 0, end: 1).animate(
-          CurvedAnimation(parent: _headerCtrl, curve: Curves.easeOut));
-  late final Animation<Offset> _headerSlide =
-      Tween<Offset>(begin: const Offset(0, -0.1), end: Offset.zero).animate(
-          CurvedAnimation(parent: _headerCtrl, curve: Curves.easeOut));
+  late final Animation<double> _headerFade = Tween<double>(
+    begin: 0,
+    end: 1,
+  ).animate(CurvedAnimation(parent: _headerCtrl, curve: Curves.easeOut));
+  late final Animation<Offset> _headerSlide = Tween<Offset>(
+    begin: const Offset(0, -0.1),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(parent: _headerCtrl, curve: Curves.easeOut));
 
   static const List<String> _filters = ['Semua', 'Terbaru', 'Populer'];
 
@@ -114,8 +116,7 @@ class _HomeScreenState extends State<HomeScreen>
           position: Tween<Offset>(
             begin: const Offset(1, 0),
             end: Offset.zero,
-          ).animate(
-              CurvedAnimation(parent: anim, curve: Curves.easeOut)),
+          ).animate(CurvedAnimation(parent: anim, curve: Curves.easeOut)),
           child: child,
         ),
         transitionDuration: const Duration(milliseconds: 300),
@@ -154,14 +155,14 @@ class _HomeScreenState extends State<HomeScreen>
                   seconds: _seconds,
                   twoDigits: _twoDigits,
                   onCatSelect: (i) => setState(() => _selectedCat = i),
-                  onFilterSelect: (f) =>
-                      setState(() => _selectedFilter = f),
+                  onFilterSelect: (f) => setState(() => _selectedFilter = f),
                   onProductTap: (p, prefix) => _goToDetail(p, prefix),
                   onAllCategories: _goToAllCategories,
                   onNotifTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (_) => const NotificationsScreen()),
+                      builder: (_) => const NotificationsScreen(),
+                    ),
                   ),
                 ),
 
@@ -254,8 +255,7 @@ class _HomeTab extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: FadeTransition(
               opacity: headerFade,
               child: const SearchField(),
@@ -282,41 +282,43 @@ class _HomeTab extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: _buildFilterChips(),
           ),
         ),
         SliverToBoxAdapter(
           child: SizedBox(
             height: 262,
-            child: displayedProducts.isEmpty 
-              ? const Center(child: Text('Tidak ada produk'))
-              : ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              scrollDirection: Axis.horizontal,
-              itemCount: displayedProducts.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 14),
-              itemBuilder: (_, i) {
-                final p = displayedProducts[i];
-                return ProductCard(
-                  product: p,
-                  animationIndex: i,
-                  heroTagPrefix: 'flash_',
-                  onTap: () => onProductTap(p, 'flash_'),
-                );
-              },
-            ),
+            child: displayedProducts.isEmpty
+                ? const Center(child: Text('Tidak ada produk'))
+                : ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: displayedProducts.length,
+                    separatorBuilder: (_, __) => const SizedBox(width: 14),
+                    itemBuilder: (_, i) {
+                      final p = displayedProducts[i];
+                      return ProductCard(
+                        product: p,
+                        animationIndex: i,
+                        heroTagPrefix: 'flash_',
+                        onTap: () => onProductTap(p, 'flash_'),
+                      );
+                    },
+                  ),
           ),
         ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 32, 20, 16),
-            child: Text('Rekomendasi Untukmu',
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.textPrimary)),
+            child: Text(
+              'Rekomendasi Untukmu',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textPrimary,
+              ),
+            ),
           ),
         ),
         SliverPadding(
@@ -328,19 +330,16 @@ class _HomeTab extends StatelessWidget {
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
             ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                // Gunakan seluruh produk untuk grid ini
-                final p = AppData.flashSaleProducts[index];
-                return ProductCard(
-                  product: p,
-                  animationIndex: index,
-                  heroTagPrefix: 'rekomendasi_',
-                  onTap: () => onProductTap(p, 'rekomendasi_'),
-                );
-              },
-              childCount: AppData.flashSaleProducts.length,
-            ),
+            delegate: SliverChildBuilderDelegate((context, index) {
+              // Gunakan seluruh produk untuk grid ini
+              final p = AppData.flashSaleProducts[index];
+              return ProductCard(
+                product: p,
+                animationIndex: index,
+                heroTagPrefix: 'rekomendasi_',
+                onTap: () => onProductTap(p, 'rekomendasi_'),
+              );
+            }, childCount: AppData.flashSaleProducts.length),
           ),
         ),
         // Spacer bawah agar konten tidak tertutup navbar
@@ -358,24 +357,36 @@ class _HomeTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Lokasi',
-                    style: GoogleFonts.poppins(
-                        fontSize: 11,
-                        color: AppColors.textSecondary)),
+                Text(
+                  'Lokasi',
+                  style: GoogleFonts.poppins(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
+                ),
                 const SizedBox(height: 2),
                 Row(
                   children: [
-                    const Icon(Icons.location_on_rounded,
-                        size: 15, color: AppColors.darkTeal),
+                    const Icon(
+                      Icons.location_on_rounded,
+                      size: 15,
+                      color: AppColors.darkTeal,
+                    ),
                     const SizedBox(width: 3),
-                    Text('Indonesia, Malang',
-                        style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.textPrimary)),
+                    Text(
+                      'Indonesia, Malang',
+                      style: GoogleFonts.poppins(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.textPrimary,
+                      ),
+                    ),
                     const SizedBox(width: 3),
-                    const Icon(Icons.keyboard_arrow_down_rounded,
-                        size: 16, color: AppColors.textPrimary),
+                    const Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      size: 16,
+                      color: AppColors.textPrimary,
+                    ),
                   ],
                 ),
               ],
@@ -393,8 +404,11 @@ class _HomeTab extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  const Icon(Icons.notifications_outlined,
-                      size: 20, color: AppColors.textPrimary),
+                  const Icon(
+                    Icons.notifications_outlined,
+                    size: 20,
+                    color: AppColors.textPrimary,
+                  ),
                   Positioned(
                     top: 8,
                     right: 8,
@@ -422,18 +436,24 @@ class _HomeTab extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Kategori',
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.textPrimary)),
+            Text(
+              'Kategori',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textPrimary,
+              ),
+            ),
             GestureDetector(
               onTap: onAllCategories,
-              child: Text('Lihat Semua',
-                  style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.darkTeal)),
+              child: Text(
+                'Lihat Semua',
+                style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.darkTeal,
+                ),
+              ),
             ),
           ],
         ),
@@ -457,29 +477,35 @@ class _HomeTab extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Flash Sale',
-            style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.textPrimary)),
+        Text(
+          'Flash Sale',
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: AppColors.textPrimary,
+          ),
+        ),
         Container(
-          padding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: BoxDecoration(
             color: AppColors.softGray,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             children: [
-              const Icon(Icons.timer_outlined,
-                  size: 13, color: AppColors.badge),
+              const Icon(
+                Icons.timer_outlined,
+                size: 13,
+                color: AppColors.badge,
+              ),
               const SizedBox(width: 4),
               Text(
                 'Berakhir: ${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}',
                 style: GoogleFonts.poppins(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textPrimary),
+                  fontSize: 11,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.textPrimary,
+                ),
               ),
             ],
           ),
@@ -497,21 +523,19 @@ class _HomeTab extends StatelessWidget {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 240),
             margin: const EdgeInsets.only(right: 8),
-            padding: const EdgeInsets.symmetric(
-                horizontal: 18, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
             decoration: BoxDecoration(
-              color: active
-                  ? AppColors.darkTeal
-                  : AppColors.softGray,
+              color: active ? AppColors.darkTeal : AppColors.softGray,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Text(f,
-                style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: active
-                        ? Colors.white
-                        : AppColors.textSecondary)),
+            child: Text(
+              f,
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: active ? Colors.white : AppColors.textSecondary,
+              ),
+            ),
           ),
         );
       }).toList(),

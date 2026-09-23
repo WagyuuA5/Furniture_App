@@ -24,14 +24,18 @@ class CheckoutProvider extends ChangeNotifier {
   List<CheckoutItem> get items => List.unmodifiable(_items);
 
   void loadFromCart(List<dynamic> cartItems) {
-    _items = cartItems.map((c) => CheckoutItem(
-      id: c.id,
-      name: c.name,
-      category: c.category,
-      price: c.pricePerUnit,
-      imageUrl: c.imageUrl,
-      quantity: c.quantity,
-    )).toList();
+    _items = cartItems
+        .map(
+          (c) => CheckoutItem(
+            id: c.id,
+            name: c.name,
+            category: c.category,
+            price: c.pricePerUnit,
+            imageUrl: c.imageUrl,
+            quantity: c.quantity,
+          ),
+        )
+        .toList();
     notifyListeners();
   }
 
@@ -46,8 +50,7 @@ class CheckoutProvider extends ChangeNotifier {
   double get grandTotal => subtotal + shippingCost;
 
   // ─────────────────────────────────────────────────────────────
-  CheckoutProvider()
-      : _selectedAddress = defaultAddresses.first;
+  CheckoutProvider() : _selectedAddress = defaultAddresses.first;
 
   // ── Address actions ────────────────────────────────────────────
   void selectAddress(ShippingAddress address) {
@@ -89,11 +92,14 @@ class CheckoutProvider extends ChangeNotifier {
   Future<bool> submitOrder() async {
     try {
       final response = await OrderService.checkout(
-        address: _selectedAddress.city, // Menggunakan kota alamat sebagai contoh
-        paymentMethod: 'transfer', // Sementara hardcode atau bisa ditambahkan state payment
+        address:
+            _selectedAddress.city, // Menggunakan kota alamat sebagai contoh
+        paymentMethod:
+            'transfer', // Sementara hardcode atau bisa ditambahkan state payment
       );
-      
-      if (response['message'] == 'checkout berhasil' || response['order_id'] != null) {
+
+      if (response['message'] == 'checkout berhasil' ||
+          response['order_id'] != null) {
         _items.clear();
         notifyListeners();
         return true;

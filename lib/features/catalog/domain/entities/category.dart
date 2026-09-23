@@ -3,9 +3,5 @@ class Category {
   final String name;
   final String icon;
 
-  const Category({
-    required this.id,
-    required this.name,
-    this.icon = '',
-  });
+  const Category({required this.id, required this.name, this.icon = ''});
 }

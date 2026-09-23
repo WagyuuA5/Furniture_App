@@ -28,16 +28,17 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> register(String name, String email, String password, String phone) async {
+  Future<bool> register(
+    String name,
+    String email,
+    String password,
+    String phone,
+  ) async {
     _isLoading = true;
     notifyListeners();
 
     try {
-      await AuthService.register(
-        nama: name,
-        email: email,
-        password: password,
-      );
+      await AuthService.register(nama: name, email: email, password: password);
       _isLoading = false;
       notifyListeners();
       return true;
@@ -64,11 +65,14 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> changePassword(String currentPassword, String newPassword) async {
+  Future<bool> changePassword(
+    String currentPassword,
+    String newPassword,
+  ) async {
     if (_user == null || _user!['email'] == null) {
       throw Exception('Sesi tidak valid, silakan login kembali');
     }
-    
+
     _isLoading = true;
     notifyListeners();
 

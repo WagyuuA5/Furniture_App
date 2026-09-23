@@ -4,31 +4,31 @@
 import 'package:flutter/material.dart';
 
 // ── Current user (simulasi — ganti dengan Auth UID nyata) ─────────────────────
-const String kCurrentUserId   = 'me';
+const String kCurrentUserId = 'me';
 const String kCurrentUserName = 'Mamad';
-const String kAppLocation     = 'Indonesia, Malang';
+const String kAppLocation = 'Indonesia, Malang';
 
 // ── Warna ─────────────────────────────────────────────────────────────────────
 class ChatColors {
   // Bubble chat
-  static const bubbleMe    = Color(0xFF2C6E49);   // hijau teal — pesan saya
-  static const bubbleOther = Color(0xFFF2F2F2);   // abu muda   — pesan lawan
+  static const bubbleMe = Color(0xFF2C6E49); // hijau teal — pesan saya
+  static const bubbleOther = Color(0xFFF2F2F2); // abu muda   — pesan lawan
 
   // Text di bubble
-  static const textMe    = Colors.white;
+  static const textMe = Colors.white;
   static const textOther = Color(0xFF1A1A1A);
 
   // UI umum
-  static const bg         = Color(0xFFFAFAFA);
-  static const surface    = Color(0xFFFFFFFF);
-  static const primary    = Color(0xFF2C6E49);
-  static const textPri    = Color(0xFF1A1A1A);
-  static const textSec    = Color(0xFF8A8A8A);
-  static const divider    = Color(0xFFEEECE8);
-  static const inputBg    = Color(0xFFF2F2F2);
-  static const online     = Color(0xFF4CAF50);
-  static const offline    = Color(0xFF9E9E9E);
-  static const badge      = Color(0xFFE53935);
+  static const bg = Color(0xFFFAFAFA);
+  static const surface = Color(0xFFFFFFFF);
+  static const primary = Color(0xFF2C6E49);
+  static const textPri = Color(0xFF1A1A1A);
+  static const textSec = Color(0xFF8A8A8A);
+  static const divider = Color(0xFFEEECE8);
+  static const inputBg = Color(0xFFF2F2F2);
+  static const online = Color(0xFF4CAF50);
+  static const offline = Color(0xFF9E9E9E);
+  static const badge = Color(0xFFE53935);
 
   // Avatar palette (siklus berdasarkan index)
   static const avatarColors = [
@@ -46,40 +46,40 @@ class ChatColors {
 
 // ── Shorthand alias agar file lain bisa tetap pakai AppColors.primary ─────────
 class AppColors {
-  static const primary      = ChatColors.primary;
-  static const primaryDark  = Color(0xFF1E4D33);
-  static const background   = ChatColors.bg;
-  static const surface      = ChatColors.surface;
-  static const textPrimary  = ChatColors.textPri;
+  static const primary = ChatColors.primary;
+  static const primaryDark = Color(0xFF1E4D33);
+  static const background = ChatColors.bg;
+  static const surface = ChatColors.surface;
+  static const textPrimary = ChatColors.textPri;
   static const textSecondary = ChatColors.textSec;
-  static const divider      = ChatColors.divider;
-  static const error        = Color(0xFFE53935);
-  static const blue         = Color(0xFF1E88E5);
+  static const divider = ChatColors.divider;
+  static const error = Color(0xFFE53935);
+  static const blue = Color(0xFF1E88E5);
 }
 
 // ── Radius ─────────────────────────────────────────────────────────────────────
 class ChatRadius {
-  static const bubbleMe    = BorderRadius.only(
-    topLeft:     Radius.circular(20),
-    topRight:    Radius.circular(20),
-    bottomLeft:  Radius.circular(20),
+  static const bubbleMe = BorderRadius.only(
+    topLeft: Radius.circular(20),
+    topRight: Radius.circular(20),
+    bottomLeft: Radius.circular(20),
     bottomRight: Radius.circular(4),
   );
   static const bubbleOther = BorderRadius.only(
-    topLeft:     Radius.circular(4),
-    topRight:    Radius.circular(20),
-    bottomLeft:  Radius.circular(20),
+    topLeft: Radius.circular(4),
+    topRight: Radius.circular(20),
+    bottomLeft: Radius.circular(20),
     bottomRight: Radius.circular(20),
   );
 }
 
 // ── App string constants ───────────────────────────────────────────────────────
 class AppStrings {
-  static const appName        = 'ShopEase';
+  static const appName = 'ShopEase';
   static const processPayment = 'Proses Pembayaran';
-  static const paymentMethod  = 'Metode Pembayaran';
+  static const paymentMethod = 'Metode Pembayaran';
   static const couponDiscount = 'Coupon';
-  static const addCard        = 'Add Card';
+  static const addCard = 'Add Card';
 }
 
 // ── Dummy avatar warna per nama ────────────────────────────────────────────────
@@ -95,20 +95,20 @@ Color avatarColorFor(String name) {
 // CART MODELS  (dipakai oleh cart_screen, payment screens, dll.)
 // ─────────────────────────────────────────────────────────────────────────────
 class CartItem {
-  final int    cartItemId;
-  final int    productId;
+  final int cartItemId;
+  final int productId;
   final String name;
   final String image;
-  final int    harga;
-  int          jumlah;
-  final int    subtotal;
+  final int harga;
+  int jumlah;
+  final int subtotal;
 
   // ── alias agar kode lama yang pakai field berbeda tetap kompilasi ──
-  String get id       => cartItemId.toString();
+  String get id => cartItemId.toString();
   String get category => '';
   String get imageUrl => image;
   double get pricePerUnit => harga.toDouble();
-  int    get quantity => jumlah;
+  int get quantity => jumlah;
 
   CartItem({
     required this.cartItemId,
@@ -121,30 +121,30 @@ class CartItem {
   });
 
   factory CartItem.fromJson(Map<String, dynamic> json) => CartItem(
-        cartItemId: json['cartItemId'] as int,
-        productId:  json['productId']  as int,
-        name:       json['name']       as String,
-        image:      json['image']      as String,
-        harga:      json['harga']      as int,
-        jumlah:     json['jumlah']     as int,
-        subtotal:   json['subtotal']   as int,
-      );
+    cartItemId: json['cartItemId'] as int,
+    productId: json['productId'] as int,
+    name: json['name'] as String,
+    image: json['image'] as String,
+    harga: json['harga'] as int,
+    jumlah: json['jumlah'] as int,
+    subtotal: json['subtotal'] as int,
+  );
 
   Map<String, dynamic> toJson() => {
-        'cartItemId': cartItemId,
-        'productId':  productId,
-        'name':       name,
-        'image':      image,
-        'harga':      harga,
-        'jumlah':     jumlah,
-        'subtotal':   subtotal,
-      };
+    'cartItemId': cartItemId,
+    'productId': productId,
+    'name': name,
+    'image': image,
+    'harga': harga,
+    'jumlah': jumlah,
+    'subtotal': subtotal,
+  };
 }
 
 class CartData {
-  final int            userId;
-  final int            totalItem;
-  final int            totalHarga;
+  final int userId;
+  final int totalItem;
+  final int totalHarga;
   final List<CartItem> items;
 
   CartData({
@@ -155,13 +155,13 @@ class CartData {
   });
 
   factory CartData.fromJson(Map<String, dynamic> json) => CartData(
-        userId:      json['userId']      as int,
-        totalItem:   json['totalItem']   as int,
-        totalHarga:  json['totalHarga']  as int,
-        items:       (json['items'] as List)
-            .map((e) => CartItem.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
+    userId: json['userId'] as int,
+    totalItem: json['totalItem'] as int,
+    totalHarga: json['totalHarga'] as int,
+    items: (json['items'] as List)
+        .map((e) => CartItem.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -173,12 +173,12 @@ class CartProvider extends ChangeNotifier {
   final List<CartItem> _items = [
     CartItem(
       cartItemId: 1,
-      productId:  101,
-      name:       'Modern Accent Chair',
-      image:      '',
-      harga:      600000,
-      jumlah:     1,
-      subtotal:   600000,
+      productId: 101,
+      name: 'Modern Accent Chair',
+      image: '',
+      harga: 600000,
+      jumlah: 1,
+      subtotal: 600000,
     ),
   ];
 

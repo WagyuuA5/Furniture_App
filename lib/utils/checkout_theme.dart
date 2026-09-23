@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 class CC {
   // Colors (sesuai desain pixel-perfect)
-  static const bg         = Color(0xFFFAFAFA);
-  static const surface    = Color(0xFFFFFFFF);
-  static const teal       = Color(0xFF2C6E49);
-  static const textPri    = Color(0xFF1A1A1A);
-  static const textSec    = Color(0xFF8A8A8A);
-  static const divider    = Color(0xFFEEECE8);
-  static const border     = Color(0xFFE0DDD8);
-  static const radioOff   = Color(0xFFCCCCCC);
+  static const bg = Color(0xFFFAFAFA);
+  static const surface = Color(0xFFFFFFFF);
+  static const teal = Color(0xFF2C6E49);
+  static const textPri = Color(0xFF1A1A1A);
+  static const textSec = Color(0xFF8A8A8A);
+  static const divider = Color(0xFFEEECE8);
+  static const border = Color(0xFFE0DDD8);
+  static const radioOff = Color(0xFFCCCCCC);
 }
 
 // ── Reusable "CHANGE" button ──────────────────────────────────────────────────
@@ -72,10 +72,7 @@ class CheckoutBigButton extends StatelessWidget {
             ),
             child: Text(
               label,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-              ),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
             ),
           ),
         ),
@@ -103,7 +100,8 @@ class SectionTitle extends StatelessWidget {
 }
 
 // ── Custom AppBar shared ──────────────────────────────────────────────────────
-PreferredSizeWidget checkoutAppBar(BuildContext context, String title) => AppBar(
+PreferredSizeWidget checkoutAppBar(BuildContext context, String title) =>
+    AppBar(
       backgroundColor: CC.surface,
       elevation: 0,
       centerTitle: true,
@@ -116,8 +114,11 @@ PreferredSizeWidget checkoutAppBar(BuildContext context, String title) => AppBar
             shape: BoxShape.circle,
             border: Border.all(color: CC.border),
           ),
-          child: const Icon(Icons.arrow_back_ios_new_rounded,
-              size: 16, color: CC.textPri),
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 16,
+            color: CC.textPri,
+          ),
         ),
       ),
       title: Text(

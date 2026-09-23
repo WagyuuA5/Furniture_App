@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/struk_pembayaran_screen.dart
 //
 // UPDATE:
@@ -23,12 +24,12 @@ import 'track_order_screen.dart'; // ← halaman baru
 // ─────────────────────────────────────────────
 class _C {
   static const bg            = Color(0xFFF5F3EF);
-  static const surface       = Color(0xFFFFFFFF);
-  static const primary       = Color(0xFF1A1A1A);
-  static const accent        = Color(0xFF2C5F52);
+  static const surface       = AppColors.white;
+  static const primary       = AppColors.textPrimary;
+  static const accent        = AppColors.primary;
   static const accentLight   = Color(0xFFE8F4ED);
-  static const textSecondary = Color(0xFF8A8A8A);
-  static const divider       = Color(0xFFEEECE8);
+  static const textSecondary = AppColors.textSecondary;
+  static const divider       = AppColors.divider;
   static const receiptShadow = Color(0x1A000000);
 }
 
@@ -492,7 +493,7 @@ class _ReceiptItemRow extends StatelessWidget {
             child: Container(
               width: 70,
               height: 70,
-              color: const Color(0xFFEEECE8),
+              color: AppColors.divider,
               child: item.imageUrl.isNotEmpty
                   ? Image.network(
                       item.imageUrl,
@@ -610,7 +611,7 @@ class _ReceiptCostRow extends StatelessWidget {
 class _BarcodePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = const Color(0xFF1A1A1A);
+    final paint = Paint()..color = AppColors.textPrimary;
     final rng = _SimpleRng(42);
     double x = 0;
     while (x < size.width) {

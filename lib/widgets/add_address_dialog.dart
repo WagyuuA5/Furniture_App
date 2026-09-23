@@ -16,11 +16,11 @@ class AddAddressDialog extends StatefulWidget {
 
 class _AddAddressDialogState extends State<AddAddressDialog> {
   final _formKey = GlobalKey<FormState>();
-  final _labelCtrl    = TextEditingController();
-  final _streetCtrl   = TextEditingController();
-  final _cityCtrl     = TextEditingController();
-  final _stateCtrl    = TextEditingController();
-  final _zipCtrl      = TextEditingController();
+  final _labelCtrl = TextEditingController();
+  final _streetCtrl = TextEditingController();
+  final _cityCtrl = TextEditingController();
+  final _stateCtrl = TextEditingController();
+  final _zipCtrl = TextEditingController();
 
   @override
   void dispose() {
@@ -78,22 +78,25 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
                   controller: _labelCtrl,
                   label: 'Label (e.g. Home, Gym)',
                   hint: 'Home',
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty) ? 'Label wajib diisi' : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? 'Label wajib diisi'
+                      : null,
                 ),
                 _Field(
                   controller: _streetCtrl,
                   label: 'Street Address',
                   hint: '1901 Thornridge Cir.',
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty) ? 'Alamat wajib diisi' : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? 'Alamat wajib diisi'
+                      : null,
                 ),
                 _Field(
                   controller: _cityCtrl,
                   label: 'City',
                   hint: 'Hawaii',
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty) ? 'Kota wajib diisi' : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? 'Kota wajib diisi'
+                      : null,
                 ),
                 Row(
                   children: [
@@ -134,11 +137,16 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
                           side: const BorderSide(color: CC.border),
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                         ),
-                        child: const Text('Batal',
-                            style: TextStyle(
-                                color: CC.textSec, fontWeight: FontWeight.w600)),
+                        child: const Text(
+                          'Batal',
+                          style: TextStyle(
+                            color: CC.textSec,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -151,10 +159,13 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
                           elevation: 0,
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                         ),
-                        child: const Text('Simpan',
-                            style: TextStyle(fontWeight: FontWeight.w700)),
+                        child: const Text(
+                          'Simpan',
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ],
@@ -191,11 +202,14 @@ class _Field extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label,
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: CC.textSec)),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: CC.textSec,
+            ),
+          ),
           const SizedBox(height: 6),
           TextFormField(
             controller: controller,
@@ -205,8 +219,10 @@ class _Field extends StatelessWidget {
             decoration: InputDecoration(
               hintText: hint,
               hintStyle: const TextStyle(color: CC.radioOff, fontSize: 13),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 14,
+                vertical: 12,
+              ),
               filled: true,
               fillColor: CC.bg,
               border: OutlineInputBorder(
@@ -224,7 +240,6 @@ class _Field extends StatelessWidget {
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(color: Colors.red),
-              
               ),
             ),
           ),

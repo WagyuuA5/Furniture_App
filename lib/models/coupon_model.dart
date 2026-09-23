@@ -1,4 +1,5 @@
 enum CouponType { product, shipping, cashback }
+
 enum CouponBadge { none, popular, limited, hot }
 
 class CouponModel {

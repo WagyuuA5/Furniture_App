@@ -72,14 +72,14 @@ class _CheckoutBody extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => PaymentMethodScreen(
-          shippingMethod: prov.selectedShipping.name,
-        ),
+        builder: (_) =>
+            PaymentMethodScreen(shippingMethod: prov.selectedShipping.name),
       ),
     );
   }
 
-  Widget _divider() => const Divider(color: CC.divider, height: 1, thickness: 1);
+  Widget _divider() =>
+      const Divider(color: CC.divider, height: 1, thickness: 1);
 }
 
 // ── Shipping Address Section ──────────────────────────────────────────────────
@@ -90,9 +90,7 @@ class _ShippingAddressSection extends StatelessWidget {
   void _openAddressScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => const ShippingAddressScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const ShippingAddressScreen()),
     );
   }
 
@@ -113,8 +111,11 @@ class _ShippingAddressSection extends StatelessWidget {
               // Location icon
               const Padding(
                 padding: EdgeInsets.only(top: 2),
-                child: Icon(Icons.location_on_outlined,
-                    size: 20, color: CC.textPri),
+                child: Icon(
+                  Icons.location_on_outlined,
+                  size: 20,
+                  color: CC.textPri,
+                ),
               ),
               const SizedBox(width: 10),
 
@@ -162,9 +163,7 @@ class _ShippingTypeSection extends StatelessWidget {
   void _openShippingScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => const ShippingMethodScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const ShippingMethodScreen()),
     );
   }
 
@@ -205,10 +204,7 @@ class _ShippingTypeSection extends StatelessWidget {
                     const SizedBox(height: 3),
                     Text(
                       'Estimasi Tiba  ${method.estimatedArrival}',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: CC.textSec,
-                      ),
+                      style: const TextStyle(fontSize: 12, color: CC.textSec),
                     ),
                   ],
                 ),
@@ -238,9 +234,7 @@ class _OrderListSection extends StatelessWidget {
         children: [
           const SectionTitle('Daftar Pesanan'),
           const SizedBox(height: 14),
-          ...prov.items.map(
-            (item) => _OrderItemCard(item: item, prov: prov),
-          ),
+          ...prov.items.map((item) => _OrderItemCard(item: item, prov: prov)),
         ],
       ),
     );
@@ -288,12 +282,16 @@ class _OrderItemCard extends StatelessWidget {
                       item.imageUrl,
                       fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => const Icon(
-                          Icons.chair_outlined,
-                          size: 32,
-                          color: CC.textSec),
+                        Icons.chair_outlined,
+                        size: 32,
+                        color: CC.textSec,
+                      ),
                     )
-                  : const Icon(Icons.chair_outlined,
-                      size: 32, color: CC.textSec),
+                  : const Icon(
+                      Icons.chair_outlined,
+                      size: 32,
+                      color: CC.textSec,
+                    ),
             ),
           ),
           const SizedBox(width: 14),
@@ -329,17 +327,17 @@ class _OrderItemCard extends StatelessWidget {
                   Text(
                     'Qty: ${item.quantity}  •  Total: ${formatUSD(item.total)}',
                     style: const TextStyle(
-                        fontSize: 11, color: CC.teal, fontWeight: FontWeight.w500),
+                      fontSize: 11,
+                      color: CC.teal,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
               ],
             ),
           ),
 
           // CHANGE button
-          ChangeButton(
-            label: 'UBAH',
-            onTap: () => _openItemDialog(context),
-          ),
+          ChangeButton(label: 'UBAH', onTap: () => _openItemDialog(context)),
         ],
       ),
     );
@@ -371,19 +369,29 @@ class _OrderItemDialogInlineState extends State<_OrderItemDialogInline> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Text(
         widget.item.name,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: CC.textPri),
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: CC.textPri,
+        ),
       ),
       content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () => setState(() { if (_qty > 1) _qty--; }),
+            onPressed: () => setState(() {
+              if (_qty > 1) _qty--;
+            }),
             icon: const Icon(Icons.remove_circle_outline),
             color: CC.textSec,
           ),
           Text(
             '$_qty',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: CC.textPri),
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: CC.textPri,
+            ),
           ),
           IconButton(
             onPressed: () => setState(() => _qty++),
@@ -402,14 +410,19 @@ class _OrderItemDialogInlineState extends State<_OrderItemDialogInline> {
         ),
         ElevatedButton(
           onPressed: () {
-            context.read<CheckoutProvider>().updateQuantity(widget.item.id, _qty);
+            context.read<CheckoutProvider>().updateQuantity(
+              widget.item.id,
+              _qty,
+            );
             Navigator.pop(context);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: CC.teal,
             foregroundColor: Colors.white,
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
           ),
           child: const Text('Simpan'),
         ),

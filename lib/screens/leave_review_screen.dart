@@ -43,7 +43,8 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
     if (_selectedRating == 0) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Text('Silakan berikan rating bintang terlebih dahulu.')),
+          content: Text('Silakan berikan rating bintang terlebih dahulu.'),
+        ),
       );
       return;
     }
@@ -61,10 +62,10 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
     widget.product.reviews.insert(0, newReview);
     widget.product.reviewCount += 1;
     // Recalculate average rating (simple average)
-    final total =
-        widget.product.reviews.fold(0.0, (sum, r) => sum + r.rating);
+    final total = widget.product.reviews.fold(0.0, (sum, r) => sum + r.rating);
     widget.product.rating = double.parse(
-        (total / widget.product.reviews.length).toStringAsFixed(1));
+      (total / widget.product.reviews.length).toStringAsFixed(1),
+    );
 
     Navigator.pop(context, true); // true = review submitted
   }
@@ -75,11 +76,14 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
       builder: (_) => AlertDialog(
         title: const Text('Tambah Foto'),
         content: const Text(
-            'Fitur upload foto akan tersedia setelah integrasi dengan image picker. Simulasi: foto berhasil ditambahkan!'),
+          'Fitur upload foto akan tersedia setelah integrasi dengan image picker. Simulasi: foto berhasil ditambahkan!',
+        ),
         actions: [
           TextButton(
             onPressed: () {
-              setState(() => _addedPhotos.add('photo_${_addedPhotos.length + 1}'));
+              setState(
+                () => _addedPhotos.add('photo_${_addedPhotos.length + 1}'),
+              );
               Navigator.pop(context);
             },
             child: const Text('OK'),
@@ -156,19 +160,25 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                               Text(
                                 widget.product.name,
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.w700, fontSize: 14),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                ),
                               ),
                               const SizedBox(height: 2),
                               Text(
                                 '${widget.product.category} | Qty. : 02 pcs',
                                 style: const TextStyle(
-                                    fontSize: 12, color: AppColors.textGrey),
+                                  fontSize: 12,
+                                  color: AppColors.textGrey,
+                                ),
                               ),
                               const SizedBox(height: 4),
                               Text(
                                 _displayPrice(widget.product.price),
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.w700, fontSize: 14),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                ),
                               ),
                             ],
                           ),
@@ -177,21 +187,27 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                         ElevatedButton(
                           onPressed: () {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Re-Order berhasil!')),
+                              const SnackBar(
+                                content: Text('Re-Order berhasil!'),
+                              ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primary,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 8),
+                              horizontal: 14,
+                              vertical: 8,
+                            ),
                             minimumSize: Size.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          child: const Text('Re-Order',
-                              style: TextStyle(fontSize: 12)),
+                          child: const Text(
+                            'Re-Order',
+                            style: TextStyle(fontSize: 12),
+                          ),
                         ),
                       ],
                     ),
@@ -204,9 +220,10 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                     child: Text(
                       'How is your order?',
                       style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textDark),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.textDark,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -217,8 +234,7 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                   const Center(
                     child: Text(
                       'Your overall rating',
-                      style:
-                          TextStyle(fontSize: 13, color: AppColors.textGrey),
+                      style: TextStyle(fontSize: 13, color: AppColors.textGrey),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -226,7 +242,8 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                     child: RatingWidget(
                       initialRating: _selectedRating,
                       size: 44,
-                      onRatingChanged: (r) => setState(() => _selectedRating = r),
+                      onRatingChanged: (r) =>
+                          setState(() => _selectedRating = r),
                     ),
                   ),
 
@@ -254,9 +271,10 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                   const Text(
                     'Add detailed review',
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textDark),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textDark,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Container(
@@ -284,17 +302,26 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                     onTap: _simulateAddPhoto,
                     child: Row(
                       children: [
-                        const Icon(Icons.camera_alt_outlined,
-                            size: 20, color: AppColors.textDark),
+                        const Icon(
+                          Icons.camera_alt_outlined,
+                          size: 20,
+                          color: AppColors.textDark,
+                        ),
                         const SizedBox(width: 8),
-                        const Text('add photo',
-                            style: TextStyle(
-                                fontSize: 13, color: AppColors.textDark)),
+                        const Text(
+                          'add photo',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: AppColors.textDark,
+                          ),
+                        ),
                         if (_addedPhotos.isNotEmpty) ...[
                           const SizedBox(width: 8),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 2),
+                              horizontal: 8,
+                              vertical: 2,
+                            ),
                             decoration: BoxDecoration(
                               color: AppColors.accent,
                               borderRadius: BorderRadius.circular(10),
@@ -302,7 +329,9 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                             child: Text(
                               '${_addedPhotos.length} foto',
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 11),
+                                color: Colors.white,
+                                fontSize: 11,
+                              ),
                             ),
                           ),
                         ],
@@ -342,8 +371,9 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                     child: const Text(
                       'Cancel',
                       style: TextStyle(
-                          color: AppColors.textDark,
-                          fontWeight: FontWeight.w600),
+                        color: AppColors.textDark,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -351,8 +381,10 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _submitReview,
-                    child: const Text('Submit',
-                        style: TextStyle(fontWeight: FontWeight.w700)),
+                    child: const Text(
+                      'Submit',
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ],

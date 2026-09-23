@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 
 
 import 'dart:async';
@@ -392,7 +393,7 @@ class _ImageSourceSheet extends StatelessWidget {
             width: 36, height: 4,
             margin: const EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              color: const Color(0xFFEEECE8),
+              color: AppColors.divider,
               borderRadius: BorderRadius.circular(2),
             ),
           ),

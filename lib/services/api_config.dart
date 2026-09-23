@@ -11,9 +11,9 @@ class ApiConfig {
     if (kIsWeb) {
       return 'http://localhost:3001';
     }
-    
+
     // Ganti '10.0.2.2' dengan IP WiFi laptop jika kamu menggunakan HP fisik
-    return 'http://10.132.21.46:3001'; 
+    return 'http://10.132.21.46:3001';
   }
 
   // Auth
@@ -22,21 +22,21 @@ class ApiConfig {
 
   // User & Profile
   static const String userProfile = '/user/profile';
-  static const String profile     = '/profile';
+  static const String profile = '/profile';
 
   // Produk
-  static const String products   = '/products';
-  static const String search     = '/search';
+  static const String products = '/products';
+  static const String search = '/search';
   static const String categories = '/categories';
 
   // Keranjang
-  static const String cart       = '/cart';
+  static const String cart = '/cart';
   static const String cartUpdate = '/cart/update';
-  static const String cartHapus  = '/cart/hapus';
+  static const String cartHapus = '/cart/hapus';
 
   // Pesanan
-  static const String checkout     = '/checkout';
-  static const String orders       = '/orders';
+  static const String checkout = '/checkout';
+  static const String orders = '/orders';
   static const String ordersDetail = '/orders/detail';
   static const String ordersCancel = '/orders/cancel';
 }

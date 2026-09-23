@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/track_order_screen.dart
 //
 // Halaman Detail Pesanan / Track Order
@@ -13,13 +14,13 @@ import '../models/order.dart';
 // ─────────────────────────────────────────────
 class _C {
   static const bg            = Color(0xFFF5F3EF);
-  static const surface       = Color(0xFFFFFFFF);
-  static const primary       = Color(0xFF1A1A1A);
-  static const accent        = Color(0xFF2C5F52);
+  static const surface       = AppColors.white;
+  static const primary       = AppColors.textPrimary;
+  static const accent        = AppColors.primary;
   static const accentLight   = Color(0xFFE8F4ED);
-  static const textSecondary = Color(0xFF8A8A8A);
-  static const divider       = Color(0xFFEEECE8);
-  static const done          = Color(0xFF2C5F52);   // lingkaran selesai
+  static const textSecondary = AppColors.textSecondary;
+  static const divider       = AppColors.divider;
+  static const done          = AppColors.primary;   // lingkaran selesai
   static const pending       = Color(0xFFCCCCCC);   // lingkaran belum
 }
 
@@ -357,7 +358,7 @@ class _TrackItemRow extends StatelessWidget {
             child: Container(
               width: 64,
               height: 64,
-              color: const Color(0xFFEEECE8),
+              color: AppColors.divider,
               child: item.imageUrl.isNotEmpty
                   ? Image.network(item.imageUrl,
                       fit: BoxFit.cover,
@@ -646,7 +647,7 @@ class _HDivider extends StatelessWidget {
 class _BarcodePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = const Color(0xFF1A1A1A);
+    final paint = Paint()..color = AppColors.textPrimary;
     final rng = _SimpleRng(99);
     double x = 0;
     while (x < size.width) {
@@ -728,7 +729,7 @@ class _CircleBtn extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child:
-            Icon(icon, size: 16, color: const Color(0xFF1A1A1A)),
+            Icon(icon, size: 16, color: AppColors.textPrimary),
       ),
     );
   }
