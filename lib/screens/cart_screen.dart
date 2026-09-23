@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:my_design_system/my_design_system.dart';
+import 'package:my_design_system/my_design_system.dart' hide AppColors;
 import '../utils/app_theme.dart';
 // lib/screens/cart_screen.dart
 //
@@ -10,6 +10,7 @@ import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import '../features/cart/domain/entities/cart.dart';
 import '../features/catalog/domain/entities/product.dart';
 import '../providers/checkout_provider.dart';
 
