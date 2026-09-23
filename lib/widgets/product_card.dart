@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_theme.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
 
 // ============================================================
 // Product Card Widget — Flash Sale item dengan Hero + animasi
 // ============================================================
 class ProductCard extends StatefulWidget {
-  final ProductModel product;
+  final Product product;
   final VoidCallback onTap;
   final int animationIndex;
 

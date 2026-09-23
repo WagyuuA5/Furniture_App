@@ -2,13 +2,13 @@
 // Halaman daftar review produk – sesuai desain Gambar 4
 
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
 import '../utils/app_theme.dart';
 import '../widgets/rating_widget.dart';
 import 'leave_review_screen.dart';
 
 class RatingScreen extends StatefulWidget {
-  final ProductModel product;
+  final Product product;
 
   const RatingScreen({Key? key, required this.product}) : super(key: key);
 

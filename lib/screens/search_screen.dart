@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_theme.dart';
 import '../utils/constants.dart' hide AppColors;
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
+import '../core/dummy_data.dart';
 import '../models/chat_model.dart';
 import '../services/chat_service.dart';
 import '../screens/product_detail_screen.dart';
@@ -27,12 +28,12 @@ class _SearchScreenState extends State<SearchScreen>
   String _query = '';
 
   // Filter produk
-  List<ProductModel> get _productResults {
+  List<Product> get _productResults {
     if (_query.isEmpty) return [];
     return AppData.flashSaleProducts
         .where((p) =>
             p.name.toLowerCase().contains(_query.toLowerCase()) ||
-            p.categoryId.toLowerCase().contains(_query.toLowerCase()))
+            p.category.toLowerCase().contains(_query.toLowerCase()))
         .toList();
   }
 
@@ -301,7 +302,7 @@ class _SearchScreenState extends State<SearchScreen>
     );
   }
 
-  void _goDetail(ProductModel product) {
+  void _goDetail(Product product) {
     _submit(_query);
     Navigator.push(context,
         MaterialPageRoute(
@@ -388,7 +389,7 @@ class _HistoryTile extends StatelessWidget {
 
 // ── Product Row ────────────────────────────────────────────────────────────────
 class _ProductRow extends StatelessWidget {
-  final ProductModel product;
+  final Product product;
   final VoidCallback onTap;
   const _ProductRow({required this.product, required this.onTap});
 
@@ -439,7 +440,7 @@ class _ProductRow extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: AppColors.textPrimary)),
                   const SizedBox(height: 2),
-                  Text(product.categoryId,
+                  Text(product.category,
                       style: GoogleFonts.poppins(
                           fontSize: 11, color: AppColors.textSecondary)),
                   const SizedBox(height: 4),

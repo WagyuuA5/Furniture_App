@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/app_theme.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
 import '../widgets/rating_widget.dart';
 import '../widgets/product_thumbnail.dart';
 import 'cart_screen.dart';          // CartProvider + CartItem
@@ -18,7 +18,7 @@ import 'leave_review_screen.dart';  // halaman tulis review
 
 // ============================================================
 class ProductDetailScreen extends StatefulWidget {
-  final ProductModel product;
+  final Product product;
   final String heroTagPrefix;
   const ProductDetailScreen({super.key, required this.product, this.heroTagPrefix = ''});
 

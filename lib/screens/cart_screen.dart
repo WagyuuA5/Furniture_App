@@ -6,7 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
 import '../providers/checkout_provider.dart';
 
 // ─────────────────────────────────────────────
@@ -31,10 +31,10 @@ class CartItem {
 
   double get totalPrice => pricePerUnit * quantity;
 
-  factory CartItem.fromProduct(ProductModel product) => CartItem(
-        id: product.id,
+  factory CartItem.fromProduct(Product product) => CartItem(
+        id: product.id.toString(),
         name: product.name,
-        category: product.categoryId,
+        category: product.category,
         imageUrl: product.imageUrl,
         pricePerUnit: product.price,
       );
