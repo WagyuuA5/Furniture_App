@@ -20,12 +20,12 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
 
   @override
   Future<void> addToCart(int productId, int qty) async {
-    await ApiClient.post(ApiConfig.cart, {'product_id': productId, 'qty': qty});
+    await ApiClient.post(ApiConfig.cart, body: {'product_id': productId, 'qty': qty});
   }
 
   @override
   Future<void> updateCart(int cartItemId, int qty) async {
-    await ApiClient.put(ApiConfig.cartUpdate, {
+    await ApiClient.put(ApiConfig.cartUpdate, body: {
       'product_id': cartItemId,
       'qty': qty,
     });

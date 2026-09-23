@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import '../models/chat_model.dart';
 import '../models/message_model.dart';
 import '../services/chat_service.dart';
-import '../utils/constants.dart';
+import '../utils/constants.dart' hide AppColors;
 import '../widgets/chat_bubble.dart';
 
 class ChatDetailScreen extends StatefulWidget {

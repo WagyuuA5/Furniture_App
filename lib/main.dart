@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'utils/app_theme.dart';
-import 'widgets/network_wrapper.dart';
 import 'screens/splash_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/login_screen.dart';
@@ -13,6 +12,7 @@ import 'screens/checkout_screen.dart';
 import 'providers/auth_provider.dart';
 import 'providers/product_provider.dart';
 import 'providers/checkout_provider.dart';
+import 'providers/cart_provider.dart';
 
 import 'core/local_storage.dart';
 import 'core/di/injection.dart'; // Tambahkan ini
