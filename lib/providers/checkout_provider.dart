@@ -45,9 +45,41 @@ class CheckoutProvider extends ChangeNotifier {
   }
 
   // ── Totals ─────────────────────────────────────────────────────
+  double _discount = 0;
+  double _shippingDiscount = 0;
+  double _serviceFee = 2500;
+  String? _appliedCoupon;
+  
+  double get discount => _discount;
+  double get shippingDiscount => _shippingDiscount;
+  double get serviceFee => _serviceFee;
+  String? get appliedCoupon => _appliedCoupon;
+
+  void applyCoupon(String code) {
+    _appliedCoupon = code;
+    if (code == 'FURNITURE10') {
+      _discount = subtotal * 0.10;
+      _shippingDiscount = 0;
+    } else if (code == 'FREESHIP') {
+      _discount = 0;
+      _shippingDiscount = shippingCost;
+    } else {
+      _discount = 0;
+      _shippingDiscount = 0;
+    }
+    notifyListeners();
+  }
+
+  void removeCoupon() {
+    _appliedCoupon = null;
+    _discount = 0;
+    _shippingDiscount = 0;
+    notifyListeners();
+  }
+
   double get subtotal => _items.fold(0, (sum, i) => sum + i.total);
   double get shippingCost => _selectedShipping.cost;
-  double get grandTotal => subtotal + shippingCost;
+  double get grandTotal => subtotal + shippingCost - shippingDiscount + serviceFee - discount;
 
   // ─────────────────────────────────────────────────────────────
   CheckoutProvider() : _selectedAddress = defaultAddresses.first;
