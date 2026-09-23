@@ -10,6 +10,7 @@ import '../models/order.dart';
 import 'coupon_screen.dart';
 import 'add_card_screen.dart';
 import '../providers/checkout_provider.dart';
+import '../providers/product_provider.dart';
 import '../models/checkout_models.dart';
 
 // ── Warna ─────────────────────────────────────────────────────────────────────
@@ -92,7 +93,39 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     );
   }
 
-  void _onProses(BuildContext context, CheckoutProvider checkout) {
+  bool _isProcessing = false;
+
+  void _onProses(BuildContext context, CheckoutProvider checkout) async {
+    if (_isProcessing) return;
+    setState(() => _isProcessing = true);
+
+    // Stock Revalidation
+    final productProv = context.read<ProductProvider>();
+    await productProv.loadProducts(); // Fetch latest stock
+    
+    List<String> outOfStock = [];
+    for (var item in checkout.items) {
+      final product = productProv.getProductById(int.tryParse(item.id) ?? 0);
+      if (product == null || product.stock < item.quantity) {
+        outOfStock.add(item.name);
+      }
+    }
+
+    if (outOfStock.isNotEmpty) {
+      setState(() => _isProcessing = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Maaf, stok tidak cukup untuk: '),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      return;
+    }
+
+    setState(() => _isProcessing = false);
+
     final orderSummary = _buildOrderSummary(checkout);
 
     if (_method == _PayMethod.qris) {
