@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +29,15 @@ import 'providers/auth_provider.dart';
 import 'providers/product_provider.dart';
 import 'providers/checkout_provider.dart';
 
-void main() {
+import 'core/local_storage.dart';
+import 'core/di/injection.dart'; // Tambahkan ini
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  await configureDependencies(); // Inisialisasi DI Container
+  
+  await LocalStorage.saveOwnerToken('6c09eae77eaef74539acb3f2b3490ca29878cbe6');
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

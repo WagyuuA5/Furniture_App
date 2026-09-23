@@ -43,7 +43,7 @@ class AuthService {
     final userName = prefs.getString('user_name_$email') ?? 'User';
     // ============================================================
 
-    final result = await ApiClient.post(ApiConfig.login, {
+    final result = await ApiClient.post(ApiConfig.login, body: {
       'email': email,
       'password': password,
     });
@@ -82,7 +82,7 @@ class AuthService {
     }
     // ========================================================
 
-    final result = await ApiClient.post(ApiConfig.register, {
+    final result = await ApiClient.post(ApiConfig.register, body: {
       'nama': nama,
       'email': email,
       'password': password,

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'api_config.dart';
+import '../core/local_storage.dart';
 
 class ApiClient {
   static String? _token;
@@ -13,46 +14,56 @@ class ApiClient {
     _token = null;
   }
 
-  static Map<String, String> get _headers {
-    final Map<String, String> headers = {
+  static Future<Map<String, String>> _headers({bool needAuth = false}) async {
+    final ownerToken = await LocalStorage.getOwnerToken();
+    
+    final headers = <String, String>{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
+      'app-key': ownerToken ?? '',
     };
-    if (_token != null && _token!.isNotEmpty) {
-      headers['Authorization'] = 'Bearer $_token';
+    
+    if (needAuth) {
+      final authToken = await LocalStorage.getAuthToken();
+      if (authToken != null && authToken.isNotEmpty) {
+        headers['Authorization'] = 'Bearer $authToken';
+      } else if (_token != null && _token!.isNotEmpty) {
+        headers['Authorization'] = 'Bearer $_token'; // Fallback just in case
+      }
     }
+    
     return headers;
   }
 
-  static Future<Map<String, dynamic>> get(String endpoint) async {
+  static Future<Map<String, dynamic>> get(String endpoint, {bool needAuth = true}) async {
     final url = Uri.parse('${ApiConfig.baseUrl}$endpoint');
-    final response = await http.get(url, headers: _headers);
+    final response = await http.get(url, headers: await _headers(needAuth: needAuth));
     return _processResponse(response);
   }
 
-  static Future<Map<String, dynamic>> post(String endpoint, [Map<String, dynamic>? body]) async {
+  static Future<Map<String, dynamic>> post(String endpoint, {Map<String, dynamic>? body, bool needAuth = true}) async {
     final url = Uri.parse('${ApiConfig.baseUrl}$endpoint');
     final response = await http.post(
       url,
-      headers: _headers,
+      headers: await _headers(needAuth: needAuth),
       body: body != null ? jsonEncode(body) : null,
     );
     return _processResponse(response);
   }
 
-  static Future<Map<String, dynamic>> put(String endpoint, [Map<String, dynamic>? body]) async {
+  static Future<Map<String, dynamic>> put(String endpoint, {Map<String, dynamic>? body, bool needAuth = true}) async {
     final url = Uri.parse('${ApiConfig.baseUrl}$endpoint');
     final response = await http.put(
       url,
-      headers: _headers,
+      headers: await _headers(needAuth: needAuth),
       body: body != null ? jsonEncode(body) : null,
     );
     return _processResponse(response);
   }
 
-  static Future<Map<String, dynamic>> delete(String endpoint) async {
+  static Future<Map<String, dynamic>> delete(String endpoint, {bool needAuth = true}) async {
     final url = Uri.parse('${ApiConfig.baseUrl}$endpoint');
-    final response = await http.delete(url, headers: _headers);
+    final response = await http.delete(url, headers: await _headers(needAuth: needAuth));
     return _processResponse(response);
   }
 

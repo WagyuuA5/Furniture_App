@@ -6,11 +6,14 @@ import 'package:flutter/foundation.dart';
 class ApiConfig {
   // ✅ Emulator Android  → pakai 10.0.2.2
   // ✅ Flutter Web / iOS Simulator → pakai localhost
+  // ✅ HP Fisik → ganti dengan IP WiFi laptop kamu (misal: 'http://192.168.1.5:3001')
   static String get baseUrl {
     if (kIsWeb) {
       return 'http://localhost:3001';
     }
-    return 'http://10.0.2.2:3001';
+    
+    // Ganti '10.0.2.2' dengan IP WiFi laptop jika kamu menggunakan HP fisik
+    return 'http://10.132.21.46:3001'; 
   }
 
   // Auth
