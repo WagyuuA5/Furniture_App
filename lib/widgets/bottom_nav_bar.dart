@@ -3,8 +3,7 @@
 
 import 'package:flutter/material.dart';
 import '../utils/app_theme.dart';
-import '../screens/cart_screen.dart';
-import '../screens/chat_list_screen.dart'; // ← FIX: uncomment + import nyata
+// ← FIX: uncomment + import nyata
 
 class CustomBottomNavBar extends StatefulWidget {
   final int currentIndex;

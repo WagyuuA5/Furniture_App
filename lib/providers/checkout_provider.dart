@@ -7,7 +7,7 @@ import '../services/order_service.dart';
 
 class CheckoutProvider extends ChangeNotifier {
   // ── Address state ──────────────────────────────────────────────
-  List<ShippingAddress> _addresses = List.from(defaultAddresses);
+  final List<ShippingAddress> _addresses = List.from(defaultAddresses);
   ShippingAddress _selectedAddress;
 
   List<ShippingAddress> get addresses => List.unmodifiable(_addresses);
@@ -47,7 +47,7 @@ class CheckoutProvider extends ChangeNotifier {
   // ── Totals ─────────────────────────────────────────────────────
   double _discount = 0;
   double _shippingDiscount = 0;
-  double _serviceFee = 2500;
+  final double _serviceFee = 2500;
   String? _appliedCoupon;
   
   double get discount => _discount;

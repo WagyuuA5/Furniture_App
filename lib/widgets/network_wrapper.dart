@@ -3,7 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 class NetworkWrapper extends StatelessWidget {
   final Widget child;
-  const NetworkWrapper({Key? key, required this.child}) : super(key: key);
+  const NetworkWrapper({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -109,8 +109,11 @@ class _ChatListScreenState extends State<ChatListScreen> {
       centerTitle: true,
       leading: GestureDetector(
         onTap: () {
-          if (widget.onBack != null) widget.onBack!();
-          else Navigator.of(context).pop();
+          if (widget.onBack != null) {
+            widget.onBack!();
+          } else {
+            Navigator.of(context).pop();
+          }
         },
         child: Container(
           margin: const EdgeInsets.all(8),

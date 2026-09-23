@@ -24,7 +24,7 @@ class _SearchScreenState extends State<SearchScreen>
   final TextEditingController _ctrl  = TextEditingController();
   final FocusNode             _focus = FocusNode();
 
-  List<String> _history = ['Meja', 'Meja', 'Meja', 'Meja'];
+  final List<String> _history = ['Meja', 'Meja', 'Meja', 'Meja'];
   String _query = '';
 
   // Filter produk

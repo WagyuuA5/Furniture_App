@@ -9,7 +9,7 @@ import '../widgets/rating_widget.dart';
 class LeaveReviewScreen extends StatefulWidget {
   final Product product;
 
-  const LeaveReviewScreen({Key? key, required this.product}) : super(key: key);
+  const LeaveReviewScreen({super.key, required this.product});
 
   @override
   State<LeaveReviewScreen> createState() => _LeaveReviewScreenState();

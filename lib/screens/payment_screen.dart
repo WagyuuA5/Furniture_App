@@ -66,8 +66,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     final code = _discCtrl.text.trim().toUpperCase();
     setState(() {
       _discount = 0;
-      if (code == 'DISKON10') _discount = subTotal * 0.10;
-      else if (code == 'WELCOME200') _discount = subTotal * 0.50;
+      if (code == 'DISKON10') {
+        _discount = subTotal * 0.10;
+      } else if (code == 'WELCOME200') _discount = subTotal * 0.50;
       else if (code == 'FREESHIP') _discount = _ongkir;
       else if (code == 'NEWUSER50') _discount = (subTotal * 0.50).clamp(0, 50000);
       else if (code == 'LUXURY25') _discount = subTotal * 0.25;
@@ -152,10 +153,10 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (checkout.selectedAddress != null) ...[
-              _buildUserInfo(checkout.selectedAddress!),
-              const SizedBox(height: 24),
-            ],
+            ...[
+            _buildUserInfo(checkout.selectedAddress),
+            const SizedBox(height: 24),
+          ],
             _buildDiskonField(checkout.subtotal),
             const SizedBox(height: 24),
             _buildRingkasan(checkout.subtotal, checkout.grandTotal),
@@ -404,47 +405,6 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
 }
 
 // ── Order Row ─────────────────────────────────────────────────────────────────
-class _OrderRow extends StatelessWidget {
-  final CheckoutItem item;
-  const _OrderRow({required this.item});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Container(
-              width: 72, height: 72,
-              color: const Color(0xFFF0EFED),
-              child: item.imageUrl.isNotEmpty
-                  ? Image.network(item.imageUrl, fit: BoxFit.cover)
-                  : const Icon(Icons.image_not_supported, color: Colors.grey),
-            ),
-          ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(item.name,
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w600, color: _C.textPri)),
-                const SizedBox(height: 4),
-                Text(formatRupiah(item.price),
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w700, color: _C.teal)),
-              ],
-            ),
-          ),
-          Text('x ', style: const TextStyle(fontWeight: FontWeight.w600)),
-        ],
-      ),
-    );
-  }
-}
 
 
 

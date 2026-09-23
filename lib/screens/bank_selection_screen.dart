@@ -24,7 +24,7 @@ class _BankOption {
   final Widget logo;
   bool isAdded;
   _BankOption(
-      {required this.name, required this.logo, this.isAdded = false});
+      {required this.name, required this.logo});
 }
 
 class BankSelectionScreen extends StatefulWidget {

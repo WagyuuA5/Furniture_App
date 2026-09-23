@@ -215,8 +215,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      if (widget.onBack != null) widget.onBack!();
-                      else Navigator.maybePop(context);
+                      if (widget.onBack != null) {
+                        widget.onBack!();
+                      } else {
+                        Navigator.maybePop(context);
+                      }
                     },
                     child: Container(
                       width: 38,
