@@ -5,13 +5,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
+ import '../providers/cart_provider.dart';
 
 import '../utils/app_theme.dart';
 import '../features/catalog/domain/entities/product.dart';
 import '../widgets/rating_widget.dart';
 import '../widgets/product_thumbnail.dart';
-import 'cart_screen.dart';          // CartProvider + CartItem
+import '../providers/cart_provider.dart'; 
+ import 'cart_screen.dart';
 import '../providers/checkout_provider.dart'; // CheckoutProvider
 import 'rating_screen.dart';        // halaman daftar review
 import 'leave_review_screen.dart';  // halaman tulis review
@@ -80,8 +82,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
 
   // ── Cart helpers ──────────────────────────────────────────────
   void _addToCart(BuildContext context) {
-    context.read<CartProvider>().addItem(
-          CartItem.fromProduct(widget.product),
+    context.read<CartProvider>().addItem(product.id, _quantity); //
+          CartItemEntity((widget.product),
         );
   }
 

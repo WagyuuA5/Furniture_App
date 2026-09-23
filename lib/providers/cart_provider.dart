@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
-import '../models/cart.dart';
-import '../services/cart_service.dart';
+import 'package:injectable/injectable.dart';
+import '../features/cart/domain/entities/cart.dart';
+import '../features/cart/domain/usecases/cart_usecases.dart';
 
-class CartProvider with ChangeNotifier {
-  CartData? _cart;
+@injectable
+class CartProvider extends ChangeNotifier {
+  final GetCart getCartUseCase;
+  final AddToCart addToCartUseCase;
+  final UpdateCart updateCartUseCase;
+  final RemoveFromCart removeFromCartUseCase;
+
+  CartEntity? _cart;
   bool _isLoading = false;
 
-  CartData? get cart => _cart;
-  bool get isLoading => _isLoading;
-  int get totalItems => _cart?.totalItem ?? 0;
-  int get totalPrice => _cart?.totalHarga ?? 0;
+  CartProvider({
+    required this.getCartUseCase,
+    required this.addToCartUseCase,
+    required this.updateCartUseCase,
+    required this.removeFromCartUseCase,
+  });
 
-  Future<void> loadCart(int userId) async {
+  CartEntity? get cart => _cart;
+  bool get isLoading => _isLoading;
+  
+  List<CartItemEntity> get items => _cart?.items ?? [];
+  int get totalCount => _cart?.items.fold(0, (sum, item) => sum + item.quantity) ?? 0;
+  bool get isEmpty => items.isEmpty;
+
+  double getTotalPrice() => _cart?.items.fold(0, (sum, i) => sum + i.totalPrice) ?? 0;
+
+  Future<void> loadCart() async {
     _isLoading = true;
     notifyListeners();
 
     try {
-      final data = await CartService.getCart();
-      // Kalau response cuma satu object seperti di Mockoon, 
-      // kita harus merakitnya menjadi format yang diharapkan model
-      // atau membiarkannya sesuai model CartData.
-      _cart = CartData.fromJson(data);
+      _cart = await getCartUseCase();
     } catch (e) {
       debugPrint('Error loading cart: $e');
     } finally {
@@ -29,48 +43,40 @@ class CartProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> addToCart(int productId, int jumlah) async {
+  Future<void> addItem(int productId, int quantity) async {
     try {
-      await CartService.addToCart(productId: productId, qty: jumlah);
-      if (_cart != null) {
-        await loadCart(_cart!.userId);
-      }
-      return true;
+      await addToCartUseCase(productId, quantity);
+      await loadCart();
     } catch (e) {
       debugPrint('Error adding to cart: $e');
-      return false;
     }
   }
 
-  Future<bool> updateQuantity(int cartItemId, int jumlah) async {
+  Future<void> updateQuantity(int cartItemId, int delta) async {
+    final idx = items.indexWhere((e) => e.cartItemId == cartItemId);
+    if (idx < 0) return;
+    
+    final newQty = items[idx].quantity + delta;
+    if (newQty < 1) return;
+
     try {
-      // updateCart expects productId in CartService, but here we only have cartItemId.
-      // We will pass cartItemId as productId for now to match Mockoon structure.
-      await CartService.updateCart(productId: cartItemId, qty: jumlah);
-      if (_cart != null) {
-        await loadCart(_cart!.userId);
-      }
-      return true;
+      await updateCartUseCase(cartItemId, newQty);
+      await loadCart();
     } catch (e) {
       debugPrint('Error updating cart: $e');
-      return false;
     }
   }
 
-  Future<bool> removeItem(int cartItemId) async {
+  Future<void> removeItem(int cartItemId) async {
     try {
-      await CartService.removeFromCart(productId: cartItemId);
-      if (_cart != null) {
-        await loadCart(_cart!.userId);
-      }
-      return true;
+      await removeFromCartUseCase(cartItemId);
+      await loadCart();
     } catch (e) {
       debugPrint('Error removing from cart: $e');
-      return false;
     }
   }
 
-  void clearCart() {
+  void clear() {
     _cart = null;
     notifyListeners();
   }

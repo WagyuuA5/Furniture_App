@@ -57,8 +57,8 @@ class FurnitureApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => locator<ProductProvider>()),
-        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => locator<ProductProvider>()..loadProducts()),
+        ChangeNotifierProvider(create: (_) => locator<CartProvider>()),
         ChangeNotifierProvider(create: (_) => CheckoutProvider()),
       ],
       child: MaterialApp(
