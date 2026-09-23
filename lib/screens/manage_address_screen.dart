@@ -3,49 +3,10 @@ import '../utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'add_edit_address_screen.dart';
-
-class AddressModel {
-  String id;
-  String label;
-  IconData icon;
-  String address;
-
-  AddressModel({
-    required this.id,
-    required this.label,
-    required this.icon,
-    required this.address,
-  });
-}
-
-// UPDATE AREA: Ganti dengan state management (GetX/Provider) untuk data persisten
-final List<AddressModel> dummyAddresses = [
-  AddressModel(
-    id: '1',
-    label: 'Rumah',
-    icon: Icons.home_outlined,
-    address: '1901 Thornridge Cir. Shiloh, Hawaii 81063',
-  ),
-  AddressModel(
-    id: '2',
-    label: 'Kantor',
-    icon: Icons.business_outlined,
-    address: '4517 Washington Ave. Manchester, Kentucky 39495',
-  ),
-  AddressModel(
-    id: '3',
-    label: 'Rumah Orang Tua',
-    icon: Icons.people_outline,
-    address: '8502 Preston Rd. Inglewood, Maine 98380',
-  ),
-  AddressModel(
-    id: '4',
-    label: 'Rumah Teman',
-    icon: Icons.group_outlined,
-    address: '2464 Royal Ln. Mesa, New Jersey 45463',
-  ),
-];
+import 'package:provider/provider.dart';
+import '../models/checkout_models.dart';
+import '../providers/checkout_provider.dart';
+import '../widgets/add_address_dialog.dart';
 
 class ManageAddressScreen extends StatefulWidget {
   const ManageAddressScreen({super.key});
@@ -56,7 +17,6 @@ class ManageAddressScreen extends StatefulWidget {
 
 class _ManageAddressScreenState extends State<ManageAddressScreen> {
   static const Color _primary = AppColors.primary;
-  List<AddressModel> _addresses = List.from(dummyAddresses);
 
   void _hapusAlamat(String id) {
     showDialog(
@@ -75,9 +35,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              setState(() {
-                _addresses.removeWhere((a) => a.id == id);
-              });
+              context.read<CheckoutProvider>().removeAddress(id);
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
@@ -93,8 +51,18 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
     );
   }
 
+  IconData _getIconForLabel(String label) {
+    final l = label.toLowerCase();
+    if (l.contains('kantor') || l.contains('office')) return Icons.business_outlined;
+    if (l.contains('teman') || l.contains('friend')) return Icons.group_outlined;
+    if (l.contains('rumah') || l.contains('home')) return Icons.home_outlined;
+    return Icons.location_on_outlined;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final _addresses = context.watch<CheckoutProvider>().addresses;
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -178,7 +146,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                     color: _primary.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  child: Icon(addr.icon,
+                                  child: Icon(_getIconForLabel(addr.label),
                                       color: _primary, size: 20),
                                 ),
                                 const SizedBox(width: 12),
@@ -196,7 +164,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        addr.address,
+                                        addr.fullAddress,
                                         style: GoogleFonts.poppins(
                                           fontSize: 12,
                                           color: Colors.grey[600],
@@ -211,17 +179,8 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                                   children: [
                                     GestureDetector(
                                       onTap: () async {
-                                        final result = await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (_) =>
-                                                AddEditAddressScreen(
-                                                    existing: addr),
-                                          ),
-                                        );
-                                        if (result != null) {
-                                          setState(() {});
-                                        }
+                                        // Edit functionality could be added later
+                                        // For now, checkout flow only adds addresses
                                       },
                                       child: Container(
                                         padding: const EdgeInsets.all(6),
@@ -268,14 +227,10 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   onPressed: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const AddEditAddressScreen()),
+                    await showDialog(
+                      context: context,
+                      builder: (_) => const AddAddressDialog(),
                     );
-                    if (result != null && result is AddressModel) {
-                      setState(() => _addresses.add(result));
-                    }
                   },
                   icon: const Icon(Icons.add, color: Colors.white),
                   label: Text(
