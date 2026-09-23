@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:my_design_system/my_design_system.dart';
 import '../utils/app_theme.dart';
 // lib/screens/cart_screen.dart
@@ -248,7 +249,7 @@ class _CartViewState extends State<_CartView> {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 20,
             offset: const Offset(0, -4),
           ),
@@ -574,10 +575,10 @@ class _CartItemCard extends StatelessWidget {
                 height: 80,
                 color: _LT.bg,
                 child: item.imageUrl.isNotEmpty
-                    ? Image.network(
+                    ? CachedNetworkImage(imageUrl: 
                         item.imageUrl,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => const Icon(
+                        errorWidget: (_, __, ___) => const Icon(
                           Icons.chair_outlined,
                           size: 36,
                           color: _LT.textSecondary,
@@ -761,10 +762,10 @@ class _RemoveSheet extends StatelessWidget {
                     height: 56,
                     color: _LT.surface,
                     child: item.imageUrl.isNotEmpty
-                        ? Image.network(
+                        ? CachedNetworkImage(imageUrl: 
                             item.imageUrl,
                             fit: BoxFit.cover,
-                            errorBuilder: (_, __, ___) => const Icon(
+                            errorWidget: (_, __, ___) => const Icon(
                               Icons.chair_outlined,
                               size: 28,
                               color: _LT.textSecondary,

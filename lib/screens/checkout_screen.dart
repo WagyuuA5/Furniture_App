@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 // checkout/checkout_screen.dart
 // Screen 1: Checkout Utama — pixel-perfect sesuai desain Gambar 1
 // UPDATE dari versi lama: integrasi CheckoutProvider, address section baru,
@@ -278,10 +279,10 @@ class _OrderItemCard extends StatelessWidget {
               height: 72,
               color: CC.bg,
               child: item.imageUrl.isNotEmpty
-                  ? Image.network(
+                  ? CachedNetworkImage(imageUrl: 
                       item.imageUrl,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => const Icon(
+                      errorWidget: (_, __, ___) => const Icon(
                         Icons.chair_outlined,
                         size: 32,
                         color: CC.textSec,

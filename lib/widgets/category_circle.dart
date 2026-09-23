@@ -73,7 +73,7 @@ class _CategoryItemState extends State<CategoryItem>
               height: 58,
               decoration: BoxDecoration(
                 color: widget.isSelected
-                    ? AppColors.darkTeal.withOpacity(0.12)
+                    ? AppColors.darkTeal.withValues(alpha: 0.12)
                     : AppColors.softGray,
                 shape: BoxShape.circle,
                 border: widget.isSelected

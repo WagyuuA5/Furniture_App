@@ -346,7 +346,7 @@ class _AddCardScreenState extends State<AddCardScreen>
         color: _C.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 16,
             offset: const Offset(0, -4),
           ),
@@ -404,7 +404,7 @@ class _CardFront extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.40),
+            color: AppColors.primary.withValues(alpha: 0.40),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -421,7 +421,7 @@ class _CardFront extends StatelessWidget {
               height: 160,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.06),
+                color: Colors.white.withValues(alpha: 0.06),
               ),
             ),
           ),
@@ -433,7 +433,7 @@ class _CardFront extends StatelessWidget {
               height: 120,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.06),
+                color: Colors.white.withValues(alpha: 0.06),
               ),
             ),
           ),
@@ -477,7 +477,7 @@ class _CardFront extends StatelessWidget {
                           'Card holder name',
                           style: GoogleFonts.poppins(
                             fontSize: 9,
-                            color: Colors.white.withOpacity(0.6),
+                            color: Colors.white.withValues(alpha: 0.6),
                           ),
                         ),
                         Text(
@@ -498,7 +498,7 @@ class _CardFront extends StatelessWidget {
                           'Expiry date',
                           style: GoogleFonts.poppins(
                             fontSize: 9,
-                            color: Colors.white.withOpacity(0.6),
+                            color: Colors.white.withValues(alpha: 0.6),
                           ),
                         ),
                         Text(
@@ -514,7 +514,7 @@ class _CardFront extends StatelessWidget {
                     const SizedBox(width: 16),
                     Icon(
                       Icons.credit_card_rounded,
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       size: 32,
                     ),
                   ],
@@ -550,7 +550,7 @@ class _CardBack extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.40),
+            color: AppColors.primary.withValues(alpha: 0.40),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -560,7 +560,7 @@ class _CardBack extends StatelessWidget {
         children: [
           const SizedBox(height: 32),
           // Strip magnetic
-          Container(height: 44, color: Colors.black.withOpacity(0.7)),
+          Container(height: 44, color: Colors.black.withValues(alpha: 0.7)),
           const SizedBox(height: 16),
           // CVV strip
           Padding(
@@ -571,7 +571,7 @@ class _CardBack extends StatelessWidget {
                   child: Container(
                     height: 36,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
+                      color: Colors.white.withValues(alpha: 0.9),
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -603,7 +603,7 @@ class _CardBack extends StatelessWidget {
             'CVV',
             style: GoogleFonts.poppins(
               fontSize: 11,
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withValues(alpha: 0.5),
             ),
           ),
         ],

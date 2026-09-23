@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_theme.dart';
@@ -115,10 +116,10 @@ class _ProductCardState extends State<ProductCard>
                           child: SizedBox(
                             height: 140,
                             width: double.infinity,
-                            child: Image.network(
+                            child: CachedNetworkImage(imageUrl: 
                               widget.product.imageUrl,
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => const ColoredBox(
+                              errorWidget: (_, __, ___) => const ColoredBox(
                                 color: AppColors.softGray,
                                 child: Center(
                                   child: Icon(

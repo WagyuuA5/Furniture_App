@@ -82,9 +82,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
 
   // ── Cart helpers ──────────────────────────────────────────────
   void _addToCart(BuildContext context) {
-    context.read<CartProvider>().addItem(product.id, _quantity); //
-          CartItemEntity((widget.product),
-        );
+    context.read<CartProvider>().addItem(widget.product.id, 1);
   }
 
   void _showAddedSnack(BuildContext context) {
@@ -573,7 +571,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
               children: [
                 CircleAvatar(
                   radius: 18,
-                  backgroundColor: AppColors.darkTeal.withOpacity(0.15),
+                  backgroundColor: AppColors.darkTeal.withValues(alpha: 0.15),
                   child: Text(
                     r.userName.isNotEmpty ? r.userName[0].toUpperCase() : '?',
                     style: GoogleFonts.poppins(
@@ -650,10 +648,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
               width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.15),
+                color: Colors.white.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
                 border: Border.all(
-                    color: Colors.white.withOpacity(0.3), width: 1.5),
+                    color: Colors.white.withValues(alpha: 0.3), width: 1.5),
               ),
               child: const Icon(Icons.shopping_cart_outlined,
                   color: Colors.white, size: 22),

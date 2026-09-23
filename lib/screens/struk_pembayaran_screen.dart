@@ -192,7 +192,7 @@ class _StrukPembayaranScreenState extends State<StrukPembayaranScreen>
         color: _C.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 16,
             offset: const Offset(0, -4),
           ),
@@ -239,7 +239,7 @@ class _StrukPembayaranScreenState extends State<StrukPembayaranScreen>
               decoration: BoxDecoration(
                 color: _C.accentLight,
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: _C.accent.withOpacity(0.3)),
+                border: Border.all(color: _C.accent.withValues(alpha: 0.3)),
               ),
               alignment: Alignment.center,
               child: Row(
@@ -313,7 +313,7 @@ class _ReceiptCard extends StatelessWidget {
                   'Struk Pembayaran',
                   style: GoogleFonts.poppins(
                     fontSize: 12,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -762,7 +762,7 @@ class _CircleBtn extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           color: color != null
-              ? color!.withOpacity(0.12)
+              ? color!.withValues(alpha: 0.12)
               : const Color(0xFFF0EDE8),
           borderRadius: BorderRadius.circular(12),
         ),

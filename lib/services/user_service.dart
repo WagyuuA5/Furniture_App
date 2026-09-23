@@ -45,7 +45,7 @@ class UserService {
     required String name,
     required String address,
   }) async {
-    return await ApiClient.put(ApiConfig.profile, {
+    return await ApiClient.put(ApiConfig.profile, body: {
       'name': name,
       'address': address,
     });

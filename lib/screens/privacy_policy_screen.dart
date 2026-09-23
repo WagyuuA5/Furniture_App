@@ -179,10 +179,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: _primary.withOpacity(0.07),
+                      color: _primary.withValues(alpha: 0.07),
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                          color: _primary.withOpacity(0.15), width: 1),
+                          color: _primary.withValues(alpha: 0.15), width: 1),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -244,7 +244,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                       borderRadius: BorderRadius.circular(14),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.04),
+                          color: Colors.black.withValues(alpha: 0.04),
                           blurRadius: 8,
                           offset: const Offset(0, 2),
                         ),
@@ -299,7 +299,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

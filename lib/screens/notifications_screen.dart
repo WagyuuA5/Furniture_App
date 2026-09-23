@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import '../services/notification_service.dart';
 import '../services/chat_service.dart';
 import '../models/chat_model.dart';
-import '../utils/constants.dart';
+import '../utils/constants.dart' hide AppColors;
 import 'chat_detail_screen.dart';
 
 class NotificationsScreen extends StatefulWidget {
@@ -95,7 +95,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             color: AppColors.softGray,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: const Icon(Icons.arrow_back_ios_new_rounded,
+          child: Icon(Icons.arrow_back_ios_new_rounded,
               size: 16, color: AppColors.textPrimary),
         ),
       ),
@@ -170,7 +170,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         children: [
           Icon(Icons.notifications_off_outlined,
               size: 56,
-              color: AppColors.textSecondary.withOpacity(0.3)),
+              color: AppColors.textSecondary.withValues(alpha: 0.3)),
           const SizedBox(height: 12),
           Text('Tidak ada notifikasi',
               style: GoogleFonts.poppins(
@@ -283,7 +283,7 @@ class _NotifTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         color: notif.isRead
             ? Colors.transparent
-            : ChatColors.primary.withOpacity(0.04),
+            : ChatColors.primary.withValues(alpha: 0.04),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

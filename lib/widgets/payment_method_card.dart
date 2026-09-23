@@ -53,7 +53,7 @@ class PaymentMethodCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [_cardColor, _cardColor.withOpacity(0.8)],
+            colors: [_cardColor, _cardColor.withValues(alpha: 0.8)],
           ),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
@@ -62,7 +62,7 @@ class PaymentMethodCard extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: _cardColor.withOpacity(0.4),
+              color: _cardColor.withValues(alpha: 0.4),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -75,7 +75,7 @@ class PaymentMethodCard extends StatelessWidget {
               width: 50,
               height: 34,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
+                color: Colors.white.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(6),
               ),
               alignment: Alignment.center,
@@ -99,7 +99,7 @@ class PaymentMethodCard extends StatelessWidget {
                   Text(
                     card.holderName,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withValues(alpha: 0.8),
                       fontSize: 12,
                     ),
                   ),
@@ -112,7 +112,7 @@ class PaymentMethodCard extends StatelessWidget {
                 Text(
                   card.expiryDate,
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 11,
                   ),
                 ),
@@ -124,7 +124,7 @@ class PaymentMethodCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       width: 2,
                     ),
                     color: isSelected ? Colors.white : Colors.transparent,
