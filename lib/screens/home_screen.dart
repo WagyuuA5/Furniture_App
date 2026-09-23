@@ -10,7 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/app_theme.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
+import '../core/dummy_data.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../widgets/search_field.dart';
 import '../widgets/promo_banner.dart';
@@ -89,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen>
   String _twoDigits(int n) => n.toString().padLeft(2, '0');
 
   // ── Navigasi ke detail produk (tetap push biasa) ──────────────
-  void _goToDetail(ProductModel product, String prefix) {
+  void _goToDetail(Product product, String prefix) {
     Navigator.push(
       context,
       PageRouteBuilder(
@@ -203,7 +204,7 @@ class _HomeTab extends StatelessWidget {
   final String Function(int) twoDigits;
   final ValueChanged<int> onCatSelect;
   final ValueChanged<String> onFilterSelect;
-  final void Function(ProductModel, String) onProductTap;
+  final void Function(Product, String) onProductTap;
   final VoidCallback onAllCategories;
   final VoidCallback onNotifTap;
 
@@ -233,9 +234,9 @@ class _HomeTab extends StatelessWidget {
         .toList();
 
     if (selectedFilter == 'Populer') {
-      displayedProducts.sort((a, b) => b.raw.sold.compareTo(a.raw.sold));
+      displayedProducts.sort((a, b) => b.sold.compareTo(a.sold));
     } else if (selectedFilter == 'Terbaru') {
-      displayedProducts.sort((a, b) => b.raw.id.compareTo(a.raw.id));
+      displayedProducts.sort((a, b) => b.id.compareTo(a.id));
     }
 
     return CustomScrollView(

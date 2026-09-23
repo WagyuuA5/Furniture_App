@@ -2,7 +2,8 @@
 // Halaman utama – daftar produk dengan filter aktif
 
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
+import '../core/dummy_data.dart';
 import '../models/filter_model.dart';
 import '../utils/app_theme.dart';
 import '../widgets/product_card.dart';
@@ -21,8 +22,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
 
-  List<ProductModel> get _filteredProducts {
-    List<ProductModel> list = List.from(dummyProducts);
+  List<Product> get _filteredProducts {
+    List<Product> list = List.from(dummyProducts);
 
     // Filter by search query
     if (_searchQuery.isNotEmpty) {

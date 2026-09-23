@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
-import '../models/category.dart';
-import '../services/product_service.dart';
+import 'package:injectable/injectable.dart';
+import '../features/catalog/domain/entities/product.dart';
+import '../features/catalog/domain/entities/category.dart';
+import '../features/catalog/domain/usecases/get_products.dart';
+import '../features/catalog/domain/usecases/get_categories.dart';
 
+@injectable
 class ProductProvider with ChangeNotifier {
+  final GetProducts _getProducts;
+  final GetCategories _getCategories;
+
   List<Product> _products = [];
   List<Category> _categories = [];
   bool _isLoading = false;
   String _searchQuery = '';
   String? _selectedCategory;
+
+  ProductProvider(this._getProducts, this._getCategories);
 
   List<Product> get products => _filteredProducts;
   List<Category> get categories => _categories;
@@ -34,9 +42,7 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final response = await ProductService.getAll();
-      final data = response['data'] as List<dynamic>;
-      _products = data.map((json) => Product.fromJson(json)).toList();
+      _products = await _getProducts.execute();
     } catch (e) {
       print('Error loading products: $e');
     } finally {
@@ -47,9 +53,7 @@ class ProductProvider with ChangeNotifier {
 
   Future<void> loadCategories() async {
     try {
-      final response = await ProductService.getCategories();
-      final data = response['data'] as List<dynamic>;
-      _categories = data.map((json) => Category.fromJson(json)).toList();
+      _categories = await _getCategories.execute();
       notifyListeners();
     } catch (e) {
       print('Error loading categories: $e');

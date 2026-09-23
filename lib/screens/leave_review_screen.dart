@@ -2,12 +2,12 @@
 // Halaman "Leave Review" / tulis komentar – sesuai desain Gambar 2
 
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+import '../features/catalog/domain/entities/product.dart';
 import '../utils/app_theme.dart';
 import '../widgets/rating_widget.dart';
 
 class LeaveReviewScreen extends StatefulWidget {
-  final ProductModel product;
+  final Product product;
 
   const LeaveReviewScreen({Key? key, required this.product}) : super(key: key);
 
