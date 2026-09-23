@@ -4,7 +4,7 @@
  
   <br/>
   <i>A modern Flutter-based furniture e-commerce application</i>
-  <br/><br/>
+  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
 
   <img src="https://img.shields.io/badge/Flutter-3.16+-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
   <img src="https://img.shields.io/badge/Dart-3.2+-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart"/>
@@ -435,11 +435,11 @@ limitations under the License.
 <div align="center">
   <br/>
   <sub>Built with ❤️ using Flutter by the Furniture App Team</sub>
-  <br/><br/>
+  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/>
-  <br/><br/>
+  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
   <b>Furniture App — Final Project · SMK Telkom Malang · 2026</b>
   <br/>
   <i>Wahyu Ravi Anggoro &nbsp;·&nbsp; Burhan &nbsp;·&nbsp; Bintang</i>
