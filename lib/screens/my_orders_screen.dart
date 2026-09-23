@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/my_orders_screen.dart
 
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class MyOrdersScreen extends StatefulWidget {
 
 class _MyOrdersScreenState extends State<MyOrdersScreen>
     with SingleTickerProviderStateMixin {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   late TabController _tabCtrl;
 
@@ -84,7 +85,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -104,7 +105,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen>
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -172,7 +173,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen>
 
 class _OrderCard extends StatelessWidget {
   final _OrderItem order;
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   const _OrderCard({required this.order});
 

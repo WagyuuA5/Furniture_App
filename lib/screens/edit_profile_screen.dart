@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/edit_profile_screen.dart
 
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   late final TextEditingController _nameCtrl;
   late final TextEditingController _emailCtrl;
@@ -148,7 +149,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           decoration: InputDecoration(
             prefixIcon: Icon(icon, color: _primary, size: 20),
             filled: true,
-            fillColor: const Color(0xFFF5F5F5),
+            fillColor: AppColors.softGray,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             border: OutlineInputBorder(
@@ -168,7 +169,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -188,7 +189,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -337,7 +338,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       child: OutlinedButton(
                         onPressed: () => Navigator.pop(context),
                         style: OutlinedButton.styleFrom(
-                          side: const BorderSide(color: Color(0xFF2D6A6A)),
+                          side: const BorderSide(color: AppColors.primary),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(14)),
                           padding: const EdgeInsets.symmetric(vertical: 16),

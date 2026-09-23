@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/bank_selection_screen.dart
 //
 // Halaman pilihan metode transfer bank / debit instan
@@ -9,12 +10,12 @@ import 'add_card_screen.dart';
 
 class _C {
   static const bg      = Color(0xFFF5F3EF);
-  static const surface = Color(0xFFFFFFFF);
-  static const primary = Color(0xFF1A1A1A);
-  static const accent  = Color(0xFF2C5F52);
+  static const surface = AppColors.white;
+  static const primary = AppColors.textPrimary;
+  static const accent  = AppColors.primary;
   static const orange  = Color(0xFFE8572A);
-  static const textSec = Color(0xFF8A8A8A);
-  static const divider = Color(0xFFEEECE8);
+  static const textSec = AppColors.textSecondary;
+  static const divider = AppColors.divider;
 }
 
 // ── Model bank ────────────────────────────────
@@ -258,7 +259,7 @@ class _BankTile extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xFF1A1A1A))),
+                    color: AppColors.textPrimary)),
           ),
           _TambahButton(
             isAdded: bank.isAdded,
@@ -347,7 +348,7 @@ class _AddDebitTile extends StatelessWidget {
                   style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFF1A1A1A))),
+                      color: AppColors.textPrimary)),
             ),
             // Mini bank logos + "+1" badge
             Row(
@@ -390,7 +391,7 @@ class _MiniBankLogo extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6),
-          border: Border.all(color: const Color(0xFFEEECE8)),
+          border: Border.all(color: AppColors.divider),
         ),
         child: child,
       );

@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/add_edit_address_screen.dart
 
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class AddEditAddressScreen extends StatefulWidget {
 }
 
 class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   final _addressCtrl = TextEditingController();
   final _floorCtrl = TextEditingController();
@@ -102,7 +103,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
     final isEdit = widget.existing != null;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -122,7 +123,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -275,7 +276,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
                           hintStyle: GoogleFonts.poppins(
                               color: Colors.grey[400], fontSize: 13),
                           filled: true,
-                          fillColor: const Color(0xFFF5F5F5),
+                          fillColor: AppColors.softGray,
                           contentPadding: const EdgeInsets.all(14),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -309,7 +310,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
                           hintStyle: GoogleFonts.poppins(
                               color: Colors.grey[400], fontSize: 13),
                           filled: true,
-                          fillColor: const Color(0xFFF5F5F5),
+                          fillColor: AppColors.softGray,
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 14, vertical: 14),
                           border: OutlineInputBorder(
@@ -344,7 +345,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
                           hintStyle: GoogleFonts.poppins(
                               color: Colors.grey[400], fontSize: 13),
                           filled: true,
-                          fillColor: const Color(0xFFF5F5F5),
+                          fillColor: AppColors.softGray,
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 14, vertical: 14),
                           border: OutlineInputBorder(

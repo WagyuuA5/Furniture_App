@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,7 +25,7 @@ class AppColors {
   static const tealLight = Color(0xFF547A74);
   static const tealSurface = Color(0xFFEAF2F1);
   static const white = Color(0xFFF8F8F8);
-  static const cardWhite = Color(0xFFFFFFFF);
+  static const cardWhite = AppColors.white;
   static const lightGray = Color(0xFFEDEDED);
   static const mediumGray = Color(0xFFB8B8B8);
   static const textDark = Color(0xFF2D2D2D);
@@ -34,20 +35,20 @@ class AppColors {
 }
 
 TextStyle _h1() => const TextStyle(
-      fontFamily: 'Poppins',
-      fontSize: 26,
-      fontWeight: FontWeight.w700,
-      color: AppColors.textDark,
-      height: 1.3,
-    );
+  fontFamily: 'Poppins',
+  fontSize: 26,
+  fontWeight: FontWeight.w700,
+  color: AppColors.textDark,
+  height: 1.3,
+);
 
 TextStyle _body() => const TextStyle(
-      fontFamily: 'Poppins',
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      color: AppColors.textMuted,
-      height: 1.6,
-    );
+  fontFamily: 'Poppins',
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: AppColors.textMuted,
+  height: 1.6,
+);
 
 TextStyle _label({Color color = AppColors.textDark, double size = 12}) =>
     TextStyle(
@@ -82,28 +83,33 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   static const List<OnboardingData> _pages = [
     OnboardingData(
       title: 'Pengalaman Belanja yang\nLancar dan Nyaman',
-      subtitle: 'Nikmati pengalaman belanja yang mudah,\ncepat, dan nyaman kapan saja.',
-      imagePath: 'images/onboarding_1.png',  // ✅ BENAR
+      subtitle:
+          'Nikmati pengalaman belanja yang mudah,\ncepat, dan nyaman kapan saja.',
+      imagePath: 'images/onboarding_1.png', // ✅ BENAR
     ),
     OnboardingData(
       title: 'Lacak Pesananmu\nSecara Real-Time',
-      subtitle: 'Pantau status pengiriman furniture\nfavoritmu dengan mudah dan akurat.',
-      imagePath: 'images/onboarding_2.png',  // ✅ BENAR
+      subtitle:
+          'Pantau status pengiriman furniture\nfavoritmu dengan mudah dan akurat.',
+      imagePath: 'images/onboarding_2.png', // ✅ BENAR
     ),
     OnboardingData(
       title: 'Simpan Favorit &\nBelanja Kapan Saja',
-      subtitle: 'Tambahkan produk ke wishlist dan\ntemukan penawaran terbaik untukmu.',
-      imagePath: 'images/onboarding_3.png',  // ✅ BENAR
+      subtitle:
+          'Tambahkan produk ke wishlist dan\ntemukan penawaran terbaik untukmu.',
+      imagePath: 'images/onboarding_3.png', // ✅ BENAR
     ),
   ];
 
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
 
     _floatController = AnimationController(
       vsync: this,
@@ -134,12 +140,16 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   }
 
   Future<void> _navigateTo(int page) async {
-    await _fadeController.animateTo(0,
-        duration: const Duration(milliseconds: 200));
+    await _fadeController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 200),
+    );
     if (!mounted) return;
     setState(() => _currentPage = page);
-    await _fadeController.animateTo(1,
-        duration: const Duration(milliseconds: 350));
+    await _fadeController.animateTo(
+      1,
+      duration: const Duration(milliseconds: 350),
+    );
   }
 
   void _onNext() {
@@ -205,12 +215,17 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                       onPressed: _finish,
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                      child: Text('Skip',
-                          style: _label(color: AppColors.textMuted, size: 14)),
+                      child: Text(
+                        'Skip',
+                        style: _label(color: AppColors.textMuted, size: 14),
+                      ),
                     ),
                   ),
                 ),
@@ -228,7 +243,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                       opacity: _fadeAnimation,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 24, vertical: 8),
+                          horizontal: 24,
+                          vertical: 8,
+                        ),
                         child: _OnboardingImage(imagePath: page.imagePath),
                       ),
                     ),
@@ -274,8 +291,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                         child: _CircleButton(
                           onTap: _currentPage > 0 ? _onBack : null,
                           filled: false,
-                          child: const Icon(Icons.arrow_back_rounded,
-                              color: AppColors.teal, size: 20),
+                          child: const Icon(
+                            Icons.arrow_back_rounded,
+                            color: AppColors.teal,
+                            size: 20,
+                          ),
                         ),
                       ),
                       _CustomIndicator(
@@ -328,7 +348,7 @@ class _OnboardingImage extends StatelessWidget {
         child: Image.asset(
           imagePath,
           fit: BoxFit.contain,
-          width: 300,  // ✅ ukuran gambar diperbesar
+          width: 300, // ✅ ukuran gambar diperbesar
           height: 300, // ✅ ukuran gambar diperbesar
           errorBuilder: (context, error, stackTrace) {
             return Container(
@@ -459,8 +479,11 @@ class _AnimatedNextButtonState extends State<_AnimatedNextButton>
           child: Center(
             child: widget.isLast
                 ? const Icon(Icons.check_rounded, color: Colors.white, size: 22)
-                : const Icon(Icons.arrow_forward_rounded,
-                    color: Colors.white, size: 22),
+                : const Icon(
+                    Icons.arrow_forward_rounded,
+                    color: Colors.white,
+                    size: 22,
+                  ),
           ),
         ),
       ),

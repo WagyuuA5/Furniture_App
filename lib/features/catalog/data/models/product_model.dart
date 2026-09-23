@@ -23,17 +23,25 @@ class ProductModel extends Product {
       name: json['name'],
       category: json['category'] ?? json['category'] ?? '1',
       price: (json['price'] as num).toDouble(),
-      oldPrice: json['original_price'] != null ? (json['original_price'] as num).toDouble() : null,
+      oldPrice: json['original_price'] != null
+          ? (json['original_price'] as num).toDouble()
+          : null,
       stock: json['stock'],
       description: json['description'] ?? '',
       imageUrl: json['image'] ?? json['imageUrl'] ?? '',
       rating: json['rating'] != null ? (json['rating'] as num).toDouble() : 0.0,
       sold: json['sold'] ?? 0,
-      thumbnails: json['images'] != null ? List<String>.from(json['images']) : [],
-      reviews: json['reviews'] != null
-          ? (json['reviews'] as List).map((r) => ReviewModel.fromJson(r)).toList()
+      thumbnails: json['images'] != null
+          ? List<String>.from(json['images'])
           : [],
-      reviewCount: json['reviews'] != null ? (json['reviews'] as List).length : 0,
+      reviews: json['reviews'] != null
+          ? (json['reviews'] as List)
+                .map((r) => ReviewModel.fromJson(r))
+                .toList()
+          : [],
+      reviewCount: json['reviews'] != null
+          ? (json['reviews'] as List).length
+          : 0,
     );
   }
 

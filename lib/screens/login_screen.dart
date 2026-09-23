@@ -30,14 +30,14 @@ class _LoginScreenState extends State<LoginScreen>
     vsync: this,
     duration: const Duration(milliseconds: 500),
   );
-  late final Animation<double> _fade =
-      Tween<double>(begin: 0, end: 1).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeOut),
-  );
-  late final Animation<Offset> _slide =
-      Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeOut),
-  );
+  late final Animation<double> _fade = Tween<double>(
+    begin: 0,
+    end: 1,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOut));
+  late final Animation<Offset> _slide = Tween<Offset>(
+    begin: const Offset(0, 0.08),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOut));
 
   @override
   void initState() {
@@ -102,9 +102,9 @@ class _LoginScreenState extends State<LoginScreen>
     if (_nameController.text.isEmpty ||
         _emailController.text.isEmpty ||
         _passwordController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Harap isi semua field')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Harap isi semua field')));
       return;
     }
 
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Registrasi berhasil! Silakan login.')),
         );
-        
+
         // ✅ Kembali ke mode LOGIN (bukan ke HomeScreen)
         setState(() {
           _isLogin = true;
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen>
           _passwordController.clear();
           _nameController.clear();
         });
-        
+
         // Animasi ulang
         _ctrl.reset();
         _ctrl.forward();
@@ -176,8 +176,11 @@ class _LoginScreenState extends State<LoginScreen>
                         color: AppColors.darkTeal,
                         borderRadius: BorderRadius.circular(14),
                       ),
-                      child: const Icon(Icons.weekend_rounded,
-                          color: Colors.white, size: 28),
+                      child: const Icon(
+                        Icons.weekend_rounded,
+                        color: Colors.white,
+                        size: 28,
+                      ),
                     ),
                     const SizedBox(height: 28),
 
@@ -308,10 +311,13 @@ class _LoginScreenState extends State<LoginScreen>
                         const Expanded(child: Divider()),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 14),
-                          child: Text('or',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  color: const Color(0xFF7B7B7B))),
+                          child: Text(
+                            'or',
+                            style: GoogleFonts.poppins(
+                              fontSize: 13,
+                              color: const Color(0xFF7B7B7B),
+                            ),
+                          ),
                         ),
                         const Expanded(child: Divider()),
                       ],
@@ -338,13 +344,15 @@ class _LoginScreenState extends State<LoginScreen>
                         child: RichText(
                           text: TextSpan(
                             style: GoogleFonts.poppins(
-                                fontSize: 13.5,
-                                color: const Color(0xFF7B7B7B)),
+                              fontSize: 13.5,
+                              color: const Color(0xFF7B7B7B),
+                            ),
                             children: [
                               TextSpan(
-                                  text: _isLogin
-                                      ? "Don't have an account? "
-                                      : 'Already have an account? '),
+                                text: _isLogin
+                                    ? "Don't have an account? "
+                                    : 'Already have an account? ',
+                              ),
                               TextSpan(
                                 text: _isLogin ? 'Sign Up' : 'Sign In',
                                 style: GoogleFonts.poppins(
@@ -394,11 +402,14 @@ class _InputField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label,
-            style: GoogleFonts.poppins(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: const Color(0xFF2D2D2D))),
+        Text(
+          label,
+          style: GoogleFonts.poppins(
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: const Color(0xFF2D2D2D),
+          ),
+        ),
         const SizedBox(height: 6),
         Container(
           height: 52,
@@ -418,13 +429,16 @@ class _InputField extends StatelessWidget {
             obscureText: obscure,
             keyboardType: keyboardType,
             style: GoogleFonts.poppins(
-                fontSize: 14, color: const Color(0xFF2D2D2D)),
+              fontSize: 14,
+              color: const Color(0xFF2D2D2D),
+            ),
             decoration: InputDecoration(
               hintText: hint,
               hintStyle: GoogleFonts.poppins(
-                  fontSize: 14, color: const Color(0xFFB0B0B0)),
-              prefixIcon:
-                  Icon(icon, size: 20, color: const Color(0xFF7B7B7B)),
+                fontSize: 14,
+                color: const Color(0xFFB0B0B0),
+              ),
+              prefixIcon: Icon(icon, size: 20, color: const Color(0xFF7B7B7B)),
               suffixIcon: suffix != null
                   ? Padding(
                       padding: const EdgeInsets.only(right: 14),
@@ -432,8 +446,10 @@ class _InputField extends StatelessWidget {
                     )
                   : null,
               border: InputBorder.none,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 14,
+              ),
             ),
           ),
         ),
@@ -448,8 +464,11 @@ class _SocialButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  const _SocialButton(
-      {required this.icon, required this.label, required this.onTap});
+  const _SocialButton({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -474,11 +493,14 @@ class _SocialButton extends StatelessWidget {
           children: [
             Icon(icon, size: 22, color: const Color(0xFF2D2D2D)),
             const SizedBox(width: 10),
-            Text(label,
-                style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF2D2D2D))),
+            Text(
+              label,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xFF2D2D2D),
+              ),
+            ),
           ],
         ),
       ),

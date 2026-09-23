@@ -124,14 +124,17 @@ class PaymentMethodCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                        color: Colors.white.withOpacity(0.7), width: 2),
-                    color: isSelected
-                        ? Colors.white
-                        : Colors.transparent,
+                      color: Colors.white.withOpacity(0.7),
+                      width: 2,
+                    ),
+                    color: isSelected ? Colors.white : Colors.transparent,
                   ),
                   child: isSelected
-                      ? const Icon(Icons.check,
-                          size: 12, color: Color(0xFF1A237E))
+                      ? const Icon(
+                          Icons.check,
+                          size: 12,
+                          color: Color(0xFF1A237E),
+                        )
                       : null,
                 ),
               ],
@@ -171,9 +174,10 @@ class PaymentMethodCard extends StatelessWidget {
             const Text(
               'mandiri',
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 7,
-                  fontWeight: FontWeight.w700),
+                color: Colors.white,
+                fontSize: 7,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ],
         );

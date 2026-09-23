@@ -13,16 +13,16 @@
 class OrderItem {
   final int productId;
   final String name;
-  final String category;   // ← ditambah untuk UI card
-  final String imageUrl;   // ← ditambah untuk UI card
+  final String category; // ← ditambah untuk UI card
+  final String imageUrl; // ← ditambah untuk UI card
   final int jumlah;
   final int harga;
 
   const OrderItem({
     required this.productId,
     required this.name,
-    this.category = '',    // default kosong agar fromJson lama tetap valid
-    this.imageUrl = '',    // default kosong agar fromJson lama tetap valid
+    this.category = '', // default kosong agar fromJson lama tetap valid
+    this.imageUrl = '', // default kosong agar fromJson lama tetap valid
     required this.jumlah,
     required this.harga,
   });
@@ -41,13 +41,13 @@ class OrderItem {
 
   // ── Ke JSON ───────────────────────────────
   Map<String, dynamic> toJson() => {
-        'productId': productId,
-        'name': name,
-        'category': category,
-        'imageUrl': imageUrl,
-        'jumlah': jumlah,
-        'harga': harga,
-      };
+    'productId': productId,
+    'name': name,
+    'category': category,
+    'imageUrl': imageUrl,
+    'jumlah': jumlah,
+    'harga': harga,
+  };
 
   // Harga total item ini
   int get totalHargaItem => harga * jumlah;
@@ -93,13 +93,13 @@ class Order {
 
   // ── Ke JSON ───────────────────────────────
   Map<String, dynamic> toJson() => {
-        'orderId': orderId,
-        'status': status,
-        'totalHarga': totalHarga,
-        'tanggalPesan': tanggalPesan,
-        'tanggalKirim': tanggalKirim,
-        'items': items.map((i) => i.toJson()).toList(),
-      };
+    'orderId': orderId,
+    'status': status,
+    'totalHarga': totalHarga,
+    'tanggalPesan': tanggalPesan,
+    'tanggalKirim': tanggalKirim,
+    'items': items.map((i) => i.toJson()).toList(),
+  };
 
   // ── Convert ke OrderSummary (untuk PaymentSuccessScreen) ──
   // Panggil ini setelah pembayaran sukses:
@@ -149,32 +149,32 @@ class OrderSummary {
 
   /// Data dummy untuk preview/testing
   static OrderSummary get sample => OrderSummary(
-        items: const [
-          OrderItem(
-            productId: 1,
-            name: 'Arm Chair',
-            category: 'Chair',
-            imageUrl: '',
-            jumlah: 1,
-            harga: 180000,
-          ),
-          OrderItem(
-            productId: 2,
-            name: 'Arm Chair',
-            category: 'Chair',
-            imageUrl: '',
-            jumlah: 1,
-            harga: 180000,
-          ),
-        ],
-        orderDate: DateTime(2026, 9, 8, 13, 0),
-        promoCode: 'ajnsjbfibejandj9',
-        shippingType: 'JNE expres',
-        subtotal: 500000,
-        shippingFee: 500000,
-        discount: 500000,
-        total: 500000,
-      );
+    items: const [
+      OrderItem(
+        productId: 1,
+        name: 'Arm Chair',
+        category: 'Chair',
+        imageUrl: '',
+        jumlah: 1,
+        harga: 180000,
+      ),
+      OrderItem(
+        productId: 2,
+        name: 'Arm Chair',
+        category: 'Chair',
+        imageUrl: '',
+        jumlah: 1,
+        harga: 180000,
+      ),
+    ],
+    orderDate: DateTime(2026, 9, 8, 13, 0),
+    promoCode: 'ajnsjbfibejandj9',
+    shippingType: 'JNE expres',
+    subtotal: 500000,
+    shippingFee: 500000,
+    discount: 500000,
+    total: 500000,
+  );
 }
 
 // ─────────────────────────────────────────────
@@ -198,8 +198,19 @@ String fmtRpInt(int v) => fmtRp(v.toDouble());
 /// Format DateTime ke string struk: "Sep, 8, 2026 | 13.00"
 String fmtDate(DateTime d) {
   const months = [
-    '', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    '',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
   final h = d.hour.toString().padLeft(2, '0');
   final m = d.minute.toString().padLeft(2, '0');

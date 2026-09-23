@@ -35,10 +35,8 @@ class ProductThumbnail extends StatelessWidget {
         child: Image.network(
           imageUrl,
           fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) => const Icon(
-            Icons.chair,
-            color: AppColors.textSecondary,
-          ),
+          errorBuilder: (_, __, ___) =>
+              const Icon(Icons.chair, color: AppColors.textSecondary),
         ),
       ),
     );

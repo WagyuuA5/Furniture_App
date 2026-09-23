@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/chat_list_screen.dart
 // Halaman daftar chat — dipanggil dari BottomNavBar index 2
 // Fitur:
@@ -101,11 +102,11 @@ class _ChatListScreenState extends State<ChatListScreen> {
         child: Container(
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: const Color(0xFFF5F5F5),
+            color: AppColors.softGray,
             borderRadius: BorderRadius.circular(12),
           ),
           child: const Icon(Icons.arrow_back_ios_new_rounded,
-              size: 16, color: Color(0xFF1A1A1A)),
+              size: 16, color: AppColors.textPrimary),
         ),
       ),
       title: Text(
@@ -113,7 +114,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
         style: GoogleFonts.poppins(
           fontSize: 18,
           fontWeight: FontWeight.w700,
-          color: const Color(0xFF1A1A1A),
+          color: AppColors.textPrimary,
         ),
       ),
       actions: [
@@ -132,11 +133,11 @@ class _ChatListScreenState extends State<ChatListScreen> {
                     margin: const EdgeInsets.only(right: 16),
                     width: 38, height: 38,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF5F5F5),
+                      color: AppColors.softGray,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.notifications_outlined,
-                        size: 20, color: Color(0xFF1A1A1A)),
+                        size: 20, color: AppColors.textPrimary),
                   ),
                   if (unread > 0)
                     Positioned(
@@ -164,7 +165,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
       ],
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
-        child: Container(height: 1, color: const Color(0xFFEEECE8)),
+        child: Container(height: 1, color: AppColors.divider),
       ),
     );
   }
@@ -181,17 +182,17 @@ class _ChatListScreenState extends State<ChatListScreen> {
         children: [
           const SizedBox(width: 14),
           const Icon(Icons.search_rounded,
-              size: 20, color: Color(0xFF8A8A8A)),
+              size: 20, color: AppColors.textSecondary),
           const SizedBox(width: 8),
           Expanded(
             child: TextField(
               controller: _searchCtrl,
               style: GoogleFonts.poppins(
-                  fontSize: 13, color: const Color(0xFF1A1A1A)),
+                  fontSize: 13, color: AppColors.textPrimary),
               decoration: InputDecoration(
                 hintText: 'Cari nama atau pesan...',
                 hintStyle: GoogleFonts.poppins(
-                    fontSize: 13, color: const Color(0xFF8A8A8A)),
+                    fontSize: 13, color: AppColors.textSecondary),
                 border: InputBorder.none,
                 isDense: true,
                 contentPadding: EdgeInsets.zero,
@@ -208,7 +209,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Icon(Icons.close_rounded,
-                    size: 18, color: Color(0xFF8A8A8A)),
+                    size: 18, color: AppColors.textSecondary),
               ),
             )
           else
@@ -225,12 +226,12 @@ class _ChatListScreenState extends State<ChatListScreen> {
         children: [
           Icon(Icons.chat_bubble_outline_rounded,
               size: 56,
-              color: const Color(0xFF8A8A8A).withOpacity(0.3)),
+              color: AppColors.textSecondary.withOpacity(0.3)),
           const SizedBox(height: 12),
           Text(
             _query.isEmpty ? 'Belum ada percakapan' : 'Tidak ditemukan',
             style: GoogleFonts.poppins(
-                fontSize: 14, color: const Color(0xFF8A8A8A)),
+                fontSize: 14, color: AppColors.textSecondary),
           ),
         ],
       ),
@@ -327,7 +328,7 @@ class _ChatTile extends StatelessWidget {
                             fontWeight: hasUnread
                                 ? FontWeight.w700
                                 : FontWeight.w500,
-                            color: const Color(0xFF1A1A1A),
+                            color: AppColors.textPrimary,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -340,7 +341,7 @@ class _ChatTile extends StatelessWidget {
                           fontSize: 11,
                           color: hasUnread
                               ? ChatColors.primary
-                              : const Color(0xFF8A8A8A),
+                              : AppColors.textSecondary,
                           fontWeight: hasUnread
                               ? FontWeight.w600
                               : FontWeight.w400,
@@ -360,7 +361,7 @@ class _ChatTile extends StatelessWidget {
                             fontSize: 12,
                             color: chat.isTyping
                                 ? ChatColors.primary
-                                : const Color(0xFF8A8A8A),
+                                : AppColors.textSecondary,
                             fontStyle: chat.isTyping
                                 ? FontStyle.italic
                                 : FontStyle.normal,

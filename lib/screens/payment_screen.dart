@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; 
@@ -14,11 +15,11 @@ import '../models/checkout_models.dart';
 // ── Warna ─────────────────────────────────────────────────────────────────────
 class _C {
   static const bg       = Color(0xFFFAFAFA);
-  static const surface  = Color(0xFFFFFFFF);
-  static const teal     = Color(0xFF2C6E49);
-  static const textPri  = Color(0xFF1A1A1A);
-  static const textSec  = Color(0xFF8A8A8A);
-  static const divider  = Color(0xFFEEECE8);
+  static const surface  = AppColors.white;
+  static const teal     = AppColors.accent;
+  static const textPri  = AppColors.textPrimary;
+  static const textSec  = AppColors.textSecondary;
+  static const divider  = AppColors.divider;
 }
 
 // ── Metode Pembayaran ─────────────────────────────────────────────────────────
@@ -474,7 +475,7 @@ class _QBtn extends StatelessWidget {
       child: Container(
         width: 26, height: 26,
         decoration: BoxDecoration(
-          color: filled ? const Color(0xFF1A1A1A) : const Color(0xFFF0EFED),
+          color: filled ? AppColors.textPrimary : const Color(0xFFF0EFED),
           borderRadius: BorderRadius.circular(6),
         ),
         child: Icon(icon, size: 13, color: filled ? Colors.white : _C.textPri),
@@ -584,7 +585,7 @@ class _Radio extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: selected ? const Color(0xFF2C6E49) : const Color(0xFFCCCCCC),
+          color: selected ? AppColors.accent : const Color(0xFFCCCCCC),
           width: 2,
         ),
       ),
@@ -593,7 +594,7 @@ class _Radio extends StatelessWidget {
               child: Container(
                 width: 10, height: 10,
                 decoration: const BoxDecoration(
-                    color: Color(0xFF2C6E49), shape: BoxShape.circle),
+                    color: AppColors.accent, shape: BoxShape.circle),
               ),
             )
           : null,
@@ -614,7 +615,7 @@ class _QrisLogo extends StatelessWidget {
         ),
         child: const Text('QRIS',
             style: TextStyle(
-                fontSize: 11, fontWeight: FontWeight.w800, color: Color(0xFF2C6E49))),
+                fontSize: 11, fontWeight: FontWeight.w800, color: AppColors.accent)),
       );
 }
 

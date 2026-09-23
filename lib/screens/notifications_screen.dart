@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/notifications_screen.dart
 // UPDATE: tampilkan ikon berbeda per tipe notif (promo, diskon, stok, chat, order)
 // Tap notif chat → ChatDetailScreen
@@ -91,18 +92,18 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         child: Container(
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: const Color(0xFFF5F5F5),
+            color: AppColors.softGray,
             borderRadius: BorderRadius.circular(12),
           ),
           child: const Icon(Icons.arrow_back_ios_new_rounded,
-              size: 16, color: Color(0xFF1A1A1A)),
+              size: 16, color: AppColors.textPrimary),
         ),
       ),
       title: Text('Notifikasi',
           style: GoogleFonts.poppins(
               fontSize: 18,
               fontWeight: FontWeight.w700,
-              color: const Color(0xFF1A1A1A))),
+              color: AppColors.textPrimary)),
       actions: [
         TextButton(
           onPressed: () {
@@ -118,7 +119,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       ],
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
-        child: Container(height: 1, color: const Color(0xFFEEECE8)),
+        child: Container(height: 1, color: AppColors.divider),
       ),
     );
   }
@@ -152,7 +153,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       fontWeight: FontWeight.w600,
                       color: active
                           ? Colors.white
-                          : const Color(0xFF8A8A8A),
+                          : AppColors.textSecondary,
                     )),
               ),
             );
@@ -169,11 +170,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         children: [
           Icon(Icons.notifications_off_outlined,
               size: 56,
-              color: const Color(0xFF8A8A8A).withOpacity(0.3)),
+              color: AppColors.textSecondary.withOpacity(0.3)),
           const SizedBox(height: 12),
           Text('Tidak ada notifikasi',
               style: GoogleFonts.poppins(
-                  fontSize: 14, color: const Color(0xFF8A8A8A))),
+                  fontSize: 14, color: AppColors.textSecondary)),
         ],
       ),
     );
@@ -233,7 +234,7 @@ class _NotifTile extends StatelessWidget {
       case NotifType.stok:    return const Color(0xFFE3F2FD);
       case NotifType.chat:    return avatarColorFor(notif.title);
       case NotifType.order:   return const Color(0xFFF3E5F5);
-      case NotifType.info:    return const Color(0xFFF5F5F5);
+      case NotifType.info:    return AppColors.softGray;
     }
   }
 
@@ -251,11 +252,11 @@ class _NotifTile extends StatelessWidget {
   Color get _iconColor {
     switch (notif.type) {
       case NotifType.diskon:  return const Color(0xFFE65100);
-      case NotifType.promo:   return const Color(0xFF2C6E49);
+      case NotifType.promo:   return AppColors.accent;
       case NotifType.stok:    return const Color(0xFF1565C0);
       case NotifType.chat:    return Colors.white;
       case NotifType.order:   return const Color(0xFF6A1B9A);
-      case NotifType.info:    return const Color(0xFF8A8A8A);
+      case NotifType.info:    return AppColors.textSecondary;
     }
   }
 
@@ -322,7 +323,7 @@ class _NotifTile extends StatelessWidget {
                               fontWeight: notif.isRead
                                   ? FontWeight.w500
                                   : FontWeight.w700,
-                              color: const Color(0xFF1A1A1A),
+                              color: AppColors.textPrimary,
                             )),
                       ),
                       if (!notif.isRead)
@@ -342,7 +343,7 @@ class _NotifTile extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: const Color(0xFF8A8A8A),
+                          color: AppColors.textSecondary,
                           height: 1.4)),
                   const SizedBox(height: 5),
                   Text(_formatTime(notif.createdAt),

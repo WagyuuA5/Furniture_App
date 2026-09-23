@@ -27,10 +27,10 @@ class _CategoryItemState extends State<CategoryItem>
     duration: const Duration(milliseconds: 150),
   );
 
-  late final Animation<double> _scale =
-      Tween<double>(begin: 1.0, end: 0.86).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
-  );
+  late final Animation<double> _scale = Tween<double>(
+    begin: 1.0,
+    end: 0.86,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
 
   @override
   void dispose() {
@@ -40,11 +40,16 @@ class _CategoryItemState extends State<CategoryItem>
 
   IconData _iconFor(String name) {
     switch (name) {
-      case 'sofa':     return Icons.weekend_rounded;
-      case 'chair':    return Icons.chair_rounded;
-      case 'lamp':     return Icons.light_rounded;
-      case 'wardrobe': return Icons.door_sliding_rounded;
-      default:         return Icons.category_rounded;
+      case 'sofa':
+        return Icons.weekend_rounded;
+      case 'chair':
+        return Icons.chair_rounded;
+      case 'lamp':
+        return Icons.light_rounded;
+      case 'wardrobe':
+        return Icons.door_sliding_rounded;
+      default:
+        return Icons.category_rounded;
     }
   }
 
@@ -90,8 +95,9 @@ class _CategoryItemState extends State<CategoryItem>
               widget.category.name,
               style: GoogleFonts.poppins(
                 fontSize: 12,
-                fontWeight:
-                    widget.isSelected ? FontWeight.w600 : FontWeight.w400,
+                fontWeight: widget.isSelected
+                    ? FontWeight.w600
+                    : FontWeight.w400,
                 color: widget.isSelected
                     ? AppColors.darkTeal
                     : AppColors.textPrimary,

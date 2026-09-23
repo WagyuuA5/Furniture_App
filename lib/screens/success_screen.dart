@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/success_screen.dart
 // Halaman sukses pembayaran (COD / Transfer)
 // - Icon centang animasi
@@ -7,10 +8,10 @@
 // - Tombol "Lihat Pesanan" → StrukPembayaranScreen
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; 
- import '../providers/cart_provider.dart';
-import '../providers/cart_provider.dart'; 
- import 'cart_screen.dart';
+import 'package:provider/provider.dart';
+import '../providers/cart_provider.dart';
+import '../providers/cart_provider.dart';
+import 'cart_screen.dart';
 import 'home_screen.dart';
 import '../models/order.dart';
 import '../providers/checkout_provider.dart';
@@ -26,15 +27,15 @@ class SuccessScreen extends StatefulWidget {
 
 class _SuccessScreenState extends State<SuccessScreen>
     with SingleTickerProviderStateMixin {
-  static const _teal    = Color(0xFF2C6E49);
-  static const _textPri = Color(0xFF1A1A1A);
-  static const _textSec = Color(0xFF8A8A8A);
-  static const _divider = Color(0xFFEEECE8);
-  static const _bg      = Color(0xFFFAFAFA);
+  static const _teal = AppColors.accent;
+  static const _textPri = AppColors.textPrimary;
+  static const _textSec = AppColors.textSecondary;
+  static const _divider = AppColors.divider;
+  static const _bg = Color(0xFFFAFAFA);
 
   late AnimationController _ctrl;
-  late Animation<double>   _scale;
-  late Animation<double>   _fade;
+  late Animation<double> _scale;
+  late Animation<double> _fade;
 
   @override
   void initState() {
@@ -43,9 +44,10 @@ class _SuccessScreenState extends State<SuccessScreen>
       vsync: this,
       duration: const Duration(milliseconds: 700),
     );
-    _scale = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _ctrl, curve: Curves.elasticOut),
-    );
+    _scale = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.elasticOut));
     _fade = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _ctrl,
@@ -86,8 +88,11 @@ class _SuccessScreenState extends State<SuccessScreen>
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: _divider),
             ),
-            child: const Icon(Icons.arrow_back_ios_new_rounded,
-                size: 16, color: _textPri),
+            child: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+              size: 16,
+              color: _textPri,
+            ),
           ),
         ),
         title: const Text(
@@ -146,10 +151,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                         SizedBox(height: 8),
                         Text(
                           'Terimakasih Atas pembelian anda',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: _textSec,
-                          ),
+                          style: TextStyle(fontSize: 14, color: _textSec),
                         ),
                       ],
                     ),
@@ -173,8 +175,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (_) => const HomeScreen()),
+                          MaterialPageRoute(builder: (_) => const HomeScreen()),
                           (route) => false,
                         );
                       },
@@ -202,9 +203,8 @@ class _SuccessScreenState extends State<SuccessScreen>
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => StrukPembayaranScreen(
-                            order: widget.orderSummary,
-                          ),
+                          builder: (_) =>
+                              StrukPembayaranScreen(order: widget.orderSummary),
                         ),
                       );
                     },

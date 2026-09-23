@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/add_card_screen.dart
 //
 // Halaman tambah kartu kredit/debit
@@ -16,13 +17,13 @@ import 'package:google_fonts/google_fonts.dart';
 // THEME LOKAL
 // ─────────────────────────────────────────────
 class _C {
-  static const bg      = Color(0xFFF7F6F3);
-  static const surface = Color(0xFFFFFFFF);
-  static const primary = Color(0xFF1A1A1A);
-  static const accent  = Color(0xFF2C5F52);
+  static const bg = Color(0xFFF7F6F3);
+  static const surface = AppColors.white;
+  static const primary = AppColors.textPrimary;
+  static const accent = AppColors.primary;
   static const inputBg = Color(0xFFF5F4F2);
-  static const textSec = Color(0xFF8A8A8A);
-  static const divider = Color(0xFFEEECE8);
+  static const textSec = AppColors.textSecondary;
+  static const divider = AppColors.divider;
 }
 
 // ─────────────────────────────────────────────
@@ -38,21 +39,24 @@ class AddCardScreen extends StatefulWidget {
 class _AddCardScreenState extends State<AddCardScreen>
     with SingleTickerProviderStateMixin {
   // ── Form controllers ──────────────────────────
-  final _nameCtrl   = TextEditingController(text: 'Esther Howard');
+  final _nameCtrl = TextEditingController(text: 'Esther Howard');
   final _numberCtrl = TextEditingController(text: '4716 9627 1635 8047');
   final _expiryCtrl = TextEditingController(text: '02/30');
-  final _cvvCtrl    = TextEditingController();
+  final _cvvCtrl = TextEditingController();
 
-  bool _saveCard   = true;
-  bool _showBack   = false;
+  bool _saveCard = true;
+  bool _showBack = false;
   bool _obscureCvv = true;
 
   // ── Flip animation ────────────────────────────
   late final AnimationController _flipCtrl = AnimationController(
-      vsync: this, duration: const Duration(milliseconds: 500));
-  late final Animation<double> _flipAnim =
-      Tween(begin: 0.0, end: math.pi).animate(
-          CurvedAnimation(parent: _flipCtrl, curve: Curves.easeInOut));
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  );
+  late final Animation<double> _flipAnim = Tween(
+    begin: 0.0,
+    end: math.pi,
+  ).animate(CurvedAnimation(parent: _flipCtrl, curve: Curves.easeInOut));
 
   final FocusNode _cvvFocus = FocusNode();
 
@@ -95,21 +99,28 @@ class _AddCardScreenState extends State<AddCardScreen>
   void _onAddCard() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Row(children: [
-          const Icon(Icons.check_circle_outline_rounded,
-              color: Colors.white, size: 16),
-          const SizedBox(width: 8),
-          Text('Kartu berhasil ditambahkan!',
-              style: GoogleFonts.poppins(fontSize: 13)),
-        ]),
+        content: Row(
+          children: [
+            const Icon(
+              Icons.check_circle_outline_rounded,
+              color: Colors.white,
+              size: 16,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              'Kartu berhasil ditambahkan!',
+              style: GoogleFonts.poppins(fontSize: 13),
+            ),
+          ],
+        ),
         backgroundColor: _C.accent,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     );
-    Future.delayed(const Duration(milliseconds: 600),
-        () { if (mounted) Navigator.of(context).pop(); });
+    Future.delayed(const Duration(milliseconds: 600), () {
+      if (mounted) Navigator.of(context).pop();
+    });
   }
 
   @override
@@ -123,7 +134,9 @@ class _AddCardScreenState extends State<AddCardScreen>
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 20, vertical: 16),
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     _buildCardPreview(),
@@ -154,15 +167,19 @@ class _AddCardScreenState extends State<AddCardScreen>
       child: Row(
         children: [
           _CircleBtn(
-              onTap: () => Navigator.of(context).pop(),
-              icon: Icons.arrow_back_ios_new_rounded),
+            onTap: () => Navigator.of(context).pop(),
+            icon: Icons.arrow_back_ios_new_rounded,
+          ),
           Expanded(
-            child: Text('Add Card',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    color: _C.primary)),
+            child: Text(
+              'Add Card',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: _C.primary,
+              ),
+            ),
           ),
           const SizedBox(width: 40),
         ],
@@ -175,7 +192,7 @@ class _AddCardScreenState extends State<AddCardScreen>
     return AnimatedBuilder(
       animation: _flipAnim,
       builder: (_, __) {
-        final angle  = _flipAnim.value;
+        final angle = _flipAnim.value;
         final isFront = angle < math.pi / 2;
         return Transform(
           alignment: Alignment.center,
@@ -188,17 +205,13 @@ class _AddCardScreenState extends State<AddCardScreen>
                       ? 'Card Holder Name'
                       : _nameCtrl.text,
                   number: _formattedNumber,
-                  expiry: _expiryCtrl.text.isEmpty
-                      ? 'MM/YY'
-                      : _expiryCtrl.text,
+                  expiry: _expiryCtrl.text.isEmpty ? 'MM/YY' : _expiryCtrl.text,
                 )
               : Transform(
                   alignment: Alignment.center,
                   transform: Matrix4.identity()..rotateY(math.pi),
                   child: _CardBack(
-                    cvv: _cvvCtrl.text.isEmpty
-                        ? '•••'
-                        : _cvvCtrl.text,
+                    cvv: _cvvCtrl.text.isEmpty ? '•••' : _cvvCtrl.text,
                   ),
                 ),
         );
@@ -267,13 +280,10 @@ class _AddCardScreenState extends State<AddCardScreen>
                     keyboardType: TextInputType.number,
                     obscureText: _obscureCvv,
                     maxLength: 3,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     onChanged: (_) => setState(() {}),
                     suffix: GestureDetector(
-                      onTap: () =>
-                          setState(() => _obscureCvv = !_obscureCvv),
+                      onTap: () => setState(() => _obscureCvv = !_obscureCvv),
                       child: Icon(
                         _obscureCvv
                             ? Icons.visibility_off_outlined
@@ -311,16 +321,18 @@ class _AddCardScreenState extends State<AddCardScreen>
               ),
             ),
             child: _saveCard
-                ? const Icon(Icons.check_rounded,
-                    size: 14, color: Colors.white)
+                ? const Icon(Icons.check_rounded, size: 14, color: Colors.white)
                 : null,
           ),
           const SizedBox(width: 10),
-          Text('Save Card',
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: _C.primary)),
+          Text(
+            'Save Card',
+            style: GoogleFonts.poppins(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: _C.primary,
+            ),
+          ),
         ],
       ),
     );
@@ -334,9 +346,10 @@ class _AddCardScreenState extends State<AddCardScreen>
         color: _C.surface,
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 16,
-              offset: const Offset(0, -4)),
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 16,
+            offset: const Offset(0, -4),
+          ),
         ],
       ),
       child: _ScaleButton(
@@ -349,11 +362,14 @@ class _AddCardScreenState extends State<AddCardScreen>
             borderRadius: BorderRadius.circular(30),
           ),
           alignment: Alignment.center,
-          child: Text('Add Card',
-              style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white)),
+          child: Text(
+            'Add Card',
+            style: GoogleFonts.poppins(
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
@@ -381,14 +397,14 @@ class _CardFront extends StatelessWidget {
       height: 200,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF2C5F52), Color(0xFF1A3D33)],
+          colors: [AppColors.primary, Color(0xFF1A3D33)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2C5F52).withOpacity(0.40),
+            color: AppColors.primary.withOpacity(0.40),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -430,12 +446,15 @@ class _CardFront extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('VISA',
-                        style: GoogleFonts.poppins(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                            letterSpacing: 2)),
+                    Text(
+                      'VISA',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
+                        letterSpacing: 2,
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(),
@@ -454,35 +473,50 @@ class _CardFront extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Card holder name',
-                            style: GoogleFonts.poppins(
-                                fontSize: 9,
-                                color: Colors.white.withOpacity(0.6))),
-                        Text(name,
-                            style: GoogleFonts.poppins(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white)),
+                        Text(
+                          'Card holder name',
+                          style: GoogleFonts.poppins(
+                            fontSize: 9,
+                            color: Colors.white.withOpacity(0.6),
+                          ),
+                        ),
+                        Text(
+                          name,
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                     const Spacer(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Expiry date',
-                            style: GoogleFonts.poppins(
-                                fontSize: 9,
-                                color: Colors.white.withOpacity(0.6))),
-                        Text(expiry,
-                            style: GoogleFonts.poppins(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white)),
+                        Text(
+                          'Expiry date',
+                          style: GoogleFonts.poppins(
+                            fontSize: 9,
+                            color: Colors.white.withOpacity(0.6),
+                          ),
+                        ),
+                        Text(
+                          expiry,
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(width: 16),
-                    Icon(Icons.credit_card_rounded,
-                        color: Colors.white.withOpacity(0.7), size: 32),
+                    Icon(
+                      Icons.credit_card_rounded,
+                      color: Colors.white.withOpacity(0.7),
+                      size: 32,
+                    ),
                   ],
                 ),
               ],
@@ -516,7 +550,7 @@ class _CardBack extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2C5F52).withOpacity(0.40),
+            color: AppColors.primary.withOpacity(0.40),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -526,10 +560,7 @@ class _CardBack extends StatelessWidget {
         children: [
           const SizedBox(height: 32),
           // Strip magnetic
-          Container(
-            height: 44,
-            color: Colors.black.withOpacity(0.7),
-          ),
+          Container(height: 44, color: Colors.black.withOpacity(0.7)),
           const SizedBox(height: 16),
           // CVV strip
           Padding(
@@ -548,25 +579,33 @@ class _CardBack extends StatelessWidget {
                 const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 14, vertical: 8),
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  child: Text(cvv,
-                      style: GoogleFonts.robotoMono(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black87)),
+                  child: Text(
+                    cvv,
+                    style: GoogleFonts.robotoMono(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black87,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 12),
-          Text('CVV',
-              style: GoogleFonts.poppins(
-                  fontSize: 11,
-                  color: Colors.white.withOpacity(0.5))),
+          Text(
+            'CVV',
+            style: GoogleFonts.poppins(
+              fontSize: 11,
+              color: Colors.white.withOpacity(0.5),
+            ),
+          ),
         ],
       ),
     );
@@ -578,8 +617,7 @@ class _CardBack extends StatelessWidget {
 // ─────────────────────────────────────────────
 class _CardNumberFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue old, TextEditingValue nv) {
+  TextEditingValue formatEditUpdate(TextEditingValue old, TextEditingValue nv) {
     final digits = nv.text.replaceAll(' ', '');
     if (digits.length > 16) return old;
     final buf = StringBuffer();
@@ -597,8 +635,7 @@ class _CardNumberFormatter extends TextInputFormatter {
 
 class _ExpiryFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue old, TextEditingValue nv) {
+  TextEditingValue formatEditUpdate(TextEditingValue old, TextEditingValue nv) {
     final digits = nv.text.replaceAll('/', '');
     if (digits.length > 4) return old;
     String str = digits;
@@ -622,13 +659,16 @@ class _FieldLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Text(text,
-            style: GoogleFonts.poppins(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: _C.primary)),
-      );
+    padding: const EdgeInsets.only(bottom: 8),
+    child: Text(
+      text,
+      style: GoogleFonts.poppins(
+        fontSize: 13,
+        fontWeight: FontWeight.w600,
+        color: _C.primary,
+      ),
+    ),
+  );
 }
 
 class _InputField extends StatelessWidget {
@@ -671,24 +711,29 @@ class _InputField extends StatelessWidget {
         obscureText: obscureText,
         maxLength: maxLength,
         style: GoogleFonts.poppins(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: _C.primary),
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: _C.primary,
+        ),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle:
-              GoogleFonts.poppins(fontSize: 14, color: _C.textSec),
+          hintStyle: GoogleFonts.poppins(fontSize: 14, color: _C.textSec),
           border: InputBorder.none,
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 14,
+          ),
           counterText: '',
           suffixIcon: suffix != null
               ? Padding(
                   padding: const EdgeInsets.only(right: 12),
-                  child: suffix)
+                  child: suffix,
+                )
               : null,
-          suffixIconConstraints:
-              const BoxConstraints(minWidth: 0, minHeight: 0),
+          suffixIconConstraints: const BoxConstraints(
+            minWidth: 0,
+            minHeight: 0,
+          ),
         ),
       ),
     );
@@ -708,9 +753,13 @@ class _ScaleButton extends StatefulWidget {
 class _ScaleButtonState extends State<_ScaleButton>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl = AnimationController(
-      vsync: this, duration: const Duration(milliseconds: 100));
-  late final Animation<double> _scale =
-      Tween(begin: 1.0, end: 0.95).animate(_ctrl);
+    vsync: this,
+    duration: const Duration(milliseconds: 100),
+  );
+  late final Animation<double> _scale = Tween(
+    begin: 1.0,
+    end: 0.95,
+  ).animate(_ctrl);
 
   @override
   void dispose() {

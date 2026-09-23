@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/qris_screen.dart
 //
 // PERUBAHAN:
@@ -20,7 +21,7 @@ class QrisScreen extends StatefulWidget {
 }
 
 class _QrisScreenState extends State<QrisScreen> {
-  static const _C = Color(0xFF2C6E49);
+  static const _C = AppColors.accent;
   int _seconds = 300; // 5 menit countdown
   Timer? _timer;
 
@@ -61,7 +62,7 @@ class _QrisScreenState extends State<QrisScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -75,14 +76,14 @@ class _QrisScreenState extends State<QrisScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(Icons.arrow_back_ios_new_rounded,
-                size: 16, color: Color(0xFF1A1A1A)),
+                size: 16, color: AppColors.textPrimary),
           ),
         ),
         title: Text('Pembayaran QRIS',
             style: GoogleFonts.poppins(
                 fontSize: 17,
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF1A1A1A))),
+                color: AppColors.textPrimary)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
@@ -120,7 +121,7 @@ class _QrisScreenState extends State<QrisScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                    color: const Color(0xFFEEECE8), width: 2),
+                    color: AppColors.divider, width: 2),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.06),
@@ -135,7 +136,7 @@ class _QrisScreenState extends State<QrisScreen> {
             Text('Scan QR di atas menggunakan\naplikasi pembayaran',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
-                    fontSize: 13, color: const Color(0xFF8A8A8A))),
+                    fontSize: 13, color: AppColors.textSecondary)),
             const SizedBox(height: 8),
             Text(fmtRp(widget.orderSummary.total),
                 style: GoogleFonts.poppins(
@@ -168,7 +169,7 @@ class _QrisScreenState extends State<QrisScreen> {
               child: Text('Batalkan',
                   style: GoogleFonts.poppins(
                       fontSize: 14,
-                      color: const Color(0xFF8A8A8A))),
+                      color: AppColors.textSecondary)),
             ),
           ],
         ),
@@ -181,7 +182,7 @@ class _QrisScreenState extends State<QrisScreen> {
 class _QrPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = const Color(0xFF1A1A1A);
+    final paint = Paint()..color = AppColors.textPrimary;
     final bg = Paint()..color = Colors.white;
     canvas.drawRect(
         Rect.fromLTWH(0, 0, size.width, size.height), bg);

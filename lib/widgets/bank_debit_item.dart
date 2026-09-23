@@ -45,11 +45,7 @@ class BankDebitItem extends StatelessWidget {
   final DebitMethod method;
   final VoidCallback onTap;
 
-  const BankDebitItem({
-    super.key,
-    required this.method,
-    required this.onTap,
-  });
+  const BankDebitItem({super.key, required this.method, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +74,9 @@ class BankDebitItem extends StatelessWidget {
               color: method.logoColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                  color: method.logoColor.withOpacity(0.3), width: 1),
+                color: method.logoColor.withOpacity(0.3),
+                width: 1,
+              ),
             ),
             alignment: Alignment.center,
             child: Text(
@@ -107,7 +105,9 @@ class BankDebitItem extends StatelessWidget {
                   const SizedBox(width: 8),
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 6, vertical: 2),
+                      horizontal: 6,
+                      vertical: 2,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.orange,
                       borderRadius: BorderRadius.circular(10),
@@ -115,9 +115,10 @@ class BankDebitItem extends StatelessWidget {
                     child: Text(
                       method.badgeCount!,
                       style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w700),
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ],
@@ -127,13 +128,11 @@ class BankDebitItem extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             child: Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
               decoration: BoxDecoration(
                 color: AppColors.primary.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                    color: AppColors.primary.withOpacity(0.4)),
+                border: Border.all(color: AppColors.primary.withOpacity(0.4)),
               ),
               child: const Text(
                 'Tambah',

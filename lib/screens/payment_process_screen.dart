@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // // lib/screens/payment_process_screen.dart
 // //
 // // Halaman Ringkasan Pesanan / Proses Pembayaran
@@ -5,8 +6,8 @@
 
 // import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
-// import 'package:provider/provider.dart'; 
- import '../providers/cart_provider.dart';
+// import 'package:provider/provider.dart';
+import '../providers/cart_provider.dart';
 
 // import '../utils/constants.dart';
 // import 'coupon_screen.dart';
@@ -138,7 +139,7 @@
 //                     builder: (_) => const PaymentMethodScreen()),
 //               ),
 //               style: ElevatedButton.styleFrom(
-//                 backgroundColor: const Color(0xFF2C6E49),
+//                 backgroundColor: AppColors.accent,
 //                 foregroundColor: Colors.white,
 //                 elevation: 0,
 //                 shape: RoundedRectangleBorder(
@@ -168,25 +169,25 @@
 //             decoration: BoxDecoration(
 //               color: const Color(0xFFFAFAFA),
 //               borderRadius: BorderRadius.circular(12),
-//               border: Border.all(color: const Color(0xFFEEECE8)),
+//               border: Border.all(color: AppColors.divider),
 //             ),
 //             child: const Icon(Icons.arrow_back_ios_new_rounded,
-//                 size: 16, color: Color(0xFF1A1A1A)),
+//                 size: 16, color: AppColors.textPrimary),
 //           ),
 //         ),
 //         title: Text('Proses Pembayaran',
 //             style: GoogleFonts.poppins(
 //                 fontSize: 18,
 //                 fontWeight: FontWeight.w700,
-//                 color: const Color(0xFF1A1A1A))),
+//                 color: AppColors.textPrimary)),
 //         bottom: PreferredSize(
 //           preferredSize: const Size.fromHeight(1),
-//           child: Container(height: 1, color: const Color(0xFFEEECE8)),
+//           child: Container(height: 1, color: AppColors.divider),
 //         ),
 //       );
 
 //   Widget _buildDivider() =>
-//       Container(height: 1, color: const Color(0xFFEEECE8));
+//       Container(height: 1, color: AppColors.divider);
 
 //   // ── User info & alamat ──────────────────────────────────────────────────────
 //   Widget _buildUserInfo() {
@@ -195,7 +196,7 @@
 //       decoration: BoxDecoration(
 //         color: Colors.white,
 //         borderRadius: BorderRadius.circular(14),
-//         border: Border.all(color: const Color(0xFFEEECE8)),
+//         border: Border.all(color: AppColors.divider),
 //       ),
 //       child: Column(
 //         crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,11 +205,11 @@
 //             Container(
 //               padding: const EdgeInsets.all(6),
 //               decoration: BoxDecoration(
-//                 color: const Color(0xFF2C6E49).withOpacity(0.1),
+//                 color: AppColors.accent.withOpacity(0.1),
 //                 borderRadius: BorderRadius.circular(8),
 //               ),
 //               child: const Icon(Icons.location_on_rounded,
-//                   color: Color(0xFF2C6E49), size: 16),
+//                   color: AppColors.accent, size: 16),
 //             ),
 //             const SizedBox(width: 8),
 //             Expanded(
@@ -219,11 +220,11 @@
 //                       style: GoogleFonts.poppins(
 //                           fontSize: 14,
 //                           fontWeight: FontWeight.w700,
-//                           color: const Color(0xFF1A1A1A))),
+//                           color: AppColors.textPrimary)),
 //                   Text('Ubah',
 //                       style: GoogleFonts.poppins(
 //                           fontSize: 12,
-//                           color: const Color(0xFF2C6E49),
+//                           color: AppColors.accent,
 //                           fontWeight: FontWeight.w600)),
 //                 ],
 //               ),
@@ -237,7 +238,7 @@
 //               'kedungkandang, Kota Malang, Jawa Timur',
 //               style: GoogleFonts.poppins(
 //                   fontSize: 12,
-//                   color: const Color(0xFF8A8A8A),
+//                   color: AppColors.textSecondary,
 //                   height: 1.6),
 //             ),
 //           ),
@@ -254,7 +255,7 @@
 //       decoration: BoxDecoration(
 //         color: Colors.white,
 //         borderRadius: BorderRadius.circular(14),
-//         border: Border.all(color: const Color(0xFFEEECE8)),
+//         border: Border.all(color: AppColors.divider),
 //       ),
 //       child: Row(
 //         children: [
@@ -266,7 +267,7 @@
 //               borderRadius: BorderRadius.circular(10),
 //             ),
 //             child: const Icon(Icons.chair_rounded,
-//                 color: Color(0xFF2C6E49), size: 30),
+//                 color: AppColors.accent, size: 30),
 //           ),
 //           const SizedBox(width: 12),
 //           Expanded(
@@ -277,11 +278,11 @@
 //                     style: GoogleFonts.poppins(
 //                         fontSize: 14,
 //                         fontWeight: FontWeight.w700,
-//                         color: const Color(0xFF1A1A1A))),
+//                         color: AppColors.textPrimary)),
 //                 Text(item.category.isNotEmpty ? item.category : 'Chair',
 //                     style: GoogleFonts.poppins(
 //                         fontSize: 12,
-//                         color: const Color(0xFF8A8A8A))),
+//                         color: AppColors.textSecondary)),
 //               ],
 //             ),
 //           ),
@@ -292,11 +293,11 @@
 //                   style: GoogleFonts.poppins(
 //                       fontSize: 14,
 //                       fontWeight: FontWeight.w700,
-//                       color: const Color(0xFF1A1A1A))),
+//                       color: AppColors.textPrimary)),
 //               Text('x${item.jumlah}',
 //                   style: GoogleFonts.poppins(
 //                       fontSize: 12,
-//                       color: const Color(0xFF8A8A8A))),
+//                       color: AppColors.textSecondary)),
 //             ],
 //           ),
 //         ],
@@ -317,8 +318,8 @@
 //           borderRadius: BorderRadius.circular(14),
 //           border: Border.all(
 //             color: has
-//                 ? const Color(0xFF2C6E49).withOpacity(0.5)
-//                 : const Color(0xFFEEECE8),
+//                 ? AppColors.accent.withOpacity(0.5)
+//                 : AppColors.divider,
 //           ),
 //         ),
 //         child: Row(
@@ -327,7 +328,7 @@
 //             Icon(Icons.local_offer_outlined,
 //                 size: 20,
 //                 color:
-//                     has ? const Color(0xFF2C6E49) : const Color(0xFF8A8A8A)),
+//                     has ? AppColors.accent : AppColors.textSecondary),
 //             const SizedBox(width: 10),
 //             Expanded(
 //               child: Text(
@@ -337,8 +338,8 @@
 //                 style: GoogleFonts.poppins(
 //                   fontSize: 13,
 //                   color: has
-//                       ? const Color(0xFF2C6E49)
-//                       : const Color(0xFF8A8A8A),
+//                       ? AppColors.accent
+//                       : AppColors.textSecondary,
 //                   fontWeight:
 //                       has ? FontWeight.w600 : FontWeight.w400,
 //                 ),
@@ -350,7 +351,7 @@
 //                 child: Container(
 //                   padding: const EdgeInsets.all(10),
 //                   child: const Icon(Icons.close_rounded,
-//                       size: 18, color: Color(0xFF8A8A8A)),
+//                       size: 18, color: AppColors.textSecondary),
 //                 ),
 //               )
 //             else
@@ -359,10 +360,10 @@
 //                     horizontal: 16, vertical: 14),
 //                 decoration: const BoxDecoration(
 //                   border: Border(
-//                       left: BorderSide(color: Color(0xFFEEECE8))),
+//                       left: BorderSide(color: AppColors.divider)),
 //                 ),
 //                 child: const Icon(Icons.chevron_right,
-//                     size: 20, color: Color(0xFF8A8A8A)),
+//                     size: 20, color: AppColors.textSecondary),
 //               ),
 //           ],
 //         ),
@@ -377,7 +378,7 @@
 //       decoration: BoxDecoration(
 //         color: Colors.white,
 //         borderRadius: BorderRadius.circular(14),
-//         border: Border.all(color: const Color(0xFFEEECE8)),
+//         border: Border.all(color: AppColors.divider),
 //       ),
 //       child: Column(
 //         crossAxisAlignment: CrossAxisAlignment.start,
@@ -386,7 +387,7 @@
 //               style: GoogleFonts.poppins(
 //                   fontSize: 14,
 //                   fontWeight: FontWeight.w700,
-//                   color: const Color(0xFF1A1A1A))),
+//                   color: AppColors.textPrimary)),
 //           const SizedBox(height: 12),
 //           _sectionHeader('Subtotal Produk'),
 //           _summaryRow('Harga Asli', formatRupiah(subTotal)),
@@ -396,7 +397,7 @@
 //                 ? '- ${formatRupiah(_discountProduct)}'
 //                 : '-',
 //             valueColor: _discountProduct > 0
-//                 ? const Color(0xFF2C6E49)
+//                 ? AppColors.accent
 //                 : null,
 //           ),
 //           const SizedBox(height: 10),
@@ -408,7 +409,7 @@
 //                 ? '- ${formatRupiah(_discountShipping)}'
 //                 : '-',
 //             valueColor: _discountShipping > 0
-//                 ? const Color(0xFF2C6E49)
+//                 ? AppColors.accent
 //                 : null,
 //           ),
 //           _summaryRow(
@@ -425,7 +426,7 @@
 //                   Container(
 //                       width: w,
 //                       height: 1,
-//                       color: const Color(0xFFEEECE8)),
+//                       color: AppColors.divider),
 //                   const SizedBox(width: g),
 //                 ]),
 //               ),
@@ -439,12 +440,12 @@
 //                   style: GoogleFonts.poppins(
 //                       fontSize: 15,
 //                       fontWeight: FontWeight.w700,
-//                       color: const Color(0xFF1A1A1A))),
+//                       color: AppColors.textPrimary)),
 //               Text(formatRupiah(total),
 //                   style: GoogleFonts.poppins(
 //                       fontSize: 17,
 //                       fontWeight: FontWeight.w800,
-//                       color: const Color(0xFF2C6E49))),
+//                       color: AppColors.accent)),
 //             ],
 //           ),
 //         ],
@@ -458,7 +459,7 @@
 //             style: GoogleFonts.poppins(
 //                 fontSize: 12,
 //                 fontWeight: FontWeight.w700,
-//                 color: const Color(0xFF1A1A1A))),
+//                 color: AppColors.textPrimary)),
 //       );
 
 //   Widget _summaryRow(String label, String value,
@@ -470,12 +471,12 @@
 //           children: [
 //             Text(label,
 //                 style: GoogleFonts.poppins(
-//                     fontSize: 12, color: const Color(0xFF8A8A8A))),
+//                     fontSize: 12, color: AppColors.textSecondary)),
 //             Text(value,
 //                 style: GoogleFonts.poppins(
 //                     fontSize: 12,
 //                     fontWeight: FontWeight.w500,
-//                     color: valueColor ?? const Color(0xFF1A1A1A))),
+//                     color: valueColor ?? AppColors.textPrimary)),
 //           ],
 //         ),
 //       );

@@ -25,8 +25,8 @@ class User {
       phone: json['phone'],
       role: json['role'],
       avatar: json['avatar'],
-      alamat: json['alamat'] != null 
-          ? Map<String, String>.from(json['alamat']) 
+      alamat: json['alamat'] != null
+          ? Map<String, String>.from(json['alamat'])
           : null,
     );
   }

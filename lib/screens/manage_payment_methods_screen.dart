@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'add_card_screen.dart';
@@ -5,8 +6,8 @@ import 'add_card_screen.dart';
 class ManagePaymentMethodsScreen extends StatelessWidget {
   const ManagePaymentMethodsScreen({super.key});
 
-  static const Color _primary = Color(0xFF2D6A6A);
-  static const Color _bg = Color(0xFFFAFAF8);
+  static const Color _primary = AppColors.primary;
+  static const Color _bg = AppColors.background;
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +128,7 @@ class _PaymentTile extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: const Color(0xFF2D6A6A),
+                color: AppColors.primary,
               ),
             )
           else

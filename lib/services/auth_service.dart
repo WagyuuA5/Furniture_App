@@ -28,31 +28,31 @@ class AuthService {
     // === VALIDASI LOKAL (Karena Mockoon tidak punya database) ===
     final prefs = await SharedPreferences.getInstance();
     final registeredEmails = prefs.getStringList('registered_emails') ?? [];
-    
+
     // Jika email yang dimasukkan belum pernah didaftarkan di aplikasi ini
     if (!registeredEmails.contains(email)) {
       throw Exception('anda tidak punya acccount , silakan buat akun');
     }
-    
+
     // Cek password
     final storedPassword = prefs.getString('user_password_$email');
     if (storedPassword != null && storedPassword != password) {
       throw Exception('Kata sandi salah');
     }
-    
+
     final userName = prefs.getString('user_name_$email') ?? 'User';
     // ============================================================
 
-    final result = await ApiClient.post(ApiConfig.login, body: {
-      'email': email,
-      'password': password,
-    });
-    
+    final result = await ApiClient.post(
+      ApiConfig.login,
+      body: {'email': email, 'password': password},
+    );
+
     // Inject local user data into result to simulate DB
     result['data'] ??= {};
     result['data']['email'] = email;
     result['data']['nama'] = userName;
-    
+
     // Simpan token otomatis setelah login berhasil
     final token = result['data']?['token'];
     if (token != null) {
@@ -82,11 +82,10 @@ class AuthService {
     }
     // ========================================================
 
-    final result = await ApiClient.post(ApiConfig.register, body: {
-      'nama': nama,
-      'email': email,
-      'password': password,
-    });
+    final result = await ApiClient.post(
+      ApiConfig.register,
+      body: {'nama': nama, 'email': email, 'password': password},
+    );
     return result;
   }
 

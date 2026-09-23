@@ -41,10 +41,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar>
   }
 
   static const List<_NavItem> _items = [
-    _NavItem(icon: Icons.home_rounded,                label: 'Beranda',   index: 0),
-    _NavItem(icon: Icons.shopping_cart_outlined,      label: 'Keranjang', index: 1),
-    _NavItem(icon: Icons.chat_bubble_outline_rounded, label: 'Chat',      index: 2),
-    _NavItem(icon: Icons.person_outline_rounded,      label: 'Profil',    index: 3),
+    _NavItem(icon: Icons.home_rounded, label: 'Beranda', index: 0),
+    _NavItem(icon: Icons.shopping_cart_outlined, label: 'Keranjang', index: 1),
+    _NavItem(icon: Icons.chat_bubble_outline_rounded, label: 'Chat', index: 2),
+    _NavItem(icon: Icons.person_outline_rounded, label: 'Profil', index: 3),
   ];
 
   void _handleTap(BuildContext context, int index) {
@@ -52,16 +52,16 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar>
   }
 
   PageRouteBuilder _slide(Widget page) => PageRouteBuilder(
-        pageBuilder: (_, anim, __) => page,
-        transitionsBuilder: (_, anim, __, child) => SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(1, 0),
-            end: Offset.zero,
-          ).animate(CurvedAnimation(parent: anim, curve: Curves.easeOut)),
-          child: child,
-        ),
-        transitionDuration: const Duration(milliseconds: 300),
-      );
+    pageBuilder: (_, anim, __) => page,
+    transitionsBuilder: (_, anim, __, child) => SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(1, 0),
+        end: Offset.zero,
+      ).animate(CurvedAnimation(parent: anim, curve: Curves.easeOut)),
+      child: child,
+    ),
+    transitionDuration: const Duration(milliseconds: 300),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -166,6 +166,9 @@ class _NavItem {
   final IconData icon;
   final String label;
   final int index;
-  const _NavItem(
-      {required this.icon, required this.label, required this.index});
+  const _NavItem({
+    required this.icon,
+    required this.label,
+    required this.index,
+  });
 }

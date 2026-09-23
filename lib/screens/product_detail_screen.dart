@@ -104,7 +104,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
             ),
           ],
         ),
-        backgroundColor: const Color(0xFF2C6E49),
+        backgroundColor: AppColors.accent,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         duration: const Duration(seconds: 2),
@@ -355,7 +355,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                       child: Container(
                         padding: const EdgeInsets.all(3),
                         decoration: const BoxDecoration(
-                          color: Color(0xFF2C6E49),
+                          color: AppColors.accent,
                           shape: BoxShape.circle,
                         ),
                         child: Text(

@@ -110,7 +110,9 @@ class _FilterScreenState extends State<FilterScreen> {
                     child: const Text(
                       'Reset Filter',
                       style: TextStyle(
-                          color: AppColors.textDark, fontWeight: FontWeight.w600),
+                        color: AppColors.textDark,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -139,7 +141,10 @@ class _FilterScreenState extends State<FilterScreen> {
         Text(
           title,
           style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.textDark),
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: AppColors.textDark,
+          ),
         ),
         const SizedBox(height: 12),
         content,
@@ -154,12 +159,15 @@ class _FilterScreenState extends State<FilterScreen> {
       children: _categories.map((cat) {
         final selected = _filter.category == cat;
         return GestureDetector(
-          onTap: () => setState(() => _filter = _filter.copyWith(category: cat)),
+          onTap: () =>
+              setState(() => _filter = _filter.copyWith(category: cat)),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.chipSelected : AppColors.chipUnselected,
+              color: selected
+                  ? AppColors.chipSelected
+                  : AppColors.chipUnselected,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
@@ -196,10 +204,18 @@ class _FilterScreenState extends State<FilterScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: ['\$50', '\$100', '\$150', '\$200', '\$300', '\$350', '\$400']
-                .map((e) => Text(e,
-                    style: const TextStyle(fontSize: 10, color: AppColors.textGrey)))
-                .toList(),
+            children:
+                ['\$50', '\$100', '\$150', '\$200', '\$300', '\$350', '\$400']
+                    .map(
+                      (e) => Text(
+                        e,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: AppColors.textGrey,
+                        ),
+                      ),
+                    )
+                    .toList(),
           ),
         ),
       ],
@@ -230,17 +246,19 @@ class _FilterScreenState extends State<FilterScreen> {
                   child: Text(
                     label,
                     style: const TextStyle(
-                        fontSize: 14,
-                        color: AppColors.textDark,
-                        fontWeight: FontWeight.w500),
+                      fontSize: 14,
+                      color: AppColors.textDark,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 Radio<String>(
                   value: label,
                   groupValue: _filter.reviewRange,
                   activeColor: AppColors.primary,
-                  onChanged: (v) =>
-                      setState(() => _filter = _filter.copyWith(reviewRange: v)),
+                  onChanged: (v) => setState(
+                    () => _filter = _filter.copyWith(reviewRange: v),
+                  ),
                 ),
               ],
             ),
@@ -262,7 +280,9 @@ class _FilterScreenState extends State<FilterScreen> {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.chipSelected : AppColors.chipUnselected,
+              color: selected
+                  ? AppColors.chipSelected
+                  : AppColors.chipUnselected,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
@@ -292,7 +312,9 @@ class _FilterScreenState extends State<FilterScreen> {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.chipSelected : AppColors.chipUnselected,
+              color: selected
+                  ? AppColors.chipSelected
+                  : AppColors.chipUnselected,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(

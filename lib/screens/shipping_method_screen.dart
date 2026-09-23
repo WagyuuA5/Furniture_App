@@ -36,11 +36,13 @@ class _ShippingMethodScreenState extends State<ShippingMethodScreen> {
       body: ListView(
         padding: const EdgeInsets.only(top: 8, bottom: 100),
         children: shippingMethods
-            .map((method) => _ShippingRow(
-                  method: method,
-                  isSelected: _tempSelected.id == method.id,
-                  onTap: () => setState(() => _tempSelected = method),
-                ))
+            .map(
+              (method) => _ShippingRow(
+                method: method,
+                isSelected: _tempSelected.id == method.id,
+                onTap: () => setState(() => _tempSelected = method),
+              ),
+            )
             .toList(),
       ),
       bottomNavigationBar: CheckoutBigButton(
@@ -105,10 +107,7 @@ class _ShippingRow extends StatelessWidget {
                   const SizedBox(height: 3),
                   Text(
                     'Estimasi Tiba  ${method.estimatedArrival}',
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: CC.textSec,
-                    ),
+                    style: const TextStyle(fontSize: 12, color: CC.textSec),
                   ),
                 ],
               ),

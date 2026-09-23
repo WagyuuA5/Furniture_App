@@ -13,27 +13,22 @@ class SearchField extends StatelessWidget {
   final String hintText;
   final VoidCallback? onTap;
 
-  const SearchField({
-    super.key,
-    this.hintText = 'Cari......',
-    this.onTap,
-  });
+  const SearchField({super.key, this.hintText = 'Cari......', this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap ??
+      onTap:
+          onTap ??
           () => Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (_, anim, __) => const SearchScreen(),
-                  transitionsBuilder: (_, anim, __, child) => FadeTransition(
-                    opacity: anim,
-                    child: child,
-                  ),
-                  transitionDuration: const Duration(milliseconds: 200),
-                ),
-              ),
+            context,
+            PageRouteBuilder(
+              pageBuilder: (_, anim, __) => const SearchScreen(),
+              transitionsBuilder: (_, anim, __, child) =>
+                  FadeTransition(opacity: anim, child: child),
+              transitionDuration: const Duration(milliseconds: 200),
+            ),
+          ),
       // Agar GestureDetector aktif di seluruh area container
       behavior: HitTestBehavior.opaque,
       child: Container(

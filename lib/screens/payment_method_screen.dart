@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/payment_method_screen.dart
 //
 // Halaman Metode Pembayaran
@@ -17,11 +18,11 @@ import 'add_card_screen.dart';
 // ── Warna lokal ────────────────────────────────────────────────────────────────
 class _C {
   static const bg      = Color(0xFFFAFAFA);
-  static const surface = Color(0xFFFFFFFF);
-  static const teal    = Color(0xFF2C6E49);
-  static const textPri = Color(0xFF1A1A1A);
-  static const textSec = Color(0xFF8A8A8A);
-  static const divider = Color(0xFFEEECE8);
+  static const surface = AppColors.white;
+  static const teal    = AppColors.accent;
+  static const textPri = AppColors.textPrimary;
+  static const textSec = AppColors.textSecondary;
+  static const divider = AppColors.divider;
 }
 
 enum _PayMethod { qris, cod, transfer }
@@ -499,7 +500,7 @@ class _DebitRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFF9F9F9),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFFEEECE8)),
+        border: Border.all(color: AppColors.divider),
       ),
       child: Row(
         children: [
@@ -527,7 +528,7 @@ class _DebitRow extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF1A1A1A))),
+                        color: AppColors.textPrimary)),
                 if (entry.badge != null) ...[
                   const SizedBox(width: 6),
                   Container(
@@ -552,7 +553,7 @@ class _DebitRow extends StatelessWidget {
               SnackBar(
                 content: Text('Menghubungkan ke ${entry.name}...',
                     style: GoogleFonts.poppins(fontSize: 13)),
-                backgroundColor: const Color(0xFF2C6E49),
+                backgroundColor: AppColors.accent,
                 behavior: SnackBarBehavior.floating,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
@@ -563,16 +564,16 @@ class _DebitRow extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: 14, vertical: 6),
               decoration: BoxDecoration(
-                color: const Color(0xFF2C6E49).withOpacity(0.1),
+                color: AppColors.accent.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                    color: const Color(0xFF2C6E49).withOpacity(0.4)),
+                    color: AppColors.accent.withOpacity(0.4)),
               ),
               child: const Text('Tambah',
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF2C6E49))),
+                      color: AppColors.accent)),
             ),
           ),
         ],
@@ -607,9 +608,9 @@ class _OrderRow extends StatelessWidget {
                       errorBuilder: (_, __, ___) => const Icon(
                           Icons.chair_outlined,
                           size: 32,
-                          color: Color(0xFF8A8A8A)))
+                          color: AppColors.textSecondary))
                   : const Icon(Icons.chair_outlined,
-                      size: 32, color: Color(0xFF8A8A8A)),
+                      size: 32, color: AppColors.textSecondary),
             ),
           ),
           const SizedBox(width: 14),
@@ -621,16 +622,16 @@ class _OrderRow extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF1A1A1A))),
+                        color: AppColors.textPrimary)),
                 Text(item.category,
                     style: GoogleFonts.poppins(
-                        fontSize: 12, color: const Color(0xFF8A8A8A))),
+                        fontSize: 12, color: AppColors.textSecondary)),
                 const SizedBox(height: 4),
                 Text(formatRupiah(item.pricePerUnit),
                     style: GoogleFonts.poppins(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: const Color(0xFF8A8A8A))),
+                        color: AppColors.textSecondary)),
               ],
             ),
           ),
@@ -688,13 +689,13 @@ class _QBtn extends StatelessWidget {
         height: 26,
         decoration: BoxDecoration(
           color: filled
-              ? const Color(0xFF1A1A1A)
+              ? AppColors.textPrimary
               : const Color(0xFFF0EFED),
           borderRadius: BorderRadius.circular(6),
         ),
         child: Icon(icon,
             size: 13,
-            color: filled ? Colors.white : const Color(0xFF1A1A1A)),
+            color: filled ? Colors.white : AppColors.textPrimary),
       ),
     );
   }
@@ -715,7 +716,7 @@ class _RingkasanHeader extends StatelessWidget {
             style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF1A1A1A))),
+                color: AppColors.textPrimary)),
       );
 }
 
@@ -734,13 +735,13 @@ class _RingkasanRow extends StatelessWidget {
           children: [
             Text(label,
                 style: GoogleFonts.poppins(
-                    fontSize: 12, color: const Color(0xFF8A8A8A))),
+                    fontSize: 12, color: AppColors.textSecondary)),
             Text(value,
                 style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color:
-                        valueColor ?? const Color(0xFF1A1A1A))),
+                        valueColor ?? AppColors.textPrimary)),
           ],
         ),
       );
@@ -759,7 +760,7 @@ class _DashedLine extends StatelessWidget {
             Container(
                 width: w,
                 height: 1,
-                color: const Color(0xFFEEECE8)),
+                color: AppColors.divider),
             const SizedBox(width: g),
           ]),
         ),
@@ -824,7 +825,7 @@ class _Radio extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(
           color: selected
-              ? const Color(0xFF2C6E49)
+              ? AppColors.accent
               : const Color(0xFFCCCCCC),
           width: 2,
         ),
@@ -835,7 +836,7 @@ class _Radio extends StatelessWidget {
                 width: 10,
                 height: 10,
                 decoration: const BoxDecoration(
-                    color: Color(0xFF2C6E49),
+                    color: AppColors.accent,
                     shape: BoxShape.circle),
               ),
             )
@@ -860,7 +861,7 @@ class _QrisLogo extends StatelessWidget {
             style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w800,
-                color: Color(0xFF2C6E49))),
+                color: AppColors.accent)),
       );
 }
 
@@ -942,22 +943,22 @@ class _SuccessSheet extends StatelessWidget {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: const Color(0xFF2C6E49).withOpacity(0.1),
+                color: AppColors.accent.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.check_circle_rounded,
-                  color: Color(0xFF2C6E49), size: 48),
+                  color: AppColors.accent, size: 48),
             ),
             const SizedBox(height: 20),
             Text('Pembayaran Berhasil!',
                 style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
-                    color: const Color(0xFF1A1A1A))),
+                    color: AppColors.textPrimary)),
             const SizedBox(height: 8),
             Text('Pesanan kamu sedang diproses',
                 style: GoogleFonts.poppins(
-                    fontSize: 14, color: const Color(0xFF8A8A8A))),
+                    fontSize: 14, color: AppColors.textSecondary)),
             const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.all(16),
@@ -971,12 +972,12 @@ class _SuccessSheet extends StatelessWidget {
                   Text('Total Dibayar',
                       style: GoogleFonts.poppins(
                           fontSize: 13,
-                          color: const Color(0xFF8A8A8A))),
+                          color: AppColors.textSecondary)),
                   Text(formatRupiah(total),
                       style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFF2C6E49))),
+                          color: AppColors.accent)),
                 ],
               ),
             ),
@@ -987,7 +988,7 @@ class _SuccessSheet extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2C6E49),
+                  backgroundColor: AppColors.accent,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14)),

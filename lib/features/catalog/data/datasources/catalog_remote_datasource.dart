@@ -12,9 +12,12 @@ abstract class CatalogRemoteDataSource {
 @Injectable(as: CatalogRemoteDataSource)
 class CatalogRemoteDataSourceImpl implements CatalogRemoteDataSource {
   @override
-  Future<List<ProductModel>> getProducts({String? category, String? keyword}) async {
+  Future<List<ProductModel>> getProducts({
+    String? category,
+    String? keyword,
+  }) async {
     String endpoint = ApiConfig.products;
-    
+
     if (keyword != null && keyword.isNotEmpty) {
       endpoint = '${ApiConfig.search}?q=$keyword';
     } else if (category != null && category.isNotEmpty) {

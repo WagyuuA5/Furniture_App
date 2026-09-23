@@ -100,7 +100,9 @@ class _RatingScreenState extends State<RatingScreen> {
                           Text(
                             '(${widget.product.reviewCount} Reviews)',
                             style: const TextStyle(
-                                fontSize: 12, color: AppColors.textGrey),
+                              fontSize: 12,
+                              color: AppColors.textGrey,
+                            ),
                           ),
                         ],
                       ),
@@ -110,8 +112,9 @@ class _RatingScreenState extends State<RatingScreen> {
                         child: Column(
                           children: [5, 4, 3, 2, 1].map((star) {
                             final count = _starCounts[star] ?? 0;
-                            final maxCount =
-                                _maxStarCount == 0 ? 1 : _maxStarCount;
+                            final maxCount = _maxStarCount == 0
+                                ? 1
+                                : _maxStarCount;
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 2),
                               child: Row(
@@ -119,7 +122,9 @@ class _RatingScreenState extends State<RatingScreen> {
                                   Text(
                                     '$star',
                                     style: const TextStyle(
-                                        fontSize: 11, color: AppColors.textGrey),
+                                      fontSize: 11,
+                                      color: AppColors.textGrey,
+                                    ),
                                   ),
                                   const SizedBox(width: 6),
                                   Expanded(
@@ -128,10 +133,12 @@ class _RatingScreenState extends State<RatingScreen> {
                                       child: LinearProgressIndicator(
                                         value: count / maxCount,
                                         minHeight: 6,
-                                        backgroundColor: AppColors.chipUnselected,
+                                        backgroundColor:
+                                            AppColors.chipUnselected,
                                         valueColor:
                                             const AlwaysStoppedAnimation<Color>(
-                                                AppColors.primary),
+                                              AppColors.primary,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -149,14 +156,18 @@ class _RatingScreenState extends State<RatingScreen> {
 
                 // ─── Sort Filter ─────────────────────────────────────────
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 12,
+                  ),
                   child: Row(
                     children: [
                       // Filter icon button
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 8),
+                          horizontal: 14,
+                          vertical: 8,
+                        ),
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey.shade300),
                           borderRadius: BorderRadius.circular(20),
@@ -165,8 +176,7 @@ class _RatingScreenState extends State<RatingScreen> {
                           children: [
                             Icon(Icons.tune, size: 16),
                             SizedBox(width: 4),
-                            Text('Filter',
-                                style: TextStyle(fontSize: 12)),
+                            Text('Filter', style: TextStyle(fontSize: 12)),
                             SizedBox(width: 4),
                             Icon(Icons.keyboard_arrow_down, size: 16),
                           ],
@@ -237,9 +247,7 @@ class _RatingScreenState extends State<RatingScreen> {
         decoration: BoxDecoration(
           color: selected ? AppColors.accent : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
-          border: selected
-              ? null
-              : Border.all(color: Colors.grey.shade300),
+          border: selected ? null : Border.all(color: Colors.grey.shade300),
         ),
         child: Text(
           label,
@@ -257,9 +265,7 @@ class _RatingScreenState extends State<RatingScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: AppColors.divider),
-        ),
+        border: Border(bottom: BorderSide(color: AppColors.divider)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,7 +281,9 @@ class _RatingScreenState extends State<RatingScreen> {
                       ? review.userName[0].toUpperCase()
                       : '?',
                   style: const TextStyle(
-                      fontWeight: FontWeight.w700, color: AppColors.textDark),
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textDark,
+                  ),
                 ),
               ),
               const SizedBox(width: 10),
@@ -286,7 +294,9 @@ class _RatingScreenState extends State<RatingScreen> {
                     Text(
                       review.userName,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 13),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13,
+                      ),
                     ),
                   ],
                 ),

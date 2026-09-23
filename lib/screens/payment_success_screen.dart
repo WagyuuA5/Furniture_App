@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/payment_success_screen.dart
 
 import 'package:flutter/material.dart';
@@ -15,12 +16,12 @@ import '../providers/checkout_provider.dart';
 // THEME
 // ─────────────────────────────────────────────
 class _C {
-  static const bg = Color(0xFFFAFAF8);
-  static const surface = Color(0xFFFFFFFF);
-  static const primary = Color(0xFF1A1A1A);
-  static const accent = Color(0xFF2C5F52);
-  static const textSecondary = Color(0xFF8A8A8A);
-  static const divider = Color(0xFFEEECE8);
+  static const bg = AppColors.background;
+  static const surface = AppColors.white;
+  static const primary = AppColors.textPrimary;
+  static const accent = AppColors.primary;
+  static const textSecondary = AppColors.textSecondary;
+  static const divider = AppColors.divider;
 }
 
 // ─────────────────────────────────────────────
@@ -102,7 +103,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen>
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFF2C5F52).withOpacity(0.35),
+                              color: AppColors.primary.withOpacity(0.35),
                               blurRadius: 28,
                               offset: const Offset(0, 10),
                             ),
@@ -272,7 +273,7 @@ class _OrderItemRow extends StatelessWidget {
             child: Container(
               width: 76,
               height: 76,
-              color: const Color(0xFFEEECE8),
+              color: AppColors.divider,
               child: item.imageUrl.isNotEmpty
                   ? Image.network(item.imageUrl, fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => const Icon(

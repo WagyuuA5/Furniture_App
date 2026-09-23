@@ -12,7 +12,10 @@ class CatalogRepositoryImpl implements CatalogRepository {
 
   @override
   Future<List<Product>> getProducts({String? category, String? keyword}) async {
-    return await remoteDataSource.getProducts(category: category, keyword: keyword);
+    return await remoteDataSource.getProducts(
+      category: category,
+      keyword: keyword,
+    );
   }
 
   @override

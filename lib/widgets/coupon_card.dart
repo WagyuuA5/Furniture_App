@@ -142,8 +142,11 @@ class _CouponCardState extends State<CouponCard>
                                 ),
                               ),
                               if (widget.isSelected)
-                                Icon(Icons.check_circle_rounded,
-                                    color: color, size: 20),
+                                Icon(
+                                  Icons.check_circle_rounded,
+                                  color: color,
+                                  size: 20,
+                                ),
                             ],
                           ),
                           const SizedBox(height: 4),
@@ -160,7 +163,9 @@ class _CouponCardState extends State<CouponCard>
                               Expanded(
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 8, vertical: 4),
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
                                   decoration: BoxDecoration(
                                     color: color.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(6),
@@ -181,16 +186,14 @@ class _CouponCardState extends State<CouponCard>
                                 child: GestureDetector(
                                   onTap: _handleCopy,
                                   child: AnimatedContainer(
-                                    duration:
-                                        const Duration(milliseconds: 200),
+                                    duration: const Duration(milliseconds: 200),
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 5),
+                                      horizontal: 10,
+                                      vertical: 5,
+                                    ),
                                     decoration: BoxDecoration(
-                                      color: _copied
-                                          ? Colors.green
-                                          : color,
-                                      borderRadius:
-                                          BorderRadius.circular(6),
+                                      color: _copied ? Colors.green : color,
+                                      borderRadius: BorderRadius.circular(6),
                                     ),
                                     child: Text(
                                       _copied ? '✓ Disalin!' : 'COPY CODE',
@@ -211,9 +214,11 @@ class _CouponCardState extends State<CouponCard>
                               padding: const EdgeInsets.only(top: 6),
                               child: Row(
                                 children: [
-                                  Icon(Icons.lock_outline,
-                                      size: 11,
-                                      color: Colors.orange.shade700),
+                                  Icon(
+                                    Icons.lock_outline,
+                                    size: 11,
+                                    color: Colors.orange.shade700,
+                                  ),
                                   const SizedBox(width: 4),
                                   Text(
                                     widget.coupon.lockMessage!,
@@ -286,9 +291,7 @@ class _DashedDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 14,
-      child: CustomPaint(
-        painter: _DashedLinePainter(color: color),
-      ),
+      child: CustomPaint(painter: _DashedLinePainter(color: color)),
     );
   }
 }

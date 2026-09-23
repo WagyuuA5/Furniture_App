@@ -344,7 +344,7 @@ class _SectionHeader extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF2C6E49))),
+                  color: AppColors.accent)),
         ),
       ],
     );
@@ -471,7 +471,7 @@ class _DistributorRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFEEECE8)),
+        border: Border.all(color: AppColors.divider),
         boxShadow: [
           BoxShadow(
               color: Colors.black.withOpacity(0.04),
@@ -501,12 +501,12 @@ class _DistributorRow extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: const Color(0xFF1A1A1A))),
+                        color: AppColors.textPrimary)),
                 Text(chat.lastMessage,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.poppins(
-                        fontSize: 11, color: const Color(0xFF8A8A8A))),
+                        fontSize: 11, color: AppColors.textSecondary)),
               ],
             ),
           ),
@@ -517,7 +517,7 @@ class _DistributorRow extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF2C6E49),
+                color: AppColors.accent,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(

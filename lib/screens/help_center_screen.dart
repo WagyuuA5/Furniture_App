@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/help_center_screen.dart
 
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HelpCenterScreen extends StatefulWidget {
 
 class _HelpCenterScreenState extends State<HelpCenterScreen>
     with SingleTickerProviderStateMixin {
-  static const Color _primary = Color(0xFF2D6A6A);
+  static const Color _primary = AppColors.primary;
 
   final _searchCtrl = TextEditingController();
   late TabController _tabCtrl;
@@ -162,7 +163,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAF8),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -182,7 +183,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios_new_rounded,
-                          size: 16, color: Color(0xFF1A1A1A)),
+                          size: 16, color: AppColors.textPrimary),
                     ),
                   ),
                   Expanded(
@@ -221,7 +222,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                         )
                       : null,
                   filled: true,
-                  fillColor: const Color(0xFFF5F5F5),
+                  fillColor: AppColors.softGray,
                   contentPadding: const EdgeInsets.symmetric(vertical: 12),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -331,7 +332,7 @@ class _FaqCardState extends State<_FaqCard> {
           onExpansionChanged: (v) => setState(() => _expanded = v),
           trailing: Icon(
             _expanded ? Icons.remove_circle_outline : Icons.add_circle_outline,
-            color: const Color(0xFF2D6A6A),
+            color: AppColors.primary,
             size: 20,
           ),
           title: Text(
@@ -339,7 +340,7 @@ class _FaqCardState extends State<_FaqCard> {
             style: GoogleFonts.poppins(
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF1A1A1A),
+              color: AppColors.textPrimary,
             ),
           ),
           children: [

@@ -32,15 +32,15 @@ class _ProductCardState extends State<ProductCard>
     duration: const Duration(milliseconds: 500),
   );
 
-  late final Animation<double> _fade =
-      Tween<double>(begin: 0, end: 1).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeOut),
-  );
+  late final Animation<double> _fade = Tween<double>(
+    begin: 0,
+    end: 1,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOut));
 
-  late final Animation<Offset> _slide =
-      Tween<Offset>(begin: const Offset(0, 0.25), end: Offset.zero).animate(
-    CurvedAnimation(parent: _ctrl, curve: Curves.easeOut),
-  );
+  late final Animation<Offset> _slide = Tween<Offset>(
+    begin: const Offset(0, 0.25),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOut));
 
   bool _pressed = false;
 
@@ -48,10 +48,9 @@ class _ProductCardState extends State<ProductCard>
   void initState() {
     super.initState();
     // Stagger berdasarkan index
-    Future.delayed(
-      Duration(milliseconds: widget.animationIndex * 120),
-      () { if (mounted) _ctrl.forward(); },
-    );
+    Future.delayed(Duration(milliseconds: widget.animationIndex * 120), () {
+      if (mounted) _ctrl.forward();
+    });
   }
 
   @override
@@ -106,10 +105,11 @@ class _ProductCardState extends State<ProductCard>
                   Stack(
                     children: [
                       Hero(
-                        tag: '${widget.heroTagPrefix}product_${widget.product.id}',
+                        tag:
+                            '${widget.heroTagPrefix}product_${widget.product.id}',
                         child: ClipRRect(
                           borderRadius: const BorderRadius.only(
-                            topLeft:  Radius.circular(AppRadius.productCard),
+                            topLeft: Radius.circular(AppRadius.productCard),
                             topRight: Radius.circular(AppRadius.productCard),
                           ),
                           child: SizedBox(
@@ -121,8 +121,11 @@ class _ProductCardState extends State<ProductCard>
                               errorBuilder: (_, __, ___) => const ColoredBox(
                                 color: AppColors.softGray,
                                 child: Center(
-                                  child: Icon(Icons.chair_rounded,
-                                      size: 48, color: AppColors.textSecondary),
+                                  child: Icon(
+                                    Icons.chair_rounded,
+                                    size: 48,
+                                    color: AppColors.textSecondary,
+                                  ),
                                 ),
                               ),
                             ),
@@ -135,7 +138,9 @@ class _ProductCardState extends State<ProductCard>
                           left: 10,
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 7, vertical: 3),
+                              horizontal: 7,
+                              vertical: 3,
+                            ),
                             decoration: BoxDecoration(
                               color: AppColors.badge,
                               borderRadius: BorderRadius.circular(7),
@@ -181,8 +186,11 @@ class _ProductCardState extends State<ProductCard>
                         const SizedBox(height: 5),
                         Row(
                           children: [
-                            const Icon(Icons.star_rounded,
-                                size: 13, color: Colors.amber),
+                            const Icon(
+                              Icons.star_rounded,
+                              size: 13,
+                              color: Colors.amber,
+                            ),
                             const SizedBox(width: 3),
                             Text(
                               widget.product.rating.toStringAsFixed(1),

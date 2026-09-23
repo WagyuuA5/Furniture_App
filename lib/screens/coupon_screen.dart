@@ -1,3 +1,4 @@
+import '../utils/app_theme.dart';
 // lib/screens/coupon_screen.dart
 //
 // Halaman Coupon & Diskon — desain tiket/kwitansi
@@ -128,15 +129,15 @@ const List<CouponModel> kAllCoupons = [
 // ─────────────────────────────────────────────
 class _C {
   static const bg          = Color(0xFFF7F6F3);
-  static const surface     = Color(0xFFFFFFFF);
-  static const primary     = Color(0xFF1A1A1A);
-  static const accent      = Color(0xFF2C5F52);
-  static const textSec     = Color(0xFF8A8A8A);
-  static const divider     = Color(0xFFEEECE8);
+  static const surface     = AppColors.white;
+  static const primary     = AppColors.textPrimary;
+  static const accent      = AppColors.primary;
+  static const textSec     = AppColors.textSecondary;
+  static const divider     = AppColors.divider;
   static const locked      = Color(0xFFB0B0B0);
   static const lockedBg    = Color(0xFFF0F0F0);
   static const used        = Color(0xFFCCCCCC);
-  static const usedBg      = Color(0xFFF5F5F5);
+  static const usedBg      = AppColors.softGray;
 }
 
 // ─────────────────────────────────────────────
@@ -363,7 +364,7 @@ class _CouponCard extends StatelessWidget {
   bool get _isActive => coupon.status == CouponStatus.available;
 
   Color get _cardBg => _isUsed
-      ? const Color(0xFFF5F5F5)
+      ? AppColors.softGray
       : _isLocked
           ? const Color(0xFFF0F0F0)
           : _C.surface;

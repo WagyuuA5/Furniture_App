@@ -22,12 +22,14 @@ class CartProvider extends ChangeNotifier {
 
   CartEntity? get cart => _cart;
   bool get isLoading => _isLoading;
-  
+
   List<CartItemEntity> get items => _cart?.items ?? [];
-  int get totalCount => _cart?.items.fold(0, (sum, item) => sum + item.quantity) ?? 0;
+  int get totalCount =>
+      _cart?.items.fold(0, (sum, item) => sum + item.quantity) ?? 0;
   bool get isEmpty => items.isEmpty;
 
-  double getTotalPrice() => _cart?.items.fold(0, (sum, i) => sum + i.totalPrice) ?? 0;
+  double getTotalPrice() =>
+      _cart?.items.fold(0, (sum, i) => sum + i.totalPrice) ?? 0;
 
   Future<void> loadCart() async {
     _isLoading = true;
@@ -55,7 +57,7 @@ class CartProvider extends ChangeNotifier {
   Future<void> updateQuantity(int cartItemId, int delta) async {
     final idx = items.indexWhere((e) => e.cartItemId == cartItemId);
     if (idx < 0) return;
-    
+
     final newQty = items[idx].quantity + delta;
     if (newQty < 1) return;
 
