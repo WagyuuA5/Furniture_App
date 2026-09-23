@@ -25,11 +25,11 @@ class CartProvider extends ChangeNotifier {
 
   List<CartItemEntity> get items => _cart?.items ?? [];
   int get totalCount =>
-      _cart?.items.fold(0, (sum, item) => sum + item.quantity) ?? 0;
+      _cart?.items.fold<int>(0, (sum, item) => sum + item.quantity) ?? 0;
   bool get isEmpty => items.isEmpty;
 
   double getTotalPrice() =>
-      _cart?.items.fold(0, (sum, i) => sum + i.totalPrice) ?? 0;
+      _cart?.items.fold<double>(0.0, (sum, i) => sum + i.totalPrice) ?? 0.0;
 
   Future<void> loadCart() async {
     _isLoading = true;
