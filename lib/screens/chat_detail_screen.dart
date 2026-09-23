@@ -39,7 +39,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     _msgSub = _svc.messagesStream(widget.chat.id).listen((msgs) {
       if (!mounted) return;
       setState(() => _messages = msgs);
-      _scrollToBottom();
     });
 
     // Subscribe ke typing
@@ -57,21 +56,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     super.dispose();
   }
 
-  void _scrollToBottom({bool animated = true}) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (_scrollCtrl.hasClients) {
-        if (animated) {
-          _scrollCtrl.animateTo(
-            _scrollCtrl.position.maxScrollExtent + 100,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeOut,
-          );
-        } else {
-          _scrollCtrl.jumpTo(_scrollCtrl.position.maxScrollExtent + 100);
-        }
-      }
-    });
-  }
 
   // ── Kirim teks ───────────────────────────────────────────────────────────────
   Future<void> _sendText() async {
@@ -122,13 +106,22 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 ? _buildEmptyState()
                 : ListView.builder(
                     controller: _scrollCtrl,
+                    reverse: true, // Auto-scroll to bottom naturally and handles keyboard!
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     itemCount: _messages.length + (_isTyping ? 1 : 0),
                     itemBuilder: (_, i) {
-                      if (_isTyping && i == _messages.length) {
-                        return const TypingIndicator();
+                      if (_isTyping && i == 0) {
+                        return const Padding(
+                          padding: EdgeInsets.only(bottom: 8.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: TypingIndicator(),
+                          ),
+                        );
                       }
-                      final msg = _messages[i];
+                      final msgIndex = _isTyping ? i - 1 : i;
+                      final reversedMessages = _messages.reversed.toList();
+                      final msg = reversedMessages[msgIndex];
                       return ChatBubble(
                         message: msg,
                         isMe: msg.isMine(kCurrentUserId),
