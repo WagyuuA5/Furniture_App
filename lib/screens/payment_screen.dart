@@ -2,7 +2,7 @@ import '../utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; 
- import '../providers/cart_provider.dart';
+ 
 import 'cart_screen.dart';
 import 'qris_screen.dart';
 import 'success_screen.dart';
@@ -75,107 +75,34 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     });
   }
 
-  /// Buat OrderSummary dari cart items untuk diteruskan ke screen berikutnya
-  OrderSummary _buildOrderSummary(CartProvider cart) {
-    final subTotal = cart.getTotalPrice();
-    final total = subTotal + _ongkir - _diskonOngkir + _biayaLayanan - _discount;
-
+  OrderSummary _buildOrderSummary(CheckoutProvider checkout) {
     return OrderSummary(
-      items: cart.items.map((ci) => OrderItem(
+      items: checkout.items.map((ci) => OrderItem(
         productId: int.tryParse(ci.id) ?? 0,
         name: ci.name,
         category: ci.category,
         imageUrl: ci.imageUrl,
-        jumlah: ci.quantity,
-        harga: ci.pricePerUnit.toInt(),
+        price: ci.price,
+        quantity: ci.quantity,
       )).toList(),
-      orderDate: DateTime.now(),
-      promoCode: _discCtrl.text.trim().isNotEmpty
-          ? _discCtrl.text.trim().toUpperCase()
-          : '-',
-      shippingType: widget.shippingMethod,
-      subtotal: subTotal,
-      shippingFee: _ongkir - _diskonOngkir + _biayaLayanan,
-      discount: _discount,
-      total: total,
+      subtotal: checkout.subtotal,
+      shippingFee: checkout.shippingCost - checkout.shippingDiscount + checkout.serviceFee,
+      discount: checkout.discount,
+      total: checkout.grandTotal,
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final cart     = context.watch<CartProvider>();
-    final checkout = context.watch<CheckoutProvider>();
-    final address  = checkout.selectedAddress;
-    final subTotal = cart.getTotalPrice();
-    final total    = subTotal + _ongkir - _diskonOngkir + _biayaLayanan - _discount;
-
-    return Scaffold(
-      backgroundColor: _C.bg,
-      appBar: _appBar(context),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        children: [
-          // ── Info User & Alamat ───────────────────────────────────────────
-          _buildUserInfo(address),
-          const Divider(color: _C.divider, height: 24),
-
-          // ── Item Pesanan ─────────────────────────────────────────────────
-          ...cart.items.map((item) => _OrderRow(item: item)),
-          const Divider(color: _C.divider, height: 24),
-
-          // ── Input Diskon ─────────────────────────────────────────────────
-          _buildDiskonField(subTotal),
-          const SizedBox(height: 16),
-
-          // ── Ringkasan Pesanan ────────────────────────────────────────────
-          _buildRingkasan(subTotal, total),
-          const SizedBox(height: 24),
-
-          // ── Metode Pembayaran ────────────────────────────────────────────
-          const Text('Metode Pembayaran',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: _C.textPri)),
-          const SizedBox(height: 12),
-          _buildPaymentMethods(),
-          const SizedBox(height: 100),
-        ],
-      ),
-
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
-          child: SizedBox(
-            height: 54,
-            child: ElevatedButton(
-              onPressed: () => _onProses(context),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _C.teal,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-              ),
-              child: const Text('Proses Pembayaran',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  // ── Navigasi sesuai metode ─────────────────────────────────────────────────
-  void _onProses(BuildContext context) {
-    final cart = context.read<CartProvider>();
-    final orderSummary = _buildOrderSummary(cart);
+  void _onProses(BuildContext context, CheckoutProvider checkout) {
+    final orderSummary = _buildOrderSummary(checkout);
 
     if (_method == _PayMethod.qris) {
-      // QRIS: navigasi ke QrisScreen dengan order summary
       Navigator.push(context,
           MaterialPageRoute(builder: (_) => QrisScreen(orderSummary: orderSummary)));
     } else {
-      // COD / Transfer: langsung ke SuccessScreen dengan order summary
       Navigator.push(context,
           MaterialPageRoute(builder: (_) => SuccessScreen(orderSummary: orderSummary)));
     }
+  }
   }
 
   // ── AppBar ─────────────────────────────────────────────────────────────────
@@ -393,7 +320,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
 
 // ── Order Row ─────────────────────────────────────────────────────────────────
 class _OrderRow extends StatelessWidget {
-  final CartItem item;
+  final CheckoutItem item;
   const _OrderRow({required this.item});
 
   @override
@@ -408,10 +335,8 @@ class _OrderRow extends StatelessWidget {
               width: 72, height: 72,
               color: const Color(0xFFF0EFED),
               child: item.imageUrl.isNotEmpty
-                  ? Image.network(item.imageUrl, fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) =>
-                          const Icon(Icons.chair_outlined, size: 32, color: _C.textSec))
-                  : const Icon(Icons.chair_outlined, size: 32, color: _C.textSec),
+                  ? Image.network(item.imageUrl, fit: BoxFit.cover)
+                  : const Icon(Icons.image_not_supported, color: Colors.grey),
             ),
           ),
           const SizedBox(width: 14),
@@ -421,68 +346,22 @@ class _OrderRow extends StatelessWidget {
               children: [
                 Text(item.name,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w700, color: _C.textPri)),
-                Text(item.category,
-                    style: const TextStyle(fontSize: 12, color: _C.textSec)),
+                        fontSize: 14, fontWeight: FontWeight.w600, color: _C.textPri)),
                 const SizedBox(height: 4),
-                Text(formatRupiah(item.pricePerUnit),
+                Text(formatRupiah(item.price),
                     style: const TextStyle(
-                        fontSize: 13, fontWeight: FontWeight.w600, color: _C.textSec)),
+                        fontSize: 14, fontWeight: FontWeight.w700, color: _C.teal)),
               ],
             ),
           ),
-          // Qty selector
-          _MiniQty(item: item),
+          Text('x ', style: const TextStyle(fontWeight: FontWeight.w600)),
         ],
       ),
     );
   }
 }
 
-class _MiniQty extends StatelessWidget {
-  final CartItem item;
-  const _MiniQty({required this.item});
 
-  @override
-  Widget build(BuildContext context) {
-    final cart = context.read<CartProvider>();
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _QBtn(icon: Icons.remove, onTap: () => cart.updateQuantity(item.id, -1)),
-        SizedBox(
-          width: 28,
-          child: Text('${item.quantity}',
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
-        ),
-        _QBtn(icon: Icons.add, filled: true, onTap: () => cart.updateQuantity(item.id, 1)),
-      ],
-    );
-  }
-}
-
-class _QBtn extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-  final bool filled;
-  const _QBtn({required this.icon, required this.onTap, this.filled = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 26, height: 26,
-        decoration: BoxDecoration(
-          color: filled ? AppColors.textPrimary : const Color(0xFFF0EFED),
-          borderRadius: BorderRadius.circular(6),
-        ),
-        child: Icon(icon, size: 13, color: filled ? Colors.white : _C.textPri),
-      ),
-    );
-  }
-}
 
 // ── Ringkasan helpers ─────────────────────────────────────────────────────────
 class _RingkasanHeader extends StatelessWidget {
