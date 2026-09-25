@@ -4,7 +4,6 @@ import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../models/checkout_models.dart';
 import '../providers/checkout_provider.dart';
 import '../widgets/add_address_dialog.dart';
 
@@ -61,7 +60,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final _addresses = context.watch<CheckoutProvider>().addresses;
+    final addresses = context.watch<CheckoutProvider>().addresses;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -103,7 +102,7 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
             ),
 
             Expanded(
-              child: _addresses.isEmpty
+              child: addresses.isEmpty
                   ? Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -119,10 +118,10 @@ class _ManageAddressScreenState extends State<ManageAddressScreen> {
                     )
                   : ListView.separated(
                       padding: const EdgeInsets.all(20),
-                      itemCount: _addresses.length,
+                      itemCount: addresses.length,
                       separatorBuilder: (_, __) => const SizedBox(height: 14),
                       itemBuilder: (_, i) {
-                        final addr = _addresses[i];
+                        final addr = addresses[i];
                         return Container(
                           decoration: BoxDecoration(
                             color: Colors.white,

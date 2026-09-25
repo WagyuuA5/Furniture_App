@@ -10,8 +10,6 @@ import '../utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
-import '../providers/cart_provider.dart';
-import 'cart_screen.dart';
 import 'home_screen.dart';
 import '../models/order.dart';
 import '../providers/checkout_provider.dart';

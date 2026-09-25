@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_theme.dart';
-import '../features/catalog/domain/entities/product.dart';
 import '../features/catalog/domain/entities/category.dart';
 
 class CategoryItem extends StatefulWidget {

@@ -12,8 +12,6 @@ import '../utils/app_theme.dart';
 import '../features/catalog/domain/entities/product.dart';
 import '../widgets/rating_widget.dart';
 import '../widgets/product_thumbnail.dart';
-import '../providers/cart_provider.dart'; 
- import 'cart_screen.dart';
 import '../providers/checkout_provider.dart'; // CheckoutProvider
 import 'rating_screen.dart';        // halaman daftar review
 import 'leave_review_screen.dart';  // halaman tulis review

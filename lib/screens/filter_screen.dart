@@ -9,7 +9,7 @@ import '../widgets/rating_widget.dart';
 class FilterScreen extends StatefulWidget {
   final FilterModel initialFilter;
 
-  const FilterScreen({Key? key, required this.initialFilter}) : super(key: key);
+  const FilterScreen({super.key, required this.initialFilter});
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();

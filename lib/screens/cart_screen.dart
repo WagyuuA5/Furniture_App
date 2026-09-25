@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:my_design_system/my_design_system.dart' hide AppColors;
 import '../utils/app_theme.dart';
 // lib/screens/cart_screen.dart
 //
@@ -11,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
 import '../features/cart/domain/entities/cart.dart';
-import '../features/catalog/domain/entities/product.dart';
 import '../providers/checkout_provider.dart';
 
 // ─────────────────────────────────────────────
@@ -72,7 +70,7 @@ class _CartView extends StatefulWidget {
 class _CartViewState extends State<_CartView> {
   final TextEditingController _promoCtrl = TextEditingController();
   double _discount = 0;
-  double _deliveryFee = 50000; // dummy
+  final double _deliveryFee = 50000; // dummy
   bool _promoApplied = false;
   bool _summaryExpanded = true;
 
@@ -146,10 +144,11 @@ class _CartViewState extends State<_CartView> {
           _CircleBtn(
             icon: Icons.arrow_back_ios_new_rounded,
             onTap: () {
-              if (widget.onBack != null)
+              if (widget.onBack != null) {
                 widget.onBack!();
-              else
+              } else {
                 Navigator.of(context).pop();
+              }
             },
           ),
           const Expanded(

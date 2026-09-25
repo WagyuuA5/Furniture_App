@@ -176,7 +176,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             value: _notifikasiAktif,
                             onChanged: (val) =>
                                 setState(() => _notifikasiAktif = val),
-                            activeColor: _primary,
+                            activeThumbColor: _primary,
                           ),
                         ],
                       ),
