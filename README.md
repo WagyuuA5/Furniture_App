@@ -432,11 +432,8 @@ limitations under the License.
 
 <div align="center">
   <br/>
-  <sub>Built with  using Flutter by the Furniture App Team</sub>
-  
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/>
+ 
+ 
  
   <b>Furniture App — Final Project · SMK Telkom Malang · 2026</b>
   <br/>
