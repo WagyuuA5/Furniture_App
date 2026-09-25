@@ -1,10 +1,8 @@
-# 🛋️ Furniture App — Modern E-Commerce Mobile Application
+#  Furniture App — Modern E-Commerce Mobile Application
 
 <div align="center">
  
-  <br/>
-  <i>A modern Flutter-based furniture e-commerce application</i>
-  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
+
 
   <img src="https://img.shields.io/badge/Flutter-3.16+-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
   <img src="https://img.shields.io/badge/Dart-3.2+-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart"/>
@@ -19,7 +17,7 @@
 
 ---
 
-## 📖 Table of Contents
+##  Table of Contents
 
 - [About the App](#-about-the-app)
 - [Development Team](#-development-team)
@@ -38,11 +36,11 @@
 
 ---
 
-## 📱 About the App
+##  About the App
 
 **Furniture App** is a full-featured mobile e-commerce application purpose-built for the modern furniture shopping experience. It enables users to browse curated furniture collections, manage purchases, track orders in real time, and communicate directly with sellers — all within a clean, premium interface.
 
-### 🎯 Background
+###  Background
 
 This application was developed as the **Final Project** for Android-based mobile application development using Flutter. The goal was to create a seamless, user-friendly, and well-integrated furniture shopping platform — from design prototype to production-ready APK.
 
@@ -50,17 +48,17 @@ This application was developed as the **Final Project** for Android-based mobile
 
 ---
 
-## 👥 Development Team
+##  Development Team
 
 | Role | Name | Responsibilities |
 |------|------|-----------------|
-| 💻 **Programmer** | **Wahyu Ravi Anggoro** | Full-stack Flutter development, UI/UX implementation, business logic, API integration, state management, and deployment |
-| 🎨 **UI/UX Designer** | **Burhan** | Interface design in Figma, wireframing, prototyping, user flow mapping, and design system creation |
-| 🔧 **Backend Developer** | **Bintang** | API development and management via Mockoon, endpoint design, data modeling, and API documentation |
+|  **Programmer** | **Wahyu Ravi Anggoro** | Full-stack Flutter development, UI/UX implementation, business logic, API integration, state management, and deployment |
+|  **UI/UX Designer** | **Burhan** | Interface design in Figma, wireframing, prototyping, user flow mapping, and design system creation |
+|  **Backend Developer** | **Bintang** | API development and management via Mockoon, endpoint design, data modeling, and API documentation |
 
 ---
 
-## 📊 Task Distribution
+##  Task Distribution
 
 ### Detailed Responsibilities
 
@@ -89,11 +87,11 @@ This application was developed as the **Final Project** for Android-based mobile
 
 ---
 
-## 🎨 App Design (Figma by Burhan)
+##  App Design (Figma by Burhan)
 
 The following UI/UX screens were designed by **Burhan** using Figma:
 
-### 📱 Screenshoot
+###  Screenshoot
 
 <div align="center">
   <img src="assets/images/onboarding_1.png" height="420"/>
@@ -105,22 +103,22 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 | Feature | Description |
 |---------|-------------|
-| 🏷️ **Best Furniture Deals** | Discover the perfect balance between savings and style |
-| 🪑 **Product Details** | Dive into specifications, styles, and detailed product information |
-| ❤️ **Wishlist / Favorites** | Save and curate your personal furniture collection effortlessly |
-| 🛒 **Effortless Shopping** | A streamlined cart and checkout experience from browse to payment |
-| 📦 **Order Tracking** | Stay updated on order status at every stage of delivery |
-| 💬 **Seller Chat** | Direct in-app communication with furniture shop owners |
+|  **Best Furniture Deals** | Discover the perfect balance between savings and style |
+|  **Product Details** | Dive into specifications, styles, and detailed product information |
+|  **Wishlist / Favorites** | Save and curate your personal furniture collection effortlessly |
+|  **Effortless Shopping** | A streamlined cart and checkout experience from browse to payment |
+|  **Order Tracking** | Stay updated on order status at every stage of delivery |
+|  **Seller Chat** | Direct in-app communication with furniture shop owners |
 
 ---
 
-## 📋 Full Feature List
+##  Full Feature List
 
-### 👤 Authentication & Profile
+###  Authentication & Profile
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -137,7 +135,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 11 | App settings | ✅ |
 | 12 | Dark mode support | ✅ |
 
-### 🛍️ Shopping & Products
+###  Shopping & Products
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -155,7 +153,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 12 | Product filtering | ✅ |
 | 13 | Responsive product grid | ✅ |
 
-### 🛒 Cart & Checkout
+###  Cart & Checkout
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -172,7 +170,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 11 | Checkout process | ✅ |
 | 12 | Checkout validation | ✅ |
 
-### 💳 Payment
+###  Payment
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -184,7 +182,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 6 | Transaction invoice | ✅ |
 | 7 | Payment confirmation | ✅ |
 
-### 📦 Order Tracking
+###  Order Tracking
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -196,7 +194,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 6 | Delivery address details | ✅ |
 | 7 | Order history | ✅ |
 
-#### 📌 Order Timeline Example
+####  Order Timeline Example
 
 | # | Stage | Time | Status |
 |---|-------|------|--------|
@@ -205,7 +203,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 3 | Shipped | 23 Sep 2023, 06:15 PM | ✅ |
 | 4 | Delivered | 23 Sep 2023, 07:15 PM | ✅ |
 
-### 💬 Communication & Support
+###  Communication & Support
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -216,7 +214,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 5 | FAQ section | ✅ |
 | 6 | Message notifications | ✅ |
 
-### 🔔 Notifications
+###  Notifications
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -226,7 +224,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 | 4 | Flash sale notifications | ✅ |
 | 5 | Push notification UI | ✅ |
 
-### 🎨 UI/UX Premium
+###  UI/UX Premium
 
 | # | Feature | Status |
 |---|---------|--------|
@@ -242,7 +240,7 @@ The following UI/UX screens were designed by **Burhan** using Figma:
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+##  Tech Stack & Architecture
 
 ### Frontend — Wahyu Ravi Anggoro
 
@@ -288,7 +286,7 @@ Available Endpoints:
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -329,14 +327,14 @@ flutter build apk --release
 
 ---
 
-## 🎬 App Demo & Flow
+##  App Demo & Flow
 
 ```
 Splash Screen → Onboarding → Login / Register → Browse Products →
 Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive Product
 ```
 
-### 💰 Sample Transaction
+###  Sample Transaction
 
 | Item | Price |
 |------|-------|
@@ -348,7 +346,7 @@ Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive
 
 ---
 
-## 📊 Development Progress
+##  Development Progress
 
 | Module | Progress | Status |
 |--------|----------|--------|
@@ -366,7 +364,7 @@ Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive
 
 ---
 
-## 📸 App Screenshots
+##  App Screenshots
 
 <p align="center">
   <img width="1920" height="1080" alt="Furniture App Desktop Preview" src="https://github.com/user-attachments/assets/dca957fc-ebf9-46e0-a045-716ca4d14ed1"/>
@@ -374,7 +372,7 @@ Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive
 
 ---
 
-## 🏆 Project Achievements
+##  Project Achievements
 
 | # | Achievement | Status |
 |---|-------------|--------|
@@ -389,7 +387,7 @@ Add to Cart → Checkout → Payment → Track Order → Chat Seller → Receive
 
 ---
 
-## 📝 Conclusion
+##  Conclusion
 
 **Furniture App** is a tangible result of successful three-way collaboration between a programmer, a UI/UX designer, and a backend developer. The application not only fulfills the functional requirements of a furniture e-commerce platform but also delivers a premium user experience through beautiful design (Burhan), optimized performance (Wahyu), and a reliable backend layer (Bintang).
 
@@ -397,7 +395,7 @@ This project serves as a meaningful portfolio piece for all three team members �
 
 ---
 
-## 📞 Team Contact
+##  Team Contact
 
 | Member | Role | GitHub | Email |
 |--------|------|--------|-------|
@@ -407,14 +405,14 @@ This project serves as a meaningful portfolio piece for all three team members �
 
 ---
 
-## 👤 Author
+##  Author
 
 **Wahyu Ravi Anggoro** — [@WagyuuA5](https://github.com/WagyuuA5)
 Student at **SMK Telkom Malang** · 2026
 
 ---
 
-## 📄 License
+##  License
 
 Copyright © 2026 **Wahyu Ravi Anggoro**. All rights reserved.
 
@@ -434,12 +432,12 @@ limitations under the License.
 
 <div align="center">
   <br/>
-  <sub>Built with ❤️ using Flutter by the Furniture App Team</sub>
-  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
+  <sub>Built with  using Flutter by the Furniture App Team</sub>
+  
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-plain.svg" width="30" height="30" alt="Flutter"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-plain.svg" width="30" height="30" alt="Dart"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" width="30" height="30" alt="Figma"/>
-  <br/>[![Flutter CI/CD](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/WagyuuA5/Furniture_App/actions/workflows/flutter_ci.yml)<br/><br/>
+ 
   <b>Furniture App — Final Project · SMK Telkom Malang · 2026</b>
   <br/>
   <i>Wahyu Ravi Anggoro &nbsp;·&nbsp; Burhan &nbsp;·&nbsp; Bintang</i>
